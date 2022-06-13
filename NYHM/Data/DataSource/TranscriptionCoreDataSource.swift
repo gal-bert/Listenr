@@ -12,8 +12,11 @@ struct TranscriptionCoreDataSource: TranscriptionRepositoryDataStore {
     
     private let context = CoreDataManager.shared.context
     
-    func showAll() -> [Transcriptions] {
+    func showAll(sortBy: SortType) -> [Transcriptions] {
         let transcriptionRequest: NSFetchRequest = Transcriptions.fetchRequest()
+        let sort = sortBy.getSortDescription()
+        transcriptionRequest.sortDescriptors = [sort]
+        
         guard let transcriptions = try? context.fetch(transcriptionRequest)
         else {
             return []

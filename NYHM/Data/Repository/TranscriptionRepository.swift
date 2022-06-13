@@ -8,7 +8,7 @@
 import Foundation
 
 protocol TranscriptionRepositoryDataStore {
-    func showAll() -> [Transcriptions]
+    func showAll(sortBy: SortType) -> [Transcriptions]
     func add(title: String, result: String, duration: String, filename: String)
     func update(item: Transcriptions, newTitle: String, newResult: String, newTags: String)
 }
@@ -23,8 +23,8 @@ class TranscriptionRepository: TranscriptionRepositoryDataStore {
     
     static let shared = TranscriptionRepository(coreData: TranscriptionCoreDataSource())
     
-    func showAll() -> [Transcriptions] {
-        return coreData.showAll()
+    func showAll(sortBy: SortType = .timeDesc) -> [Transcriptions] {
+        return coreData.showAll(sortBy: sortBy)
     }
     
     func add(title: String, result: String, duration: String, filename: String) {
