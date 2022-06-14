@@ -10,7 +10,10 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    private let repo = TranscriptionRepository.shared
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
 }
