@@ -9,5 +9,11 @@ import Foundation
 import UIKit
 
 class DetailViewController: UIViewController {
+    @IBOutlet var detailView: DetailView!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+//        detailView.setup(data: Transcriptions())
+    }
 }
