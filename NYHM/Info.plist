@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string></string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string></string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -16,12 +20,10 @@
 					<key>UISceneDelegateClassName</key>
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
 					<key>UISceneStoryboardFile</key>
-					<string>Home</string>
+					<string>Transcription</string>
 				</dict>
 			</array>
 		</dict>
 	</dict>
-	<key>UIMainStoryboardFile</key>
-	<string>Home</string>
 </dict>
 </plist>
