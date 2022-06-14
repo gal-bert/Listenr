@@ -131,6 +131,14 @@
             </objects>
             <point key="canvasLocation" x="1100" y="-69"/>
         </scene>
+        <!--Detail-->
+        <scene sceneID="cNg-Sp-97u">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="DetailViewController" storyboardName="Detail" id="iBh-76-UFJ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AUQ-4N-DuQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1157" y="98"/>
+        </scene>
         <!--Transcription-->
         <scene sceneID="DPI-En-IIT">
             <objects>

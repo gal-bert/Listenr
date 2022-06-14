@@ -21,8 +21,9 @@ class HomeViewController: UIViewController {
         
         transcriptions = repo.showAll()
         homeView.setup(viewController: self)
-        setupSorting()
         
+        setupSorting()
+        navigationItem.searchController = UISearchController()
     }
     
     private func setupSorting() {

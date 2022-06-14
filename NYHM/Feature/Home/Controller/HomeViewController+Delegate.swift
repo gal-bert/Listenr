@@ -11,6 +11,8 @@ import UIKit
 extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // pass data to another page here..
+        if let detail = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
+            self.navigationController?.pushViewController(detail, animated: true)
+        }
     }
 }
