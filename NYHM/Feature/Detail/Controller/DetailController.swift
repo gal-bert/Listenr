@@ -19,6 +19,8 @@ class DetailViewController: UIViewController {
         let storyboard = UIStoryboard(name: "TagsModal", bundle: nil)
         guard let tagsModalVC = storyboard.instantiateViewController(withIdentifier: "TagsModal") as? TagsModalViewController else {return}
         
+        tagsModalVC.selectedTagPosition = 0
+        
         fpc.set(contentViewController: tagsModalVC)
         fpc.isRemovalInteractionEnabled = true
         

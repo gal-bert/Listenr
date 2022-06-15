@@ -13,6 +13,7 @@ class TagsModalViewController: UIViewController {
     
     let tagRepo = TagsRepository.shared
     var tagList = [Tags]()
+    var selectedTagPosition:Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
