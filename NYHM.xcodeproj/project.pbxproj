@@ -10,6 +10,9 @@
 		FB27AF042857409C00D0B270 /* TranscriptionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27AF032857409C00D0B270 /* TranscriptionRepository.swift */; };
 		FB27AF062857450D00D0B270 /* TranscriptionCoreDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27AF052857450D00D0B270 /* TranscriptionCoreDataSource.swift */; };
 		FB27AF0A28576ED400D0B270 /* SortType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27AF0928576ED400D0B270 /* SortType.swift */; };
+		FB27AF0C285775E300D0B270 /* TagsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27AF0B285775E300D0B270 /* TagsRepository.swift */; };
+		FB27AF0E2857788600D0B270 /* TagsCoreDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27AF0D2857788600D0B270 /* TagsCoreDataSource.swift */; };
+		FB8043A82859666A0022E919 /* HomeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8043A72859666A0022E919 /* HomeDelegate.swift */; };
 		FB9EE50E2855FE5E004EEA24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9EE50D2855FE5E004EEA24 /* AppDelegate.swift */; };
 		FB9EE5102855FE5E004EEA24 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9EE50F2855FE5E004EEA24 /* SceneDelegate.swift */; };
 		FB9EE5182855FE5E004EEA24 /* NYHM.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FB9EE5162855FE5E004EEA24 /* NYHM.xcdatamodeld */; };
@@ -21,13 +24,20 @@
 		FB9EE5412855FE8C004EEA24 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9EE5402855FE8C004EEA24 /* HomeViewController.swift */; };
 		FB9EE5432855FECC004EEA24 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB9EE5422855FECC004EEA24 /* Home.storyboard */; };
 		FB9EE54C2855FFA9004EEA24 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9EE54B2855FFA9004EEA24 /* CoreDataManager.swift */; };
-		FB9EE5502855FFD1004EEA24 /* Example+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9EE54F2855FFD1004EEA24 /* Example+Ext.swift */; };
 		FB9EE55F2856006C004EEA24 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB9EE55E2856006C004EEA24 /* Detail.storyboard */; };
 		FB9EE56228560080004EEA24 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9EE56128560080004EEA24 /* DetailController.swift */; };
 		FB9EE564285600A0004EEA24 /* TranscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9EE563285600A0004EEA24 /* TranscriptionViewController.swift */; };
 		FB9EE566285600AC004EEA24 /* Transcription.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB9EE565285600AC004EEA24 /* Transcription.storyboard */; };
 		FB9EE568285600BC004EEA24 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB9EE567285600BC004EEA24 /* Settings.storyboard */; };
 		FB9EE56A285600C9004EEA24 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9EE569285600C9004EEA24 /* SettingsViewController.swift */; };
+		FBF0D9392858A9A4005378EA /* ItemHomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBF0D9382858A9A4005378EA /* ItemHomeCell.xib */; };
+		FBF0D93B2858AD93005378EA /* ItemHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF0D93A2858AD93005378EA /* ItemHomeCell.swift */; };
+		FBF0D93D2858AE67005378EA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF0D93C2858AE67005378EA /* HomeView.swift */; };
+		FBF0D93F2858AFEB005378EA /* HomeViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF0D93E2858AFEB005378EA /* HomeViewController+Delegate.swift */; };
+		FBF0D9412858AFF8005378EA /* HomeViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF0D9402858AFF8005378EA /* HomeViewController+DataSource.swift */; };
+		FBF0D9432858B26D005378EA /* Nib+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF0D9422858B26D005378EA /* Nib+Ext.swift */; };
+		FBF0D9452858B288005378EA /* TableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF0D9442858B288005378EA /* TableView+Ext.swift */; };
+		FBF0D9472858B6A6005378EA /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF0D9462858B6A6005378EA /* Date+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +61,9 @@
 		FB27AF032857409C00D0B270 /* TranscriptionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionRepository.swift; sourceTree = "<group>"; };
 		FB27AF052857450D00D0B270 /* TranscriptionCoreDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionCoreDataSource.swift; sourceTree = "<group>"; };
 		FB27AF0928576ED400D0B270 /* SortType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortType.swift; sourceTree = "<group>"; };
+		FB27AF0B285775E300D0B270 /* TagsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsRepository.swift; sourceTree = "<group>"; };
+		FB27AF0D2857788600D0B270 /* TagsCoreDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsCoreDataSource.swift; sourceTree = "<group>"; };
+		FB8043A72859666A0022E919 /* HomeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDelegate.swift; sourceTree = "<group>"; };
 		FB9EE50A2855FE5E004EEA24 /* NYHM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYHM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB9EE50D2855FE5E004EEA24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB9EE50F2855FE5E004EEA24 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,13 +79,20 @@
 		FB9EE5402855FE8C004EEA24 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		FB9EE5422855FECC004EEA24 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		FB9EE54B2855FFA9004EEA24 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		FB9EE54F2855FFD1004EEA24 /* Example+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Example+Ext.swift"; sourceTree = "<group>"; };
 		FB9EE55E2856006C004EEA24 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
 		FB9EE56128560080004EEA24 /* DetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
 		FB9EE563285600A0004EEA24 /* TranscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionViewController.swift; sourceTree = "<group>"; };
 		FB9EE565285600AC004EEA24 /* Transcription.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Transcription.storyboard; sourceTree = "<group>"; };
 		FB9EE567285600BC004EEA24 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		FB9EE569285600C9004EEA24 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		FBF0D9382858A9A4005378EA /* ItemHomeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemHomeCell.xib; sourceTree = "<group>"; };
+		FBF0D93A2858AD93005378EA /* ItemHomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemHomeCell.swift; sourceTree = "<group>"; };
+		FBF0D93C2858AE67005378EA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		FBF0D93E2858AFEB005378EA /* HomeViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+Delegate.swift"; sourceTree = "<group>"; };
+		FBF0D9402858AFF8005378EA /* HomeViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+DataSource.swift"; sourceTree = "<group>"; };
+		FBF0D9422858B26D005378EA /* Nib+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Nib+Ext.swift"; sourceTree = "<group>"; };
+		FBF0D9442858B288005378EA /* TableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableView+Ext.swift"; sourceTree = "<group>"; };
+		FBF0D9462858B6A6005378EA /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,7 +239,9 @@
 		FB9EE54D2855FFB0004EEA24 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				FB9EE54F2855FFD1004EEA24 /* Example+Ext.swift */,
+				FBF0D9422858B26D005378EA /* Nib+Ext.swift */,
+				FBF0D9442858B288005378EA /* TableView+Ext.swift */,
+				FBF0D9462858B6A6005378EA /* Date+Ext.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -236,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				FB27AF052857450D00D0B270 /* TranscriptionCoreDataSource.swift */,
+				FB27AF0D2857788600D0B270 /* TagsCoreDataSource.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -244,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				FB27AF032857409C00D0B270 /* TranscriptionRepository.swift */,
+				FB27AF0B285775E300D0B270 /* TagsRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -251,7 +275,10 @@
 		FB9EE55A2856003D004EEA24 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FBF0D9372858A983005378EA /* ItemHomeCell */,
 				FB9EE5422855FECC004EEA24 /* Home.storyboard */,
+				FBF0D93C2858AE67005378EA /* HomeView.swift */,
+				FB8043A72859666A0022E919 /* HomeDelegate.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -260,6 +287,8 @@
 			isa = PBXGroup;
 			children = (
 				FB9EE5402855FE8C004EEA24 /* HomeViewController.swift */,
+				FBF0D93E2858AFEB005378EA /* HomeViewController+Delegate.swift */,
+				FBF0D9402858AFF8005378EA /* HomeViewController+DataSource.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -305,6 +334,15 @@
 				FB9EE569285600C9004EEA24 /* SettingsViewController.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		FBF0D9372858A983005378EA /* ItemHomeCell */ = {
+			isa = PBXGroup;
+			children = (
+				FBF0D9382858A9A4005378EA /* ItemHomeCell.xib */,
+				FBF0D93A2858AD93005378EA /* ItemHomeCell.swift */,
+			);
+			path = ItemHomeCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -412,6 +450,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB9EE5432855FECC004EEA24 /* Home.storyboard in Resources */,
+				FBF0D9392858A9A4005378EA /* ItemHomeCell.xib in Resources */,
 				FB9EE51D2855FE5F004EEA24 /* LaunchScreen.storyboard in Resources */,
 				FB9EE566285600AC004EEA24 /* Transcription.storyboard in Resources */,
 				FB9EE568285600BC004EEA24 /* Settings.storyboard in Resources */,
@@ -443,16 +482,25 @@
 			files = (
 				FB27AF042857409C00D0B270 /* TranscriptionRepository.swift in Sources */,
 				FB9EE5182855FE5E004EEA24 /* NYHM.xcdatamodeld in Sources */,
+				FBF0D9412858AFF8005378EA /* HomeViewController+DataSource.swift in Sources */,
 				FB27AF0A28576ED400D0B270 /* SortType.swift in Sources */,
 				FB9EE50E2855FE5E004EEA24 /* AppDelegate.swift in Sources */,
 				FB9EE5102855FE5E004EEA24 /* SceneDelegate.swift in Sources */,
 				FB27AF062857450D00D0B270 /* TranscriptionCoreDataSource.swift in Sources */,
+				FB27AF0E2857788600D0B270 /* TagsCoreDataSource.swift in Sources */,
+				FBF0D9432858B26D005378EA /* Nib+Ext.swift in Sources */,
+				FBF0D93F2858AFEB005378EA /* HomeViewController+Delegate.swift in Sources */,
 				FB9EE54C2855FFA9004EEA24 /* CoreDataManager.swift in Sources */,
-				FB9EE5502855FFD1004EEA24 /* Example+Ext.swift in Sources */,
+				FBF0D9472858B6A6005378EA /* Date+Ext.swift in Sources */,
 				FB9EE5412855FE8C004EEA24 /* HomeViewController.swift in Sources */,
+				FBF0D9452858B288005378EA /* TableView+Ext.swift in Sources */,
+				FB27AF0C285775E300D0B270 /* TagsRepository.swift in Sources */,
+				FBF0D93D2858AE67005378EA /* HomeView.swift in Sources */,
 				FB9EE564285600A0004EEA24 /* TranscriptionViewController.swift in Sources */,
 				FB9EE56228560080004EEA24 /* DetailController.swift in Sources */,
 				FB9EE56A285600C9004EEA24 /* SettingsViewController.swift in Sources */,
+				FBF0D93B2858AD93005378EA /* ItemHomeCell.swift in Sources */,
+				FB8043A82859666A0022E919 /* HomeDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

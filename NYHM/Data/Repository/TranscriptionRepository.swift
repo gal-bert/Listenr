@@ -16,7 +16,7 @@ protocol TranscriptionRepositoryDataStore {
 
 class TranscriptionRepository: TranscriptionRepositoryDataStore {
     
-    var coreData: TranscriptionCoreDataSource
+    private var coreData: TranscriptionCoreDataSource
     
     private init(coreData: TranscriptionCoreDataSource) {
         self.coreData = coreData
