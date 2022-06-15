@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C311F0D285A342800EA2FFE /* Int+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C311F0C285A342800EA2FFE /* Int+Ext.swift */; };
 		5F0E443D285953AF00C846E1 /* TagsModal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F0E443C285953AF00C846E1 /* TagsModal.storyboard */; };
 		5F0E4442285956E100C846E1 /* TagsModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E4441285956E100C846E1 /* TagsModalViewController.swift */; };
 		5F0E44442859576700C846E1 /* TagsModalViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E44432859576700C846E1 /* TagsModalViewController+Delegate.swift */; };
@@ -69,6 +70,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C311F0C285A342800EA2FFE /* Int+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Ext.swift"; sourceTree = "<group>"; };
 		5F0E443C285953AF00C846E1 /* TagsModal.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TagsModal.storyboard; sourceTree = "<group>"; };
 		5F0E4441285956E100C846E1 /* TagsModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsModalViewController.swift; sourceTree = "<group>"; };
 		5F0E44432859576700C846E1 /* TagsModalViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TagsModalViewController+Delegate.swift"; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 				FBF0D9422858B26D005378EA /* Nib+Ext.swift */,
 				FBF0D9442858B288005378EA /* TableView+Ext.swift */,
 				FBF0D9462858B6A6005378EA /* Date+Ext.swift */,
+				0C311F0C285A342800EA2FFE /* Int+Ext.swift */,
 				FBE5B464285A37AD000E0942 /* Alert+Ext.swift */,
 			);
 			path = Helper;
@@ -543,6 +546,7 @@
 				FB27AF0A28576ED400D0B270 /* SortType.swift in Sources */,
 				FBE5B465285A37AD000E0942 /* Alert+Ext.swift in Sources */,
 				FB9EE50E2855FE5E004EEA24 /* AppDelegate.swift in Sources */,
+				0C311F0D285A342800EA2FFE /* Int+Ext.swift in Sources */,
 				FB9EE5102855FE5E004EEA24 /* SceneDelegate.swift in Sources */,
 				FB27AF062857450D00D0B270 /* TranscriptionCoreDataSource.swift in Sources */,
 				FB27AF0E2857788600D0B270 /* TagsCoreDataSource.swift in Sources */,

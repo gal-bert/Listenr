@@ -16,6 +16,8 @@ class HomeView: UIView {
     
     private var delegate: HomeDelegate?
     
+    lazy var castedDelegate = delegate as! HomeViewController
+    
     func setup(viewController: HomeViewController) {
         delegate = viewController
         
@@ -41,5 +43,9 @@ class HomeView: UIView {
         delegate?.chooseLanguage()
     }
     
+    
+    @IBAction func transcribeButton(_ sender: Any) {
+        castedDelegate.performSegue(withIdentifier: "toTranscriptionPageSegue", sender: self)
+    }
     
 }
