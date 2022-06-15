@@ -31,6 +31,10 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        transcriptionResultTextView.layer.borderColor = UIColor.black.cgColor
+        transcriptionResultTextView.layer.borderWidth = 1
+        
+        
         speechRecognizer?.delegate = self
         audioRecorder?.delegate = self
         
@@ -154,6 +158,9 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
                 var concat = ""
                 
                 if self.isPlaying{
+                    
+                    let range = NSMakeRange(self.transcriptionResultTextView.text.count - 1, 0)
+                    self.transcriptionResultTextView.scrollRangeToVisible(range)
                     
                     if self.transcriptionTemp == "" {
                         concat = "\(self.transcriptionTemp)\(self.transcriptionTemp2)"
