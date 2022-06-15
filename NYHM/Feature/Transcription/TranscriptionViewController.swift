@@ -16,6 +16,8 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     @IBOutlet weak var transcribeActionButton: UIButton!
     
     var transcriptionTemp = ""
+    var transcriptionTemp2 = ""
+    var isPlaying:Bool = true //onload lgs play
     
     let audioEngine = AVAudioEngine()
     
@@ -139,17 +141,31 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         
         recognitionRequest.shouldReportPartialResults = true
         
-        
+    
         self.recognitionTask = speechRecognizer?.recognitionTask(with: recognitionRequest, resultHandler: { (result, error) in
             var isFinal = false
             
             if result != nil {
-                //TODO: Add textlabel for appending
-
-                self.transcriptionResultTextView.text = (result?.bestTranscription.formattedString)!
-                
                 
                 isFinal = (result?.isFinal)!
+
+                self.transcriptionTemp2 = (result?.bestTranscription.formattedString)!
+                
+                var concat = ""
+                
+                if self.isPlaying{
+                    
+                    if self.transcriptionTemp == "" {
+                        concat = "\(self.transcriptionTemp)\(self.transcriptionTemp2)"
+                    } else {
+                        concat = "\(self.transcriptionTemp)\n\n\(self.transcriptionTemp2)"
+                    }
+                    
+                    self.transcriptionResultTextView.text = concat
+                    print(concat)
+                    
+                }
+                
             }
             
             if error != nil || isFinal {
@@ -182,21 +198,33 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         // State is playing, command to stop
         if audioEngine.isRunning {
             
+            print("T1 --> \(transcriptionTemp)")
+            print("T2 --> \(transcriptionTemp2)")
+            
+            if transcriptionTemp == "" {
+                transcriptionTemp += "\(transcriptionTemp2)"
+            } else {
+                transcriptionTemp += "\n\n\(transcriptionTemp2)"
+            }
+            transcriptionResultTextView.text = transcriptionTemp
+            transcriptionTemp2 = ""
             
             
             audioEngine.stop()
             recognitionRequest?.endAudio()
 //            stopRecording() // TODO: Change to pause recording
             transcribeActionButton.setTitle("Start", for: .normal)
-            print("\n\n \(transcriptionResultTextView.text!)")
+            isPlaying = false
+            
         }
         
         // State is stopped, command to start
         else {
-            speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))
+            speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "id"))
             startTranscription()
 //            startRecording()
             transcribeActionButton.setTitle("Stop", for: .normal)
+            isPlaying = true
             
         }
     }
