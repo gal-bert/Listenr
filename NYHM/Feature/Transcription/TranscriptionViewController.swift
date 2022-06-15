@@ -28,6 +28,8 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     var filename:URL?
     var isPlaying:Bool = true
     
+    var durationString:String = ""
+    
     let audioEngine = AVAudioEngine()
     
     var speechRecognizer: SFSpeechRecognizer?
@@ -163,7 +165,7 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             if result != nil {
                 
                 isFinal = (result?.isFinal)!
-
+                
                 self.transcriptionTemp2 = (result?.bestTranscription.formattedString)!
                 
                 var concat = ""
@@ -187,7 +189,7 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             if error != nil || isFinal {
                 self.audioEngine.stop()
                 inputNode.removeTap(onBus: 0)
-            
+                
                 self.recognitionRequest = nil
                 self.recognitionTask = nil
             }
@@ -209,7 +211,7 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     }
     
     func transcribeOnLoad() -> Void {
-                
+        
         // State is playing, command to stop
         if audioEngine.isRunning {
             if transcriptionTemp == "" {
@@ -240,6 +242,14 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         }
     }
     
+//    func hmsFrom(seconds: Int, completion: @escaping (_ hours: Int, _ minutes: Int, _ seconds: Int)->()) {
+//        completion(seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
+//    }
+//    
+//    func getStringFrom(seconds: Int) -> String {
+//        return seconds < 10 ? "0\(seconds)" : "\(seconds)"
+//    }
+    
     @IBAction func cancel(_ sender: Any) {
         audioEngine.stop()
         dismiss(animated: true)
@@ -259,14 +269,22 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         
         let strFilename = "\(filename!)"
         let strTitle = titleTextField.text == "" ? "Untitled Transcription" : titleTextField.text
-            
+        
         let audioAsset = AVURLAsset.init(url: filename!)
-        let duration = Float(CMTimeGetSeconds(audioAsset.duration))
+        let duration = Int(CMTimeGetSeconds(audioAsset.duration))
+        
+        var seconds: Int = duration
+        seconds.hmsFrom(seconds: seconds) { hours, minutes, seconds in
+            let hours = seconds.getStringFrom(seconds: hours)
+            let minutes = seconds.getStringFrom(seconds: minutes)
+            let seconds = seconds.getStringFrom(seconds: seconds)
+            self.durationString = "\(hours):\(minutes):\(seconds)"
+        }
         
         TranscriptionRepository.shared.add(
             title: strTitle!,
             result: transcriptionTemp,
-            duration: "\(duration)",
+            duration: durationString,
             filename: strFilename
         )
         
