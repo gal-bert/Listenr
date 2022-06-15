@@ -8,20 +8,38 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Settings View Controller-->
+        <!--Settings-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController id="Y6W-OH-hqX" customClass="SettingsViewController" customModule="NYHM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="yx0-sF-VIN">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="yx0-sF-VIN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Te1-qs-eAG"/>
+                            <constraint firstItem="yx0-sF-VIN" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="glU-Qj-O1v"/>
+                            <constraint firstItem="yx0-sF-VIN" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="ytB-0N-mEW"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="yx0-sF-VIN" secondAttribute="bottom" id="zli-Qs-KGK"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Settings" id="dSk-pA-a2r">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="4TX-hd-VuX"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="settingsTableView" destination="yx0-sF-VIN" id="QY5-hZ-mdz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="35" y="98"/>
+            <point key="canvasLocation" x="-704" y="106"/>
         </scene>
     </scenes>
     <resources>
