@@ -23,9 +23,11 @@ extension HomeViewController: HomeDelegate {
     func chooseLanguage() {
         let sheet = UIAlertController(title: "Select Language", message: nil, preferredStyle: .actionSheet)
         sheet.addAction(UIAlertAction(title: "Bahasa Indonesia", style: .default, handler: {_ in
+            self.homeView.languageLabel.text = "Bahasa Indonesia"
             //TODO: set language transcription to Bahasa
         }))
         sheet.addAction(UIAlertAction(title: "English", style: .default, handler: {_ in
+            self.homeView.languageLabel.text = "English"
             //TODO: set language transcription to English
         }))
 

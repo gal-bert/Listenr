@@ -22,22 +22,22 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="692"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2no-Dk-vPW">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="349"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="330"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Flying to the Moon" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="j0H-c0-VJF">
-                                                <rect key="frame" x="20" y="20" width="374" height="73.5"/>
+                                                <rect key="frame" x="20" y="20" width="374" height="54.5"/>
                                                 <color key="textColor" name="textPrimaryColor"/>
-                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="48"/>
+                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="32"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cbj-0X-sIQ">
-                                                <rect key="frame" x="138" y="103" width="36" height="21"/>
+                                                <rect key="frame" x="138" y="84" width="36" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" name="accentSecondaryColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="8CB-AB-I0k">
-                                                <rect key="frame" x="110" y="102.5" width="24" height="21.5"/>
+                                                <rect key="frame" x="110" y="83.5" width="24" height="21.5"/>
                                                 <color key="tintColor" name="textSecondaryColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="Sv5-I5-tmy"/>
@@ -45,13 +45,13 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:04" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jjk-xg-0zP">
-                                                <rect key="frame" x="48" y="103" width="46" height="21"/>
+                                                <rect key="frame" x="48" y="84" width="46" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" name="accentSecondaryColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stopwatch" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="cH4-8X-7kZ">
-                                                <rect key="frame" x="20" y="100" width="24" height="25"/>
+                                                <rect key="frame" x="20" y="81" width="24" height="25"/>
                                                 <color key="tintColor" name="textSecondaryColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="24" id="Fez-6l-52K"/>
@@ -59,14 +59,14 @@
                                                 </constraints>
                                             </imageView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="C17-Mh-kKd">
-                                                <rect key="frame" x="20" y="145.5" width="374" height="183.5"/>
+                                                <rect key="frame" x="20" y="126.5" width="374" height="183.5"/>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <color key="textColor" name="textPrimaryColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j5C-mH-lc2">
-                                                <rect key="frame" x="190" y="101.5" width="80.5" height="24"/>
+                                                <rect key="frame" x="190" y="82.5" width="80.5" height="24"/>
                                                 <subviews>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wdh-9Y-LhF">
                                                         <rect key="frame" x="8" y="6" width="12" height="12"/>
@@ -90,6 +90,7 @@
                                                     </label>
                                                 </subviews>
                                                 <color key="backgroundColor" name="textSecondaryColor"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstItem="wdh-9Y-LhF" firstAttribute="leading" secondItem="j5C-mH-lc2" secondAttribute="leading" constant="8" id="2Aq-eH-rXL"/>
                                                     <constraint firstItem="fcj-Rw-mfB" firstAttribute="centerY" secondItem="j5C-mH-lc2" secondAttribute="centerY" id="N5Z-j4-C5R"/>
@@ -104,6 +105,9 @@
                                                         <integer key="value" value="12"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="i6o-V1-EjS" appends="YES" id="5Rr-kw-cE1"/>
+                                                </connections>
                                             </view>
                                         </subviews>
                                         <constraints>
@@ -237,6 +241,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R9V-SF-aeg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="i6o-V1-EjS">
+                    <connections>
+                        <action selector="didTapTags:" destination="cb1-nH-zkg" id="MO2-5M-PYi"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="763.768115942029" y="87.723214285714278"/>
         </scene>
@@ -248,22 +257,22 @@
         <image name="play.fill" catalog="system" width="116" height="128"/>
         <image name="stopwatch" catalog="system" width="121" height="128"/>
         <namedColor name="accentPrimaryColor">
-            <color red="0.99215686274509807" green="0.81568627450980391" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.99199998378753662" green="0.81599998474121094" blue="0.14900000393390656" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="accentSecondaryColor">
-            <color red="0.0" green="0.68235294117647061" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.68199998140335083" blue="0.75700002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="primaryColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="secondaryColor">
-            <color red="0.10980392156862745" green="0.10980392156862745" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.10999999940395355" green="0.10999999940395355" blue="0.11800000071525574" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="textPrimaryColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="textSecondaryColor">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.68199998140335083" green="0.68199998140335083" blue="0.69800001382827759" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>

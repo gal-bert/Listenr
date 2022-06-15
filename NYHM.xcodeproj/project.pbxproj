@@ -13,6 +13,8 @@
 		FB27AF0C285775E300D0B270 /* TagsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27AF0B285775E300D0B270 /* TagsRepository.swift */; };
 		FB27AF0E2857788600D0B270 /* TagsCoreDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27AF0D2857788600D0B270 /* TagsCoreDataSource.swift */; };
 		FB8043A82859666A0022E919 /* HomeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8043A72859666A0022E919 /* HomeDelegate.swift */; };
+		FB851E722859DCBF00DDBD3B /* DetailViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB851E712859DCBF00DDBD3B /* DetailViewController+Delegate.swift */; };
+		FB851E742859DD8700DDBD3B /* DetailDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB851E732859DD8700DDBD3B /* DetailDelegate.swift */; };
 		FB9EE50E2855FE5E004EEA24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9EE50D2855FE5E004EEA24 /* AppDelegate.swift */; };
 		FB9EE5102855FE5E004EEA24 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9EE50F2855FE5E004EEA24 /* SceneDelegate.swift */; };
 		FB9EE5182855FE5E004EEA24 /* NYHM.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FB9EE5162855FE5E004EEA24 /* NYHM.xcdatamodeld */; };
@@ -25,7 +27,7 @@
 		FB9EE5432855FECC004EEA24 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB9EE5422855FECC004EEA24 /* Home.storyboard */; };
 		FB9EE54C2855FFA9004EEA24 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9EE54B2855FFA9004EEA24 /* CoreDataManager.swift */; };
 		FB9EE55F2856006C004EEA24 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB9EE55E2856006C004EEA24 /* Detail.storyboard */; };
-		FB9EE56228560080004EEA24 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9EE56128560080004EEA24 /* DetailController.swift */; };
+		FB9EE56228560080004EEA24 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9EE56128560080004EEA24 /* DetailViewController.swift */; };
 		FB9EE564285600A0004EEA24 /* TranscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9EE563285600A0004EEA24 /* TranscriptionViewController.swift */; };
 		FB9EE566285600AC004EEA24 /* Transcription.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB9EE565285600AC004EEA24 /* Transcription.storyboard */; };
 		FB9EE568285600BC004EEA24 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB9EE567285600BC004EEA24 /* Settings.storyboard */; };
@@ -65,6 +67,8 @@
 		FB27AF0B285775E300D0B270 /* TagsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsRepository.swift; sourceTree = "<group>"; };
 		FB27AF0D2857788600D0B270 /* TagsCoreDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsCoreDataSource.swift; sourceTree = "<group>"; };
 		FB8043A72859666A0022E919 /* HomeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDelegate.swift; sourceTree = "<group>"; };
+		FB851E712859DCBF00DDBD3B /* DetailViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailViewController+Delegate.swift"; sourceTree = "<group>"; };
+		FB851E732859DD8700DDBD3B /* DetailDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDelegate.swift; sourceTree = "<group>"; };
 		FB9EE50A2855FE5E004EEA24 /* NYHM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYHM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB9EE50D2855FE5E004EEA24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB9EE50F2855FE5E004EEA24 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,7 +85,7 @@
 		FB9EE5422855FECC004EEA24 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		FB9EE54B2855FFA9004EEA24 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		FB9EE55E2856006C004EEA24 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
-		FB9EE56128560080004EEA24 /* DetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
+		FB9EE56128560080004EEA24 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		FB9EE563285600A0004EEA24 /* TranscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionViewController.swift; sourceTree = "<group>"; };
 		FB9EE565285600AC004EEA24 /* Transcription.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Transcription.storyboard; sourceTree = "<group>"; };
 		FB9EE567285600BC004EEA24 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
@@ -309,6 +313,7 @@
 			children = (
 				FB9EE55E2856006C004EEA24 /* Detail.storyboard */,
 				FBDA69DC28582161008312FF /* DetailView.swift */,
+				FB851E732859DD8700DDBD3B /* DetailDelegate.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -316,7 +321,8 @@
 		FB9EE56028560071004EEA24 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				FB9EE56128560080004EEA24 /* DetailController.swift */,
+				FB9EE56128560080004EEA24 /* DetailViewController.swift */,
+				FB851E712859DCBF00DDBD3B /* DetailViewController+Delegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -485,9 +491,9 @@
 			files = (
 				FB27AF042857409C00D0B270 /* TranscriptionRepository.swift in Sources */,
 				FB9EE5182855FE5E004EEA24 /* NYHM.xcdatamodeld in Sources */,
+				FB851E722859DCBF00DDBD3B /* DetailViewController+Delegate.swift in Sources */,
 				FBF0D9412858AFF8005378EA /* HomeViewController+DataSource.swift in Sources */,
 				FB27AF0A28576ED400D0B270 /* SortType.swift in Sources */,
-				FBDA69E328582D35008312FF /* Date+Ext.swift in Sources */,
 				FB9EE50E2855FE5E004EEA24 /* AppDelegate.swift in Sources */,
 				FB9EE5102855FE5E004EEA24 /* SceneDelegate.swift in Sources */,
 				FB27AF062857450D00D0B270 /* TranscriptionCoreDataSource.swift in Sources */,
@@ -501,9 +507,10 @@
 				FB27AF0C285775E300D0B270 /* TagsRepository.swift in Sources */,
 				FBF0D93D2858AE67005378EA /* HomeView.swift in Sources */,
 				FB9EE564285600A0004EEA24 /* TranscriptionViewController.swift in Sources */,
-				FB9EE56228560080004EEA24 /* DetailController.swift in Sources */,
+				FB9EE56228560080004EEA24 /* DetailViewController.swift in Sources */,
 				FBDA69DD28582161008312FF /* DetailView.swift in Sources */,
 				FB9EE56A285600C9004EEA24 /* SettingsViewController.swift in Sources */,
+				FB851E742859DD8700DDBD3B /* DetailDelegate.swift in Sources */,
 				FBF0D93B2858AD93005378EA /* ItemHomeCell.swift in Sources */,
 				FB8043A82859666A0022E919 /* HomeDelegate.swift in Sources */,
 			);
@@ -674,6 +681,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z824M97CF2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NYHM/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -701,6 +709,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z824M97CF2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NYHM/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

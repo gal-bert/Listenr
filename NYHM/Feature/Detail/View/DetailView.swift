@@ -20,26 +20,33 @@ class DetailView: UIView {
     @IBOutlet weak var durationLeftLabel: UILabel!
     @IBOutlet weak var durationCurrentLabel: UILabel!
     
-    func setup(data: Transcriptions) {
+    private var delegate: DetailDelegate?
+    
+    func setup(data: Transcriptions, delegate: DetailDelegate) {
+        self.delegate = delegate
         
         titleTextView.text = data.title
         resultTextView.text = data.result
         
-        createdAtLabel.text = data.createdAt?.formatDate()
+        createdAtLabel.text = data.createdAt?.fixedFormat()
         durationLabel.text = data.duration
         tagsLabel.text = data.tags
     }
     
     @IBAction func didTapPlay(_ sender: UIButton) {
-        // give action here..
+        delegate?.didTapPlay()
     }
     
     @IBAction func didTapBackward(_ sender: UIButton) {
-        // give action here..
+        delegate?.didTapBackward()
     }
     
     @IBAction func didTapForward(_ sender: UIButton) {
-        // give action here..
+        delegate?.didTapForward()
+    }
+    
+    @IBAction func didTapTags(_ sender: Any) {
+        delegate?.didTapTags()
     }
     
 }
