@@ -25,6 +25,7 @@ extension HomeViewController: HomeDelegate {
         sheet.addAction(UIAlertAction(title: "Bahasa Indonesia", style: .default, handler: {_ in
             self.homeView.languageLabel.text = "Bahasa Indonesia"
             //TODO: set language transcription to Bahasa
+            
         }))
         sheet.addAction(UIAlertAction(title: "English", style: .default, handler: {_ in
             self.homeView.languageLabel.text = "English"

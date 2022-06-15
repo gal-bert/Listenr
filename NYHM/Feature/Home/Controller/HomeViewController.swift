@@ -18,7 +18,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        repo.add(title: "Lorem", result: "", duration: "10", filename: "test")
+        
         transcriptions = repo.showAll()
         homeView.setup(viewController: self)
         

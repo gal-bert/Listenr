@@ -11,7 +11,7 @@ class TagsModalView: UIView {
 
     @IBOutlet weak var tagTableView: UITableView!
     
-    weak var delegate: TagsModalDelegate?
+    weak var delegate: TagsModalViewController?
     
     func setup(viewController: TagsModalViewController) {
         tagTableView.delegate = viewController
