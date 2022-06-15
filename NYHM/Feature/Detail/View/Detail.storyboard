@@ -22,13 +22,16 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Show Tags Modal"/>
                                 <connections>
-                                    <segue destination="bqt-H2-ZXN" kind="presentation" id="1Tg-0y-U7v"/>
+                                    <action selector="showModal:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Ih4-YU-vre"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <segue destination="bqt-H2-ZXN" kind="presentation" id="toj-Wp-Jhb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -37,7 +40,7 @@
         <!--TagsModal-->
         <scene sceneID="WGP-jA-S1m">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="TagsModal" storyboardName="TagsModal" id="bqt-H2-ZXN" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="TagsModal" storyboardName="TagsModal" referencedIdentifier="TagsModal" id="bqt-H2-ZXN" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zbo-ST-M6Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="683" y="52"/>
