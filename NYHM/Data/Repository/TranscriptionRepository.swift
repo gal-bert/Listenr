@@ -11,6 +11,7 @@ protocol TranscriptionRepositoryDataStore {
     func showAll(sortBy: SortType) -> [Transcriptions]
     func add(title: String, result: String, duration: String, filename: String)
     func update(item: Transcriptions, newTitle: String, newResult: String, newTags: String)
+    func delete(item: Transcriptions)
 }
 
 class TranscriptionRepository: TranscriptionRepositoryDataStore {
@@ -33,5 +34,9 @@ class TranscriptionRepository: TranscriptionRepositoryDataStore {
     
     func update(item: Transcriptions, newTitle: String, newResult: String, newTags: String) {
         coreData.update(item: item, newTitle: newTitle, newResult: newResult, newTags: newTags)
+    }
+    
+    func delete(item: Transcriptions) {
+        coreData.delete(item: item)
     }
 }

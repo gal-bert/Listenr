@@ -53,4 +53,13 @@ struct TranscriptionCoreDataSource: TranscriptionRepositoryDataStore {
         }
     }
     
+    func delete(item: Transcriptions) {
+        context.delete(item)
+        
+        do {
+            try context.save()
+        } catch {
+            print("Failed to delete transcription!")
+        }
+    }
 }

@@ -10,10 +10,20 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    private let repo = TranscriptionRepository.shared
+    @IBOutlet weak var homeView: HomeView!
+    
+    let repo = TranscriptionRepository.shared
+    var transcriptions = [Transcriptions]()
+    var currentSort = SortType.timeDesc
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        transcriptions = repo.showAll()
+        homeView.setup(viewController: self)
+        
+        navigationItem.searchController = UISearchController()
+        
     }
+    
 }

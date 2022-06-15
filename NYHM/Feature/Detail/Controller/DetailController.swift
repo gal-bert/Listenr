@@ -16,4 +16,5 @@ class DetailViewController: UIViewController {
         
 //        detailView.setup(data: Transcriptions())
     }
+    var transcription: Transcriptions?
 }
