@@ -14,6 +14,7 @@
 		5F0E444828598A8600C846E1 /* TagsModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E444728598A8600C846E1 /* TagsModalView.swift */; };
 		5F0E444B28599C9000C846E1 /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = 5F0E444A28599C9000C846E1 /* FloatingPanel */; };
 		5F0E444D2859ED1800C846E1 /* TagsModalDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E444C2859ED1800C846E1 /* TagsModalDelegate.swift */; };
+		5FA0EAD2285A2F0F00B2C345 /* TagsModalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA0EAD1285A2F0F00B2C345 /* TagsModalLayout.swift */; };
 		FB27AF042857409C00D0B270 /* TranscriptionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27AF032857409C00D0B270 /* TranscriptionRepository.swift */; };
 		FB27AF062857450D00D0B270 /* TranscriptionCoreDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27AF052857450D00D0B270 /* TranscriptionCoreDataSource.swift */; };
 		FB27AF0A28576ED400D0B270 /* SortType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27AF0928576ED400D0B270 /* SortType.swift */; };
@@ -74,6 +75,7 @@
 		5F0E44452859582200C846E1 /* TagsModalViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TagsModalViewController+DataSource.swift"; sourceTree = "<group>"; };
 		5F0E444728598A8600C846E1 /* TagsModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsModalView.swift; sourceTree = "<group>"; };
 		5F0E444C2859ED1800C846E1 /* TagsModalDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsModalDelegate.swift; sourceTree = "<group>"; };
+		5FA0EAD1285A2F0F00B2C345 /* TagsModalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsModalLayout.swift; sourceTree = "<group>"; };
 		FB27AF032857409C00D0B270 /* TranscriptionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionRepository.swift; sourceTree = "<group>"; };
 		FB27AF052857450D00D0B270 /* TranscriptionCoreDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionCoreDataSource.swift; sourceTree = "<group>"; };
 		FB27AF0928576ED400D0B270 /* SortType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortType.swift; sourceTree = "<group>"; };
@@ -341,6 +343,7 @@
 				5F0E444C2859ED1800C846E1 /* TagsModalDelegate.swift */,
 				FBDA69DC28582161008312FF /* DetailView.swift */,
 				FB851E732859DD8700DDBD3B /* DetailDelegate.swift */,
+				5FA0EAD1285A2F0F00B2C345 /* TagsModalLayout.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -349,7 +352,6 @@
 			isa = PBXGroup;
 			children = (
 				5F0E4440285956CC00C846E1 /* TagsModal */,
-				FB9EE56128560080004EEA24 /* DetailController.swift */,
 				FB9EE56128560080004EEA24 /* DetailViewController.swift */,
 				FB851E712859DCBF00DDBD3B /* DetailViewController+Delegate.swift */,
 			);
@@ -541,6 +543,7 @@
 				FBF0D93F2858AFEB005378EA /* HomeViewController+Delegate.swift in Sources */,
 				FB9EE54C2855FFA9004EEA24 /* CoreDataManager.swift in Sources */,
 				FBF0D9472858B6A6005378EA /* Date+Ext.swift in Sources */,
+				5FA0EAD2285A2F0F00B2C345 /* TagsModalLayout.swift in Sources */,
 				FB9EE5412855FE8C004EEA24 /* HomeViewController.swift in Sources */,
 				FBF0D9452858B288005378EA /* TableView+Ext.swift in Sources */,
 				FB27AF0C285775E300D0B270 /* TagsRepository.swift in Sources */,

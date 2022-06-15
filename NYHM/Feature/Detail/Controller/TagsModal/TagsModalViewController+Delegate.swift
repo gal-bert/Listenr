@@ -20,7 +20,7 @@ extension TagsModalViewController: TagsModalDelegate {
     func addNewTag() {
         let alert = UIAlertController(title: "Add New Tag", message: nil, preferredStyle: .alert)
         let addAction = UIAlertAction(title: "Add", style: .default) { action in
-            /// Put code to add new tag to core data here
+            // TODO: Put code to add new tag to core data here
         }
         
         alert.overrideUserInterfaceStyle = .dark
