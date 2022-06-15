@@ -17,7 +17,8 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     
     var transcriptionTemp = ""
     var transcriptionTemp2 = ""
-    var isPlaying:Bool = true //onload lgs play
+    var filename:URL?
+    var isPlaying:Bool = true
     
     let audioEngine = AVAudioEngine()
     
@@ -34,7 +35,6 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         transcriptionResultTextView.layer.borderColor = UIColor.black.cgColor
         transcriptionResultTextView.layer.borderWidth = 1
         
-        
         speechRecognizer?.delegate = self
         audioRecorder?.delegate = self
         
@@ -44,7 +44,7 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         initRecordingSession()
         
         transcribeOnLoad()
-        
+        startRecording()
     }
     
     func initSpeechAuth() -> Void {
@@ -91,11 +91,11 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     }
     
     func startRecording() -> Void {
-        let filename = getFileUrl()
+        filename = getFileUrl()
         
         do {
             audioRecorder = try AVAudioRecorder(
-                url: filename,
+                url: filename!,
                 settings: [
                     AVFormatIDKey: kAudioFormatAppleLossless,
                     AVSampleRateKey: 44100.0,
@@ -108,6 +108,10 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             stopRecording()
         }
         
+    }
+    
+    func continueRecording() -> Void {
+        audioRecorder?.record()
     }
     
     func pauseRecording() -> Void {
@@ -126,8 +130,8 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     }
     
     func getFileUrl() -> URL {
-        // TODO: Generate filename
-        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("recording.m4a")
+        let date = Date()
+        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("\(date.generateTimestampForFilename()).m4a")
     }
     
     func startTranscription() {
@@ -145,7 +149,6 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         
         recognitionRequest.shouldReportPartialResults = true
         
-    
         self.recognitionTask = speechRecognizer?.recognitionTask(with: recognitionRequest, resultHandler: { (result, error) in
             var isFinal = false
             
@@ -158,7 +161,6 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
                 var concat = ""
                 
                 if self.isPlaying{
-                    
                     let range = NSMakeRange(self.transcriptionResultTextView.text.count - 1, 0)
                     self.transcriptionResultTextView.scrollRangeToVisible(range)
                     
@@ -170,7 +172,6 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
                     
                     self.transcriptionResultTextView.text = concat
                     print(concat)
-                    
                 }
                 
             }
@@ -196,7 +197,6 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         } catch {
             print("Audio Engine start error \n \(error.localizedDescription)")
         }
-
         
     }
     
@@ -204,10 +204,6 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
                 
         // State is playing, command to stop
         if audioEngine.isRunning {
-            
-            print("T1 --> \(transcriptionTemp)")
-            print("T2 --> \(transcriptionTemp2)")
-            
             if transcriptionTemp == "" {
                 transcriptionTemp += "\(transcriptionTemp2)"
             } else {
@@ -216,20 +212,20 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             transcriptionResultTextView.text = transcriptionTemp
             transcriptionTemp2 = ""
             
-            
             audioEngine.stop()
             recognitionRequest?.endAudio()
-//            stopRecording() // TODO: Change to pause recording
+            pauseRecording()
+            
             transcribeActionButton.setTitle("Start", for: .normal)
             isPlaying = false
-            
         }
         
         // State is stopped, command to start
         else {
             speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "id"))
             startTranscription()
-//            startRecording()
+            continueRecording()
+            
             transcribeActionButton.setTitle("Stop", for: .normal)
             isPlaying = true
             
@@ -237,11 +233,21 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     }
     
     @IBAction func cancel(_ sender: Any) {
-        
+        audioEngine.stop()
+        dismiss(animated: true)
     }
     
     @IBAction func save(_ sender: Any) {
         
+        audioEngine.stop()
+        stopRecording()
+        
+        print(filename!)
+        
+        // TODO: Save to CoreData
+        /// Transcription Title (if nil -> "Untitled Transcription")
+        /// Filename -> iHear_20220301_140439
+        /// Transcription Result -> transcriptionTemp
     }
     
     @IBAction func transcriptionActionButton(_ sender: Any) {

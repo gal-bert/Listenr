@@ -58,6 +58,7 @@
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.17254901960784313" green="0.17254901960784313" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="Ab9-Yi-Qbs" firstAttribute="leading" secondItem="X5H-np-GcS" secondAttribute="leading" constant="14" id="5KQ-05-foG"/>
                                             <constraint firstAttribute="trailing" secondItem="Nne-qr-HmT" secondAttribute="trailing" constant="14" id="PZX-ub-X6q"/>
