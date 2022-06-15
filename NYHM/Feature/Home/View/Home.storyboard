@@ -97,6 +97,7 @@
                             <constraint firstItem="gDe-J1-HK8" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="xbt-RZ-tgo"/>
                         </constraints>
                         <connections>
+                            <outlet property="sortButton" destination="o63-aS-pga" id="BLt-IR-4sX"/>
                             <outlet property="tableView" destination="N8c-or-AsI" id="xLc-re-UDi"/>
                         </connections>
                     </view>
@@ -114,7 +115,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="homeView" destination="5EZ-qb-Rvc" id="LIJ-bx-CM7"/>
-                        <outlet property="sortButton" destination="o63-aS-pga" id="Rqj-h7-Zu6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

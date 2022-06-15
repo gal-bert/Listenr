@@ -11,10 +11,10 @@ import UIKit
 class HomeViewController: UIViewController {
     
     @IBOutlet weak var homeView: HomeView!
-    @IBOutlet weak var sortButton: UIBarButtonItem!
     
-    private let repo = TranscriptionRepository.shared
+    let repo = TranscriptionRepository.shared
     var transcriptions = [Transcriptions]()
+    var currentSort = SortType.timeDesc
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,27 +22,8 @@ class HomeViewController: UIViewController {
         transcriptions = repo.showAll()
         homeView.setup(viewController: self)
         
-        setupSorting()
         navigationItem.searchController = UISearchController()
-    }
-    
-    private func setupSorting() {
-        var menuItems: [UIAction] {
-            return [
-                UIAction(title: "Sort by name", image: UIImage(systemName: "character.bubble"), handler: { (_) in
-                    //action here
-                }),
-                UIAction(title: "Sort by date", image: UIImage(systemName: "calendar.badge.clock"), handler: { (_) in
-                    //action here
-                }),
-            ]
-        }
         
-        var demoMenu: UIMenu {
-            return UIMenu(title: "Sort by", image: nil, identifier: nil, options: [], children: menuItems)
-        }
-        
-        sortButton.menu = demoMenu
     }
     
 }

@@ -10,4 +10,10 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
+    var transcription: Transcriptions?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
 }
