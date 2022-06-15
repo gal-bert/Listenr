@@ -12,6 +12,7 @@
 		5F0E44442859576700C846E1 /* TagsModalViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E44432859576700C846E1 /* TagsModalViewController+Delegate.swift */; };
 		5F0E44462859582200C846E1 /* TagsModalViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E44452859582200C846E1 /* TagsModalViewController+DataSource.swift */; };
 		5F0E444828598A8600C846E1 /* TagsModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E444728598A8600C846E1 /* TagsModalView.swift */; };
+		5F0E444B28599C9000C846E1 /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = 5F0E444A28599C9000C846E1 /* FloatingPanel */; };
 		FB27AF042857409C00D0B270 /* TranscriptionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27AF032857409C00D0B270 /* TranscriptionRepository.swift */; };
 		FB27AF062857450D00D0B270 /* TranscriptionCoreDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27AF052857450D00D0B270 /* TranscriptionCoreDataSource.swift */; };
 		FB27AF0A28576ED400D0B270 /* SortType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27AF0928576ED400D0B270 /* SortType.swift */; };
@@ -94,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F0E444B28599C9000C846E1 /* FloatingPanel in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,6 +354,9 @@
 			dependencies = (
 			);
 			name = NYHM;
+			packageProductDependencies = (
+				5F0E444A28599C9000C846E1 /* FloatingPanel */,
+			);
 			productName = NYHM;
 			productReference = FB9EE50A2855FE5E004EEA24 /* NYHM.app */;
 			productType = "com.apple.product-type.application";
@@ -424,6 +429,9 @@
 				Base,
 			);
 			mainGroup = FB9EE5012855FE5E004EEA24;
+			packageReferences = (
+				5F0E444928599C9000C846E1 /* XCRemoteSwiftPackageReference "FloatingPanel" */,
+			);
 			productRefGroup = FB9EE50B2855FE5E004EEA24 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -816,6 +824,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5F0E444928599C9000C846E1 /* XCRemoteSwiftPackageReference "FloatingPanel" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SCENEE/FloatingPanel.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5F0E444A28599C9000C846E1 /* FloatingPanel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5F0E444928599C9000C846E1 /* XCRemoteSwiftPackageReference "FloatingPanel" */;
+			productName = FloatingPanel;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		FB9EE5162855FE5E004EEA24 /* NYHM.xcdatamodeld */ = {
