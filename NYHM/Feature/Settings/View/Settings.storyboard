@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -12,29 +11,32 @@
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController id="Y6W-OH-hqX" customClass="SettingsViewController" customModule="NYHM" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc" customClass="SettingsView" customModule="NYHM" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="yx0-sF-VIN">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="0.0" y="59" width="414" height="803"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="scrollIndicatorInsets" minX="0.0" minY="15" maxX="0.0" maxY="0.0"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="yx0-sF-VIN" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="15" id="R3S-zP-hDJ"/>
                             <constraint firstItem="yx0-sF-VIN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Te1-qs-eAG"/>
                             <constraint firstItem="yx0-sF-VIN" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="glU-Qj-O1v"/>
-                            <constraint firstItem="yx0-sF-VIN" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="ytB-0N-mEW"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="yx0-sF-VIN" secondAttribute="bottom" id="zli-Qs-KGK"/>
                         </constraints>
+                        <connections>
+                            <outlet property="tableView" destination="yx0-sF-VIN" id="GeS-Cj-4Vj"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="dSk-pA-a2r">
                         <barButtonItem key="backBarButtonItem" title="Back" id="4TX-hd-VuX"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="settingsTableView" destination="yx0-sF-VIN" id="QY5-hZ-mdz"/>
+                        <outlet property="settingsView" destination="5EZ-qb-Rvc" id="gjG-SB-Av4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -42,9 +44,4 @@
             <point key="canvasLocation" x="-704" y="106"/>
         </scene>
     </scenes>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

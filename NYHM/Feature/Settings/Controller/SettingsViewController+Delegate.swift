@@ -6,3 +6,11 @@
 //
 
 import Foundation
+import UIKit
+
+extension SettingsViewController: UITableViewDelegate {
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+}

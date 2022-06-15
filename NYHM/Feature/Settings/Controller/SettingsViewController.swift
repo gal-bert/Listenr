@@ -10,5 +10,11 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
-    @IBOutlet weak var settingsTableView: UITableView!
+    @IBOutlet var settingsView: SettingsView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        settingsView.setup(viewController: self)
+    }
 }
