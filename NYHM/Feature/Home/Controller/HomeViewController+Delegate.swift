@@ -68,3 +68,10 @@ extension HomeViewController: HomeDelegate {
     }
     
 }
+
+extension HomeViewController: SaveTranscriptionProtocol {
+    func reloadTableView() {
+        transcriptions = TranscriptionRepository.shared.showAll()
+        homeView.tableView.reloadData()
+    }
+}
