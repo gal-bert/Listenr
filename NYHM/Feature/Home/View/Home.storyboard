@@ -35,7 +35,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="Ero-fy-8Cf" kind="showDetail" id="G2G-Wq-eqH"/>
+                                            <action selector="transcribeButton:" destination="5EZ-qb-Rvc" eventType="touchUpInside" id="imA-hE-IfK"/>
                                         </connections>
                                     </button>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X5H-np-GcS">
@@ -116,6 +116,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="homeView" destination="5EZ-qb-Rvc" id="LIJ-bx-CM7"/>
+                        <segue destination="Ero-fy-8Cf" kind="presentation" identifier="toTranscriptionPageSegue" id="gNY-Nq-CZY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -143,10 +144,10 @@
         <!--Transcription-->
         <scene sceneID="DPI-En-IIT">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RP9-83-svy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardName="Transcription" id="Ero-fy-8Cf" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="TdG-Q2-D2W"/>
                 </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RP9-83-svy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1121" y="260"/>
         </scene>

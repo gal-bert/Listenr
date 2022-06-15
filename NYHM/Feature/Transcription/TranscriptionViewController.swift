@@ -9,11 +9,19 @@ import UIKit
 import Speech
 import AVKit
 
+protocol SaveTranscriptionProtocol {
+    func reloadTableView()
+}
+
 class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate, AVAudioRecorderDelegate {
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var transcriptionResultTextView: UITextView!
     @IBOutlet weak var transcribeActionButton: UIButton!
+    
+    var homeController = HomeViewController()
+    
+    var delegate:SaveTranscriptionProtocol?
     
     var transcriptionTemp = ""
     var transcriptionTemp2 = ""
@@ -248,6 +256,23 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         /// Transcription Title (if nil -> "Untitled Transcription")
         /// Filename -> iHear_20220301_140439
         /// Transcription Result -> transcriptionTemp
+        
+        let strFilename = "\(filename!)"
+        let strTitle = titleTextField.text == "" ? "Untitled Transcription" : titleTextField.text
+            
+        let audioAsset = AVURLAsset.init(url: filename!)
+        let duration = Float(CMTimeGetSeconds(audioAsset.duration))
+        
+        TranscriptionRepository.shared.add(
+            title: strTitle!,
+            result: transcriptionTemp,
+            duration: "\(duration)",
+            filename: strFilename
+        )
+        
+        delegate?.reloadTableView()
+        dismiss(animated: true)
+        
     }
     
     @IBAction func transcriptionActionButton(_ sender: Any) {
