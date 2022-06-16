@@ -50,13 +50,19 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BGk-bT-Blu">
-                                <rect key="frame" x="20" y="118" width="335" height="550"/>
+                                <rect key="frame" x="20" y="159" width="335" height="509"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aB5-Ev-kJW">
+                                <rect key="frame" x="20" y="118" width="335" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="n5K-r9-FV4"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -64,20 +70,25 @@
                             <constraint firstItem="n5K-r9-FV4" firstAttribute="trailing" secondItem="BGk-bT-Blu" secondAttribute="trailing" constant="20" id="3HY-Dd-OLS"/>
                             <constraint firstAttribute="trailing" secondItem="DjZ-fw-9i5" secondAttribute="trailing" id="FuI-Mu-dcd"/>
                             <constraint firstItem="BGk-bT-Blu" firstAttribute="leading" secondItem="n5K-r9-FV4" secondAttribute="leading" constant="20" id="Gkc-PG-phf"/>
-                            <constraint firstItem="BGk-bT-Blu" firstAttribute="top" secondItem="Cf5-jU-ZDm" secondAttribute="bottom" constant="20" id="JPz-Dr-NgA"/>
+                            <constraint firstItem="BGk-bT-Blu" firstAttribute="top" secondItem="aB5-Ev-kJW" secondAttribute="bottom" constant="20" id="GuU-4Z-9Dq"/>
+                            <constraint firstItem="aB5-Ev-kJW" firstAttribute="top" secondItem="Cf5-jU-ZDm" secondAttribute="bottom" constant="20" id="Hua-BE-Qwi"/>
                             <constraint firstItem="WJG-of-n7k" firstAttribute="leading" secondItem="n5K-r9-FV4" secondAttribute="leading" constant="100" id="KGE-1Q-4DK"/>
                             <constraint firstItem="Cf5-jU-ZDm" firstAttribute="top" secondItem="DjZ-fw-9i5" secondAttribute="bottom" constant="20" id="RcG-uY-LJd"/>
                             <constraint firstItem="DjZ-fw-9i5" firstAttribute="top" secondItem="ANI-f6-caN" secondAttribute="top" id="axf-iJ-lve"/>
                             <constraint firstItem="DjZ-fw-9i5" firstAttribute="leading" secondItem="ANI-f6-caN" secondAttribute="leading" id="brM-OI-geP"/>
                             <constraint firstItem="Cf5-jU-ZDm" firstAttribute="leading" secondItem="n5K-r9-FV4" secondAttribute="leading" constant="20" id="jUe-o7-klN"/>
                             <constraint firstItem="WJG-of-n7k" firstAttribute="top" secondItem="BGk-bT-Blu" secondAttribute="bottom" constant="20" id="l17-6k-cdf"/>
+                            <constraint firstItem="n5K-r9-FV4" firstAttribute="trailing" secondItem="aB5-Ev-kJW" secondAttribute="trailing" constant="20" id="o1O-cy-GaN"/>
                             <constraint firstItem="n5K-r9-FV4" firstAttribute="trailing" secondItem="WJG-of-n7k" secondAttribute="trailing" constant="100" id="o22-4b-7hT"/>
                             <constraint firstItem="n5K-r9-FV4" firstAttribute="bottom" secondItem="WJG-of-n7k" secondAttribute="bottom" constant="40" id="p5Z-NG-Who"/>
                             <constraint firstItem="n5K-r9-FV4" firstAttribute="trailing" secondItem="Cf5-jU-ZDm" secondAttribute="trailing" constant="20" id="pZv-rM-Ehi"/>
+                            <constraint firstItem="aB5-Ev-kJW" firstAttribute="leading" secondItem="n5K-r9-FV4" secondAttribute="leading" constant="20" id="whL-gC-W6J"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pZE-mt-aeA"/>
                     <connections>
+                        <outlet property="durationLabel" destination="aB5-Ev-kJW" id="08l-Qm-lv5"/>
+                        <outlet property="saveButton" destination="LNf-mY-6OR" id="hzx-d8-gAv"/>
                         <outlet property="titleTextField" destination="Cf5-jU-ZDm" id="jhI-x3-Nmr"/>
                         <outlet property="transcribeActionButton" destination="WJG-of-n7k" id="HjI-VB-yc2"/>
                         <outlet property="transcriptionResultTextView" destination="BGk-bT-Blu" id="dC0-OI-UTO"/>

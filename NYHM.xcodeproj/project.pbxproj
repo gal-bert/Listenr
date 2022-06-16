@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0C311F0D285A342800EA2FFE /* Int+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C311F0C285A342800EA2FFE /* Int+Ext.swift */; };
+		0C5C8AC3285B661C00536BB2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5C8AC2285B661C00536BB2 /* Constants.swift */; };
 		393A04C02858F523009ACA3B /* SettingsViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393A04BF2858F523009ACA3B /* SettingsViewController+Delegate.swift */; };
 		393A04C22858F64B009ACA3B /* SettingsViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393A04C12858F64B009ACA3B /* SettingsViewController+DataSource.swift */; };
 		3987E1D52858E27400A1C3AC /* WaveformSwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3987E1D42858E27400A1C3AC /* WaveformSwitchCell.xib */; };
@@ -79,6 +80,7 @@
 
 /* Begin PBXFileReference section */
 		0C311F0C285A342800EA2FFE /* Int+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Ext.swift"; sourceTree = "<group>"; };
+		0C5C8AC2285B661C00536BB2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		393A04BF2858F523009ACA3B /* SettingsViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+Delegate.swift"; sourceTree = "<group>"; };
 		393A04C12858F64B009ACA3B /* SettingsViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+DataSource.swift"; sourceTree = "<group>"; };
 		3987E1D42858E27400A1C3AC /* WaveformSwitchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WaveformSwitchCell.xib; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 				FBF0D9462858B6A6005378EA /* Date+Ext.swift */,
 				0C311F0C285A342800EA2FFE /* Int+Ext.swift */,
 				FBE5B464285A37AD000E0942 /* Alert+Ext.swift */,
+				0C5C8AC2285B661C00536BB2 /* Constants.swift */,
 				FB298E7B285B5D550063B522 /* Button+Ext.swift */,
 				FB298E7D285B604A0063B522 /* ConvertHelper.swift */,
 			);
@@ -605,6 +608,7 @@
 				FBF0D9412858AFF8005378EA /* HomeViewController+DataSource.swift in Sources */,
 				FB27AF0A28576ED400D0B270 /* SortType.swift in Sources */,
 				FBE5B465285A37AD000E0942 /* Alert+Ext.swift in Sources */,
+				0C5C8AC3285B661C00536BB2 /* Constants.swift in Sources */,
 				FB9EE50E2855FE5E004EEA24 /* AppDelegate.swift in Sources */,
 				0C311F0D285A342800EA2FFE /* Int+Ext.swift in Sources */,
 				FB9EE5102855FE5E004EEA24 /* SceneDelegate.swift in Sources */,
@@ -801,7 +805,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Z824M97CF2;
+				DEVELOPMENT_TEAM = CL42QD4LKB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NYHM/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -829,7 +833,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Z824M97CF2;
+				DEVELOPMENT_TEAM = CL42QD4LKB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NYHM/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
