@@ -10,4 +10,11 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
+    @IBOutlet var settingsView: SettingsView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        settingsView.setup(viewController: self)
+    }
 }
