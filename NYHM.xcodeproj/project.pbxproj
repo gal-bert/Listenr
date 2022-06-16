@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		0C311F0D285A342800EA2FFE /* Int+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C311F0C285A342800EA2FFE /* Int+Ext.swift */; };
+		393A04C02858F523009ACA3B /* SettingsViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393A04BF2858F523009ACA3B /* SettingsViewController+Delegate.swift */; };
+		393A04C22858F64B009ACA3B /* SettingsViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393A04C12858F64B009ACA3B /* SettingsViewController+DataSource.swift */; };
+		3987E1D52858E27400A1C3AC /* WaveformSwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3987E1D42858E27400A1C3AC /* WaveformSwitchCell.xib */; };
+		3987E1D82858E45300A1C3AC /* WaveformSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3987E1D72858E45300A1C3AC /* WaveformSwitchCell.swift */; };
+		3987E1DC2858F0A700A1C3AC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3987E1DB2858F0A700A1C3AC /* SettingsView.swift */; };
 		5F0E443D285953AF00C846E1 /* TagsModal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F0E443C285953AF00C846E1 /* TagsModal.storyboard */; };
 		5F0E4442285956E100C846E1 /* TagsModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E4441285956E100C846E1 /* TagsModalViewController.swift */; };
 		5F0E44442859576700C846E1 /* TagsModalViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E44432859576700C846E1 /* TagsModalViewController+Delegate.swift */; };
@@ -15,11 +20,6 @@
 		5F0E444828598A8600C846E1 /* TagsModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E444728598A8600C846E1 /* TagsModalView.swift */; };
 		5F0E444B28599C9000C846E1 /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = 5F0E444A28599C9000C846E1 /* FloatingPanel */; };
 		5FA0EAD2285A2F0F00B2C345 /* TagsModalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA0EAD1285A2F0F00B2C345 /* TagsModalLayout.swift */; };
-		393A04C02858F523009ACA3B /* SettingsViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393A04BF2858F523009ACA3B /* SettingsViewController+Delegate.swift */; };
-		393A04C22858F64B009ACA3B /* SettingsViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393A04C12858F64B009ACA3B /* SettingsViewController+DataSource.swift */; };
-		3987E1D52858E27400A1C3AC /* WaveformSwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3987E1D42858E27400A1C3AC /* WaveformSwitchCell.xib */; };
-		3987E1D82858E45300A1C3AC /* WaveformSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3987E1D72858E45300A1C3AC /* WaveformSwitchCell.swift */; };
-		3987E1DC2858F0A700A1C3AC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3987E1DB2858F0A700A1C3AC /* SettingsView.swift */; };
 		FB27AF042857409C00D0B270 /* TranscriptionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27AF032857409C00D0B270 /* TranscriptionRepository.swift */; };
 		FB27AF062857450D00D0B270 /* TranscriptionCoreDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27AF052857450D00D0B270 /* TranscriptionCoreDataSource.swift */; };
 		FB27AF0A28576ED400D0B270 /* SortType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27AF0928576ED400D0B270 /* SortType.swift */; };
@@ -45,6 +45,7 @@
 		FB9EE566285600AC004EEA24 /* Transcription.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB9EE565285600AC004EEA24 /* Transcription.storyboard */; };
 		FB9EE568285600BC004EEA24 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB9EE567285600BC004EEA24 /* Settings.storyboard */; };
 		FB9EE56A285600C9004EEA24 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9EE569285600C9004EEA24 /* SettingsViewController.swift */; };
+		FBD82DCD285B722800675347 /* UserDefault in Resources */ = {isa = PBXBuildFile; fileRef = FBD82DCC285B722800675347 /* UserDefault */; };
 		FBDA69DD28582161008312FF /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDA69DC28582161008312FF /* DetailView.swift */; };
 		FBE5B465285A37AD000E0942 /* Alert+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE5B464285A37AD000E0942 /* Alert+Ext.swift */; };
 		FBF0D9392858A9A4005378EA /* ItemHomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBF0D9382858A9A4005378EA /* ItemHomeCell.xib */; };
@@ -76,17 +77,17 @@
 
 /* Begin PBXFileReference section */
 		0C311F0C285A342800EA2FFE /* Int+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Ext.swift"; sourceTree = "<group>"; };
+		393A04BF2858F523009ACA3B /* SettingsViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+Delegate.swift"; sourceTree = "<group>"; };
+		393A04C12858F64B009ACA3B /* SettingsViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+DataSource.swift"; sourceTree = "<group>"; };
+		3987E1D42858E27400A1C3AC /* WaveformSwitchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WaveformSwitchCell.xib; sourceTree = "<group>"; };
+		3987E1D72858E45300A1C3AC /* WaveformSwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveformSwitchCell.swift; sourceTree = "<group>"; };
+		3987E1DB2858F0A700A1C3AC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		5F0E443C285953AF00C846E1 /* TagsModal.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TagsModal.storyboard; sourceTree = "<group>"; };
 		5F0E4441285956E100C846E1 /* TagsModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsModalViewController.swift; sourceTree = "<group>"; };
 		5F0E44432859576700C846E1 /* TagsModalViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TagsModalViewController+Delegate.swift"; sourceTree = "<group>"; };
 		5F0E44452859582200C846E1 /* TagsModalViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TagsModalViewController+DataSource.swift"; sourceTree = "<group>"; };
 		5F0E444728598A8600C846E1 /* TagsModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsModalView.swift; sourceTree = "<group>"; };
 		5FA0EAD1285A2F0F00B2C345 /* TagsModalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsModalLayout.swift; sourceTree = "<group>"; };
-		393A04BF2858F523009ACA3B /* SettingsViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+Delegate.swift"; sourceTree = "<group>"; };
-		393A04C12858F64B009ACA3B /* SettingsViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+DataSource.swift"; sourceTree = "<group>"; };
-		3987E1D42858E27400A1C3AC /* WaveformSwitchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WaveformSwitchCell.xib; sourceTree = "<group>"; };
-		3987E1D72858E45300A1C3AC /* WaveformSwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveformSwitchCell.swift; sourceTree = "<group>"; };
-		3987E1DB2858F0A700A1C3AC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		FB27AF032857409C00D0B270 /* TranscriptionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionRepository.swift; sourceTree = "<group>"; };
 		FB27AF052857450D00D0B270 /* TranscriptionCoreDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionCoreDataSource.swift; sourceTree = "<group>"; };
 		FB27AF0928576ED400D0B270 /* SortType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortType.swift; sourceTree = "<group>"; };
@@ -116,6 +117,7 @@
 		FB9EE565285600AC004EEA24 /* Transcription.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Transcription.storyboard; sourceTree = "<group>"; };
 		FB9EE567285600BC004EEA24 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		FB9EE569285600C9004EEA24 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		FBD82DCC285B722800675347 /* UserDefault */ = {isa = PBXFileReference; lastKnownFileType = folder; path = UserDefault; sourceTree = "<group>"; };
 		FBDA69DC28582161008312FF /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		FBE5B464285A37AD000E0942 /* Alert+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert+Ext.swift"; sourceTree = "<group>"; };
 		FBF0D9382858A9A4005378EA /* ItemHomeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemHomeCell.xib; sourceTree = "<group>"; };
@@ -154,16 +156,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5F0E4440285956CC00C846E1 /* TagsModal */ = {
-			isa = PBXGroup;
-			children = (
-				5F0E4441285956E100C846E1 /* TagsModalViewController.swift */,
-				5F0E44432859576700C846E1 /* TagsModalViewController+Delegate.swift */,
-				5F0E44452859582200C846E1 /* TagsModalViewController+DataSource.swift */,
-			);
-			path = TagsModal;
-			sourceTree = "<group>";
-		};
 		3987E1D12858E17F00A1C3AC /* ItemSettingsCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +191,16 @@
 				3987E1DB2858F0A700A1C3AC /* SettingsView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		5F0E4440285956CC00C846E1 /* TagsModal */ = {
+			isa = PBXGroup;
+			children = (
+				5F0E4441285956E100C846E1 /* TagsModalViewController.swift */,
+				5F0E44432859576700C846E1 /* TagsModalViewController+Delegate.swift */,
+				5F0E44452859582200C846E1 /* TagsModalViewController+DataSource.swift */,
+			);
+			path = TagsModal;
 			sourceTree = "<group>";
 		};
 		FB9EE5012855FE5E004EEA24 = {
@@ -302,6 +304,7 @@
 		FB9EE5492855FF8F004EEA24 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				FBD82DCC285B722800675347 /* UserDefault */,
 				FB9EE54D2855FFB0004EEA24 /* Helper */,
 				FB9EE54A2855FF97004EEA24 /* CoreData */,
 			);
@@ -558,6 +561,7 @@
 				FBF0D9392858A9A4005378EA /* ItemHomeCell.xib in Resources */,
 				FB9EE51D2855FE5F004EEA24 /* LaunchScreen.storyboard in Resources */,
 				FB9EE566285600AC004EEA24 /* Transcription.storyboard in Resources */,
+				FBD82DCD285B722800675347 /* UserDefault in Resources */,
 				FB9EE568285600BC004EEA24 /* Settings.storyboard in Resources */,
 				FB9EE51A2855FE5F004EEA24 /* Assets.xcassets in Resources */,
 				5F0E443D285953AF00C846E1 /* TagsModal.storyboard in Resources */,
