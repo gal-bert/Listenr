@@ -49,5 +49,8 @@ class DetailViewController: UIViewController {
         if (isTagsChange || isTitleChange || isResultChange) {
             TranscriptionRepository.shared.update(item: transcription!, newTitle: newTitle, newResult: newResult, newTags: newTags)
         }
+        
+        detailView.player?.stop()
     }
+    
 }

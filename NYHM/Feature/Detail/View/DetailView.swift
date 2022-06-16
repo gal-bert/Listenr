@@ -48,7 +48,7 @@ class DetailView: UIView {
         tagsLabel.text = data.tags
         
         let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let filename = path.appendingPathComponent("iHear_2022616_16405.m4a") // URL
+        let filename = path.appendingPathComponent(data.filename!) // URL
         
         do {
             player = try AVAudioPlayer(contentsOf: filename)
@@ -114,7 +114,7 @@ class DetailView: UIView {
     func startPlayer() {
         guard let player = player else { return }
         player.play()
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerBehavior), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(timerBehavior), userInfo: nil, repeats: true)
         playButton.setImage(UIImage(systemName: "pause.fill")?.middImage(), for: .normal)
     }
     
