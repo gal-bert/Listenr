@@ -18,6 +18,7 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var transcriptionResultTextView: UITextView!
     @IBOutlet weak var transcribeActionButton: UIButton!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     var homeController = HomeViewController()
     
@@ -73,7 +74,6 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             @unknown default:
                 fatalError()
             }
-            
             print(msg)
         }
     }
@@ -227,28 +227,24 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             pauseRecording()
             
             transcribeActionButton.setTitle("Start", for: .normal)
+            saveButton.isEnabled = true
             isPlaying = false
         }
         
         // State is stopped, command to start
         else {
-            speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "id"))
+            let locale = UserDefaults.standard.string(forKey: Constants.SELECTED_LANGUAGE)
+            speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: locale!))
             startTranscription()
             continueRecording()
             
             transcribeActionButton.setTitle("Stop", for: .normal)
+            saveButton.isEnabled = false
             isPlaying = true
             
         }
     }
-    
-//    func hmsFrom(seconds: Int, completion: @escaping (_ hours: Int, _ minutes: Int, _ seconds: Int)->()) {
-//        completion(seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
-//    }
-//    
-//    func getStringFrom(seconds: Int) -> String {
-//        return seconds < 10 ? "0\(seconds)" : "\(seconds)"
-//    }
+
     
     @IBAction func cancel(_ sender: Any) {
         audioEngine.stop()
@@ -261,11 +257,6 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         stopRecording()
         
         print(filename!)
-        
-        // TODO: Save to CoreData
-        /// Transcription Title (if nil -> "Untitled Transcription")
-        /// Filename -> iHear_20220301_140439
-        /// Transcription Result -> transcriptionTemp
         
         let strFilename = "\(filename!)"
         let strTitle = titleTextField.text == "" ? "Untitled Transcription" : titleTextField.text

@@ -78,6 +78,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="pZE-mt-aeA"/>
                     <connections>
+                        <outlet property="saveButton" destination="LNf-mY-6OR" id="hzx-d8-gAv"/>
                         <outlet property="titleTextField" destination="Cf5-jU-ZDm" id="jhI-x3-Nmr"/>
                         <outlet property="transcribeActionButton" destination="WJG-of-n7k" id="HjI-VB-yc2"/>
                         <outlet property="transcriptionResultTextView" destination="BGk-bT-Blu" id="dC0-OI-UTO"/>
