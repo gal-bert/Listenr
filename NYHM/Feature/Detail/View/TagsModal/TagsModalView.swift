@@ -11,16 +11,21 @@ class TagsModalView: UIView {
 
     @IBOutlet weak var tagTableView: UITableView!
     
-    weak var delegate: TagsModalViewController?
+    weak var alertDelegate: TagsModalViewController?
+    var delegate: TagsModalDelegate?
+    
+    var tagList = [Tags]()
     
     func setup(viewController: TagsModalViewController) {
         tagTableView.delegate = viewController
         tagTableView.dataSource = viewController
         
-        delegate = viewController
+        alertDelegate = viewController
+        delegate = viewController as? TagsModalDelegate
+        tagList = viewController.tagList
     }
     
     @IBAction func addNewTag(_ sender: Any) {
-        delegate?.addNewTag()
+        alertDelegate?.addNewTag(tagCount: tagList.count, delegate: alertDelegate!)
     }
 }

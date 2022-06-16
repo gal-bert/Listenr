@@ -21,7 +21,7 @@ extension TagsModalViewController: UITableViewDataSource {
         cellContent.text = tagList[indexPath.row].name
         cell.contentConfiguration = cellContent
         
-        if selectedTagPosition == indexPath.row {
+        if selectedTagName == tagList[indexPath.row].name {
             cell.accessoryType = .checkmark
         }
         

@@ -23,7 +23,6 @@ extension DetailViewController: DetailDelegate {
     }
     
     func didTapTags() {
-        //TODO: add action here
         let fpc = FloatingPanelController(delegate: self)
         let layout = MyFloatingPanelLayout()
         fpc.layout = layout
@@ -31,7 +30,8 @@ extension DetailViewController: DetailDelegate {
         let storyboard = UIStoryboard(name: "TagsModal", bundle: nil)
         guard let tagsModalVC = storyboard.instantiateViewController(withIdentifier: "TagsModal") as? TagsModalViewController else {return}
         
-        tagsModalVC.selectedTagPosition = 0
+        tagsModalVC.selectedTagName = transcription?.tags!
+        tagsModalVC.delegate = self
         
         fpc.set(contentViewController: tagsModalVC)
         fpc.isRemovalInteractionEnabled = true
@@ -56,5 +56,12 @@ extension DetailViewController: FloatingPanelControllerDelegate {
             let minY = fpc.surfaceLocation(for: .half).y - 16.0
             fpc.surfaceLocation = CGPoint(x: loc.x, y: max(loc.y, minY))
         }
+    }
+}
+
+extension DetailViewController: TagsModalDelegate {
+    func tagSelected(tagName: String) {
+        detailView.tagsLabel.text = tagName
+        TranscriptionRepository.shared.update(item: transcription!, newTitle: (transcription?.title)!, newResult: (transcription?.result)!, newTags: tagName)
     }
 }
