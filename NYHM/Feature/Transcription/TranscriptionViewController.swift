@@ -16,8 +16,10 @@ protocol SaveTranscriptionProtocol {
 class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate, AVAudioRecorderDelegate {
     
     @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var transcriptionResultTextView: UITextView!
     @IBOutlet weak var transcribeActionButton: UIButton!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     var homeController = HomeViewController()
     
@@ -26,6 +28,7 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     var transcriptionTemp = ""
     var transcriptionTemp2 = ""
     var filename:URL?
+    var filenameToSave:String = ""
     var isPlaying:Bool = true
     
     var durationString:String = ""
@@ -38,6 +41,9 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     
     var recordingSession: AVAudioSession?
     var audioRecorder: AVAudioRecorder?
+    
+    var timer: Timer?
+    var durationTemp:Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,9 +58,31 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         
         initSpeechAuth()
         initRecordingSession()
+        initDuration()
         
         transcribeOnLoad()
         startRecording()
+        
+    }
+    
+    func initDuration() -> Void {
+        
+        durationLabel.text = "00:00:00"
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+            if self.isPlaying {
+                self.durationTemp += 1
+                
+                self.durationTemp.hmsFrom(seconds: self.durationTemp) { hours, minutes, seconds in
+                    let hours = seconds.getStringFrom(seconds: hours)
+                    let minutes = seconds.getStringFrom(seconds: minutes)
+                    let seconds = seconds.getStringFrom(seconds: seconds)
+                    self.durationLabel.text = "\(hours):\(minutes):\(seconds)"
+                }
+                
+                
+            }
+        }
     }
     
     func initSpeechAuth() -> Void {
@@ -73,7 +101,6 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             @unknown default:
                 fatalError()
             }
-            
             print(msg)
         }
     }
@@ -141,7 +168,8 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     
     func getFileUrl() -> URL {
         let date = Date()
-        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("\(date.generateTimestampForFilename()).m4a")
+        filenameToSave = "\(date.generateTimestampForFilename()).m4a"
+        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(filenameToSave)
     }
     
     func startTranscription() {
@@ -182,6 +210,8 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
                     
                     self.transcriptionResultTextView.text = concat
                     print(concat)
+                    
+                    
                 }
                 
             }
@@ -227,28 +257,24 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             pauseRecording()
             
             transcribeActionButton.setTitle("Start", for: .normal)
+            saveButton.isEnabled = true
             isPlaying = false
         }
         
         // State is stopped, command to start
         else {
-            speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "id"))
+            let locale = UserDefaults.standard.string(forKey: Constants.SELECTED_LANGUAGE)
+            speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: locale!))
             startTranscription()
             continueRecording()
             
             transcribeActionButton.setTitle("Stop", for: .normal)
+            saveButton.isEnabled = false
             isPlaying = true
             
         }
     }
-    
-//    func hmsFrom(seconds: Int, completion: @escaping (_ hours: Int, _ minutes: Int, _ seconds: Int)->()) {
-//        completion(seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
-//    }
-//    
-//    func getStringFrom(seconds: Int) -> String {
-//        return seconds < 10 ? "0\(seconds)" : "\(seconds)"
-//    }
+
     
     @IBAction func cancel(_ sender: Any) {
         audioEngine.stop()
@@ -262,19 +288,12 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         
         print(filename!)
         
-        // TODO: Save to CoreData
-        /// Transcription Title (if nil -> "Untitled Transcription")
-        /// Filename -> iHear_20220301_140439
-        /// Transcription Result -> transcriptionTemp
-        
-        let strFilename = "\(filename!)"
         let strTitle = titleTextField.text == "" ? "Untitled Transcription" : titleTextField.text
         
         let audioAsset = AVURLAsset.init(url: filename!)
         let duration = Int(CMTimeGetSeconds(audioAsset.duration))
         
-        var seconds: Int = duration
-        seconds.hmsFrom(seconds: seconds) { hours, minutes, seconds in
+        durationTemp.hmsFrom(seconds: durationTemp) { hours, minutes, seconds in
             let hours = seconds.getStringFrom(seconds: hours)
             let minutes = seconds.getStringFrom(seconds: minutes)
             let seconds = seconds.getStringFrom(seconds: seconds)
@@ -285,8 +304,10 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             title: strTitle!,
             result: transcriptionTemp,
             duration: durationString,
-            filename: strFilename
+            filename: filenameToSave
         )
+        
+        print("\(filenameToSave)")
         
         delegate?.reloadTableView()
         dismiss(animated: true)

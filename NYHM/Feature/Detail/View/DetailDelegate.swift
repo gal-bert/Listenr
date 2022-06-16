@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import UIKit
 
 protocol DetailDelegate {
-    func didTapPlay()
+    func didTapPlay(sender: UIButton)
     func didTapBackward()
     func didTapForward()
     func didTapTags()

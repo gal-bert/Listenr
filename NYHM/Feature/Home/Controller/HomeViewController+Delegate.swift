@@ -12,10 +12,19 @@ extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let detail = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
-            detail.transcription = transcriptions[indexPath.row]
+            detail.transcription = transcriptions[indexPath.section]
             self.navigationController?.pushViewController(detail, animated: true)
         }
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            repo.delete(item: transcriptions[indexPath.section])
+            transcriptions = repo.showAll()
+            tableView.deleteSections(IndexSet(arrayLiteral: indexPath.section), with: .left)
+        }
+    }
+    
 }
 
 extension HomeViewController: HomeDelegate {
@@ -24,12 +33,12 @@ extension HomeViewController: HomeDelegate {
         let sheet = UIAlertController(title: "Select Language", message: nil, preferredStyle: .actionSheet)
         sheet.addAction(UIAlertAction(title: "Bahasa Indonesia", style: .default, handler: {_ in
             self.homeView.languageLabel.text = "Bahasa Indonesia"
-            //TODO: set language transcription to Bahasa
+            UserDefaults.standard.set("id", forKey: Constants.SELECTED_LANGUAGE)
             
         }))
         sheet.addAction(UIAlertAction(title: "English", style: .default, handler: {_ in
             self.homeView.languageLabel.text = "English"
-            //TODO: set language transcription to English
+            UserDefaults.standard.set("en-US", forKey: Constants.SELECTED_LANGUAGE)
         }))
 
         present(sheet, animated: true)
