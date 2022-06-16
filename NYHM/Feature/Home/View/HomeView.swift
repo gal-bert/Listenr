@@ -12,8 +12,11 @@ class HomeView: UIView {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var sortButton: UIBarButtonItem!
+    @IBOutlet weak var languageLabel: UILabel!
     
     private var delegate: HomeDelegate?
+    
+    lazy var castedDelegate = delegate as! HomeViewController
     
     func setup(viewController: HomeViewController) {
         delegate = viewController
@@ -36,8 +39,13 @@ class HomeView: UIView {
         sortButton.menu = UIMenu(title: "Sort by", image: nil, identifier: nil, options: [], children: menuItems)
     }
     
-    @IBAction func didTapLanguage(_ sender: UIButton) {
+    @IBAction func didTapLanguage(_ sender: Any) {
         delegate?.chooseLanguage()
+    }
+    
+    
+    @IBAction func transcribeButton(_ sender: Any) {
+        castedDelegate.performSegue(withIdentifier: "toTranscriptionPageSegue", sender: self)
     }
     
 }

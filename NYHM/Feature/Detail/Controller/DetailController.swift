@@ -7,13 +7,8 @@
 
 import Foundation
 import UIKit
+import FloatingPanel
 
 class DetailViewController: UIViewController {
     
-    var transcription: Transcriptions?
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
 }
