@@ -22,7 +22,9 @@ class HomeViewController: UIViewController {
         transcriptions = repo.showAll()
         homeView.setup(viewController: self)
         
-        navigationItem.searchController = UISearchController()
+        let searchController = UISearchController()
+        searchController.searchBar.barStyle = .black
+        navigationItem.searchController = searchController
         
     }
     

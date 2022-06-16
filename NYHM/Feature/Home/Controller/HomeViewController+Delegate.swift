@@ -12,7 +12,7 @@ extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let detail = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
-            detail.transcription = transcriptions[indexPath.row]
+            detail.transcription = transcriptions[indexPath.section]
             self.navigationController?.pushViewController(detail, animated: true)
         }
     }

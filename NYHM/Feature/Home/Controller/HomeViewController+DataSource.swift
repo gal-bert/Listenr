@@ -10,13 +10,17 @@ import UIKit
 
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         return transcriptions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "itemHomeCell", for: indexPath) as! ItemHomeCell
         
-        let item = transcriptions[indexPath.row]
+        let item = transcriptions[indexPath.section]
         cell.titleLabel.text = item.title
         cell.tagsLabel.text = item.tags
         cell.createdAtLabel.text = item.createdAt?.fixedFormat()
