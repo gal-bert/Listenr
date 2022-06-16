@@ -7,19 +7,32 @@
 
 import Foundation
 import UIKit
+import AVFAudio
 
 class DetailViewController: UIViewController {
     @IBOutlet var detailView: DetailView!
     
     var transcription: Transcriptions?
+//    var audioPlayer: AVAudioPlayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        detailView.setup(data: transcription!, delegate: self)
-        
         navigationItem.largeTitleDisplayMode = .never
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(didTapShare))
+        
+//        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+//        let filename = path.appendingPathComponent("iHear_2022616_16405.m4a") // URL
+//
+//        do {
+//            audioPlayer = try AVAudioPlayer(contentsOf: filename)
+//        }
+//        catch {
+//            print(error.localizedDescription)
+//        }
+        
+        detailView.setup(data: transcription!, delegate: self)
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
