@@ -21,6 +21,7 @@
 		5F0E444828598A8600C846E1 /* TagsModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E444728598A8600C846E1 /* TagsModalView.swift */; };
 		5F0E444B28599C9000C846E1 /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = 5F0E444A28599C9000C846E1 /* FloatingPanel */; };
 		5FA0EAD2285A2F0F00B2C345 /* TagsModalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA0EAD1285A2F0F00B2C345 /* TagsModalLayout.swift */; };
+		5FE3BFAC285B4468009B63D3 /* TagsModalDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE3BFAB285B4468009B63D3 /* TagsModalDelegate.swift */; };
 		FB27AF042857409C00D0B270 /* TranscriptionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27AF032857409C00D0B270 /* TranscriptionRepository.swift */; };
 		FB27AF062857450D00D0B270 /* TranscriptionCoreDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27AF052857450D00D0B270 /* TranscriptionCoreDataSource.swift */; };
 		FB27AF0A28576ED400D0B270 /* SortType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27AF0928576ED400D0B270 /* SortType.swift */; };
@@ -92,6 +93,7 @@
 		5F0E44452859582200C846E1 /* TagsModalViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TagsModalViewController+DataSource.swift"; sourceTree = "<group>"; };
 		5F0E444728598A8600C846E1 /* TagsModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsModalView.swift; sourceTree = "<group>"; };
 		5FA0EAD1285A2F0F00B2C345 /* TagsModalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsModalLayout.swift; sourceTree = "<group>"; };
+		5FE3BFAB285B4468009B63D3 /* TagsModalDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsModalDelegate.swift; sourceTree = "<group>"; };
 		FB27AF032857409C00D0B270 /* TranscriptionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionRepository.swift; sourceTree = "<group>"; };
 		FB27AF052857450D00D0B270 /* TranscriptionCoreDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionCoreDataSource.swift; sourceTree = "<group>"; };
 		FB27AF0928576ED400D0B270 /* SortType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortType.swift; sourceTree = "<group>"; };
@@ -442,6 +444,7 @@
 				5F0E443C285953AF00C846E1 /* TagsModal.storyboard */,
 				5F0E444728598A8600C846E1 /* TagsModalView.swift */,
 				5FA0EAD1285A2F0F00B2C345 /* TagsModalLayout.swift */,
+				5FE3BFAB285B4468009B63D3 /* TagsModalDelegate.swift */,
 			);
 			path = TagsModal;
 			sourceTree = "<group>";
@@ -611,6 +614,7 @@
 				0C5C8AC3285B661C00536BB2 /* Constants.swift in Sources */,
 				FB9EE50E2855FE5E004EEA24 /* AppDelegate.swift in Sources */,
 				0C311F0D285A342800EA2FFE /* Int+Ext.swift in Sources */,
+				5FE3BFAC285B4468009B63D3 /* TagsModalDelegate.swift in Sources */,
 				FB9EE5102855FE5E004EEA24 /* SceneDelegate.swift in Sources */,
 				FB27AF062857450D00D0B270 /* TranscriptionCoreDataSource.swift in Sources */,
 				FB27AF0E2857788600D0B270 /* TagsCoreDataSource.swift in Sources */,

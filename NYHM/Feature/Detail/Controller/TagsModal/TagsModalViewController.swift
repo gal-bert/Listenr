@@ -13,7 +13,9 @@ class TagsModalViewController: UIViewController {
     
     let tagRepo = TagsRepository.shared
     var tagList = [Tags]()
-    var selectedTagPosition:Int?
+    var selectedTagName:String?
+    
+    weak var delegate: TagsModalDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()

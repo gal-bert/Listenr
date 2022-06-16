@@ -10,8 +10,7 @@ import UIKit
 
 extension TagsModalViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        /// TODO: Change selected tag in core data
-        /// TODO: Trigger change the selected tag in detail
+        delegate?.tagSelected(tagName: tagList[indexPath.row].name!)
         dismiss(animated: true)
     }
 }
