@@ -10,8 +10,22 @@ import FloatingPanel
 import UIKit
 
 extension DetailViewController: DetailDelegate {
-    func didTapPlay() {
-        //TODO: add action here
+    
+    func didTapPlay(sender: UIButton) {
+//        if isPlaying {
+//            sender.setImage(UIImage(systemName: "play.fill")?.middImage(), for: .normal)
+//            isPlaying = false
+//            guard let player = audioPlayer else { return }
+//            player.pause()
+//            print("pausing...")
+//            return
+//        }
+//
+//        sender.setImage(UIImage(systemName: "pause.fill")?.middImage(), for: .normal)
+//        isPlaying = true
+//        guard let player = audioPlayer else { return }
+//        player.play()
+//        print("playing...")
     }
     
     func didTapBackward() {

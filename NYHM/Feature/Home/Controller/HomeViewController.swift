@@ -22,8 +22,17 @@ class HomeViewController: UIViewController {
         transcriptions = repo.showAll()
         homeView.setup(viewController: self)
         
-        navigationItem.searchController = UISearchController()
+        let searchController = UISearchController()
+        searchController.searchBar.barStyle = .black
+        navigationItem.searchController = searchController
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        transcriptions = repo.showAll()
+        homeView.tableView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
