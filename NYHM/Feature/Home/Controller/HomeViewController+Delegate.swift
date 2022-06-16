@@ -16,6 +16,15 @@ extension HomeViewController: UITableViewDelegate {
             self.navigationController?.pushViewController(detail, animated: true)
         }
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            repo.delete(item: transcriptions[indexPath.section])
+            transcriptions = repo.showAll()
+            tableView.deleteSections(IndexSet(arrayLiteral: indexPath.section), with: .left)
+        }
+    }
+    
 }
 
 extension HomeViewController: HomeDelegate {
