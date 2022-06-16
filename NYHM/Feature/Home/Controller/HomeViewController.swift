@@ -14,7 +14,17 @@ class HomeViewController: UIViewController {
     
     let repo = TranscriptionRepository.shared
     var transcriptions = [Transcriptions]()
+    var filteredTranscriptions = [Transcriptions]()
     var currentSort = SortType.timeDesc
+    
+    let searchController = UISearchController()
+    var searchBarIsEmpty: Bool {
+      return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    var isFiltering: Bool {
+      return searchController.isActive && !searchBarIsEmpty
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,10 +32,9 @@ class HomeViewController: UIViewController {
         transcriptions = repo.showAll()
         homeView.setup(viewController: self)
         
-        let searchController = UISearchController()
         searchController.searchBar.barStyle = .black
+        searchController.searchResultsUpdater = self
         navigationItem.searchController = searchController
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
