@@ -22,4 +22,19 @@ class DetailViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(didTapShare))
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        let newTags = detailView.tagsLabel.text!
+        let newTitle = detailView.titleTextView.text!
+        let newResult = detailView.resultTextView.text!
+        
+        let isTagsChange = newTags != transcription?.tags
+        let isTitleChange = newTitle != transcription?.title
+        let isResultChange = newResult != transcription?.result
+        
+        if (isTagsChange || isTitleChange || isResultChange) {
+            TranscriptionRepository.shared.update(item: transcription!, newTitle: newTitle, newResult: newResult, newTags: newTags)
+        }
+    }
 }
