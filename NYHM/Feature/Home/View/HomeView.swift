@@ -11,26 +11,41 @@ import UIKit
 class HomeView: UIView {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var sortButton: UIBarButtonItem!
+    @IBOutlet weak var languageLabel: UILabel!
     
-    private var viewController: HomeViewController?
+    private var delegate: HomeDelegate?
+    
+    lazy var castedDelegate = delegate as! HomeViewController
     
     func setup(viewController: HomeViewController) {
-        self.viewController = viewController
+        delegate = viewController
+        
         tableView.delegate = viewController
         tableView.dataSource = viewController
-        
         tableView.registerCell(type: ItemHomeCell.self, identifier: "itemHomeCell")
+        
+        var menuItems: [UIAction] {
+            return [
+                UIAction(title: "Sort by name", image: UIImage(systemName: "character.bubble"), handler: { (_) in
+                    self.delegate?.sortByName()
+                }),
+                UIAction(title: "Sort by date", image: UIImage(systemName: "calendar.badge.clock"), handler: { (_) in
+                    self.delegate?.sortByDate()
+                }),
+            ]
+        }
+        
+        sortButton.menu = UIMenu(title: "Sort by", image: nil, identifier: nil, options: [], children: menuItems)
     }
     
-    @IBAction func didTapLanguage(_ sender: UIButton) {
-        let sheet = UIAlertController(title: "Select Language", message: nil, preferredStyle: .actionSheet)
-        sheet.addAction(UIAlertAction(title: "Bahasa Indonesia", style: .default, handler: {_ in
-
-        }))
-        sheet.addAction(UIAlertAction(title: "English", style: .default, handler: {_ in
-
-        }))
-
-        viewController?.present(sheet, animated: true)
+    @IBAction func didTapLanguage(_ sender: Any) {
+        delegate?.chooseLanguage()
     }
+    
+    
+    @IBAction func transcribeButton(_ sender: Any) {
+        castedDelegate.performSegue(withIdentifier: "toTranscriptionPageSegue", sender: self)
+    }
+    
 }
