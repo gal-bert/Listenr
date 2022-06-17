@@ -45,7 +45,8 @@ class DetailView: UIView {
         
         createdAtLabel.text = data.createdAt?.fixedFormat()
         durationLabel.text = data.duration
-        tagsLabel.text = data.tags
+        
+        tagsLabel.text = data.tags == "Untagged" ? "Add Tags" : data.tags
         
         let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let filename = path.appendingPathComponent(data.filename!) // URL
@@ -58,6 +59,7 @@ class DetailView: UIView {
         }
         
         progressBar.progress = 0
+        durationLeftLabel.text = "-\(convertToString(by: player!.duration - player!.currentTime) ?? "00:00")"
         
         playButton.setImage(UIImage(systemName: "play.fill")?.middImage(), for: .normal)
         playButton.addTarget(self, action: #selector(clickPlayButton), for: .touchUpInside)
@@ -147,14 +149,29 @@ class DetailView: UIView {
     
     @IBAction func didTapBackward(_ sender: UIButton) {
         delegate?.didTapBackward()
+        skip(value: -15.0)
     }
     
     @IBAction func didTapForward(_ sender: UIButton) {
         delegate?.didTapForward()
+        skip(value: 15.0)
     }
     
     @IBAction func didTapTags(_ sender: Any) {
         delegate?.didTapTags()
+    }
+    
+    private func skip(value: Double) {
+        guard let player = player else { return }
+        var time = player.currentTime
+        time += value
+        if (time > player.duration) {
+            // stop, track skip or whatever you want
+        } else {
+            player.currentTime = time;
+        }
+        
+        changeView(isFromButton: true, sender: nil)
     }
     
     func showHelpTimeLabel(by sender: UILongPressGestureRecognizer, text: String?) {
