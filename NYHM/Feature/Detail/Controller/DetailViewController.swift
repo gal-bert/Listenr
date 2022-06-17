@@ -47,7 +47,10 @@ class DetailViewController: UIViewController {
         let isResultChange = newResult != transcription?.result
         
         if (isTagsChange || isTitleChange || isResultChange) {
-            TranscriptionRepository.shared.update(item: transcription!, newTitle: newTitle, newResult: newResult, newTags: newTags)
+            
+            if newTags != "Add Tags" {
+                TranscriptionRepository.shared.update(item: transcription!, newTitle: newTitle, newResult: newResult, newTags: newTags)
+            }
         }
         
         detailView.player?.stop()
