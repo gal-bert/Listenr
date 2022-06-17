@@ -12,7 +12,12 @@ extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let detail = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
-            detail.transcription = transcriptions[indexPath.section]
+            if isFiltering {
+                detail.transcription = filteredTranscriptions[indexPath.section]
+            }
+            else {
+                detail.transcription = transcriptions[indexPath.section]
+            }
             self.navigationController?.pushViewController(detail, animated: true)
         }
     }
@@ -84,6 +89,21 @@ extension HomeViewController: HomeDelegate {
 extension HomeViewController: SaveTranscriptionProtocol {
     func reloadTableView() {
         transcriptions = TranscriptionRepository.shared.showAll()
+        homeView.tableView.reloadData()
+    }
+}
+
+extension HomeViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        searchBasedOnText(keyword: searchBar.text!)
+        print("keyword: \(searchBar.text!)")
+    }
+
+    func searchBasedOnText(keyword: String) {
+        filteredTranscriptions = transcriptions.filter({ transcription -> Bool in
+            return transcription.title?.lowercased().contains(keyword.lowercased()) ?? false
+        })
         homeView.tableView.reloadData()
     }
 }
