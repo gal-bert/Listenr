@@ -45,7 +45,8 @@ class DetailView: UIView {
         
         createdAtLabel.text = data.createdAt?.fixedFormat()
         durationLabel.text = data.duration
-        tagsLabel.text = data.tags
+        
+        tagsLabel.text = data.tags == "Untagged" ? "Add Tags" : data.tags
         
         let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let filename = path.appendingPathComponent(data.filename!) // URL
