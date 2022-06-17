@@ -43,17 +43,4 @@ class HomeViewController: UIViewController {
         transcriptions = repo.showAll()
         homeView.tableView.reloadData()
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "toTranscriptionPageSegue" {
-            if let dest = segue.destination as? TranscriptionViewController {
-                dest.delegate = self
-            }
-        }
-        
-    }
-    
-    
-    
 }
