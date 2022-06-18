@@ -12,9 +12,15 @@ class SettingsViewController: UIViewController {
     
     @IBOutlet var settingsView: SettingsView!
     
+    let tagRepo = TagsRepository.shared
+    var tagArr = [Tags]()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tagArr = tagRepo.getAll()
         settingsView.setup(viewController: self)
+        self.view.endEditing(true)
+        
     }
 }
