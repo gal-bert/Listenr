@@ -10,9 +10,9 @@ import UIKit
 
 class AddNewTagCell: UITableViewCell {
     
-    private var settingController : SettingsViewController?
-    
     let tagRepo = TagsRepository.shared
+    
+    var delegate: AddNewDelegate?
     
     static let identifier = "AddNewTagCellSB"
     
@@ -51,6 +51,11 @@ class AddNewTagCell: UITableViewCell {
         }
         labelNewTagValue.text = ""
         
+        delegate?.reloadData()
 //        TagTableCell.fetchData()
     }
+}
+
+protocol AddNewDelegate {
+    func reloadData()
 }

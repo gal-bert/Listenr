@@ -12,6 +12,7 @@ import UIKit
 class TagTableCell : UITableViewCell, UITableViewDelegate, UITableViewDataSource {
     
     private var viewController: SettingsViewController?
+    var delegate: AddNewDelegate?
     
     let tagRepo = TagsRepository.shared
     var tagArr = [Tags]()
@@ -64,6 +65,7 @@ class TagTableCell : UITableViewCell, UITableViewDelegate, UITableViewDataSource
             tagRepo.delete(item: tagArr[indexPath.row])
             tagArr = tagRepo.getAll()
             tableView.reloadData()
+            delegate?.reloadData()
         }
     }
     

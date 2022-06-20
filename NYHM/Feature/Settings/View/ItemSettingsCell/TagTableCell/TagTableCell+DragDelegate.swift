@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 extension TagTableCell: UITableViewDragDelegate {
-
+    
     func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
         let dragItem = UIDragItem(itemProvider: NSItemProvider())
         dragItem.localObject = tagArr[indexPath.row]

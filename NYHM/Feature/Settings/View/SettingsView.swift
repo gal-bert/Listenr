@@ -18,6 +18,7 @@ class SettingsView: UIView {
         self.viewController = viewController
         tableView.delegate = viewController
         tableView.dataSource = viewController
+            
         tableView.registerCell(type: WaveformSwitchCell.self, identifier: WaveformSwitchCell.identifier)
         tableView.registerCell(type: AddNewTagCell.self, identifier: AddNewTagCell.identifier)
         
