@@ -31,9 +31,9 @@ class HomeViewController: UIViewController {
         
         let isFirstTime = UserDefaults.standard.bool(forKey: Constants.IS_FIRST_TIME)
         if isFirstTime == true {
-            TagsRepository.shared.add(name: "Class", position: 0)
-            TagsRepository.shared.add(name: "Lecture", position: 1)
-            TagsRepository.shared.add(name: "Seminar", position: 2)
+            TagsRepository.shared.add(name: "Lecture", position: 0)
+            TagsRepository.shared.add(name: "Seminar", position: 1)
+            TagsRepository.shared.add(name: "Conversation", position: 2)
             UserDefaults.standard.set(false, forKey: Constants.IS_FIRST_TIME)
         }
         
