@@ -38,15 +38,21 @@ class HomeView: UIView {
         
         sortButton.menu = UIMenu(title: "Sort by", image: nil, identifier: nil, options: [], children: menuItems)
         tableView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
+        
+        let savedLanguage = UserDefaults.standard.string(forKey: Constants.SELECTED_LANGUAGE)
+        if savedLanguage! == "id" {
+            languageLabel.text = "Bahasa Indonesia"
+        } else {
+            languageLabel.text = "English"
+        }
+        
     }
     
     @IBAction func didTapLanguage(_ sender: Any) {
         delegate?.chooseLanguage()
     }
     
-    
     @IBAction func transcribeButton(_ sender: Any) {
-        castedDelegate.performSegue(withIdentifier: "toTranscriptionPageSegue", sender: self)
+        delegate?.showTranscriptionModal()
     }
-    
 }

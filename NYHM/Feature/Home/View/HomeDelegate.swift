@@ -12,4 +12,5 @@ protocol HomeDelegate: AnyObject {
     func chooseLanguage()
     func sortByName()
     func sortByDate()
+    func showTranscriptionModal()
 }
