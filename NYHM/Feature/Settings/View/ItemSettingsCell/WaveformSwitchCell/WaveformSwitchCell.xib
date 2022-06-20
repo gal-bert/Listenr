@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="waveformCellSB" rowHeight="36" id="xzX-Rz-Ok0" customClass="WaveformSwitchCell" customModule="NYHM" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="126"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xzX-Rz-Ok0" id="dr5-JH-aSe" customClass="WaveformSwitchCell" customModule="NYHM" customModuleProvider="target">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="126"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0l2-7Q-fTd">
+                        <rect key="frame" x="7" y="15" width="350" height="50"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waveform Visualizer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="98R-ht-aZh">
+                                <rect key="frame" x="20" y="15" width="194" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Iht-ce-2XJ">
+                                <rect key="frame" x="284" y="10" width="51" height="31"/>
+                                <connections>
+                                    <action selector="handleSwitchWaveform:" destination="xzX-Rz-Ok0" eventType="valueChanged" id="bJ9-6X-mwX"/>
+                                </connections>
+                            </switch>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="When enabled, detected audio signature will be displayed through a reactive audio waveform. " textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wWu-sM-CTK">
+                                <rect key="frame" x="15" y="51" width="334" height="52"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="334" id="NKH-dH-7Cm"/>
+                                    <constraint firstAttribute="height" constant="52" id="kIW-tR-N42"/>
+                                </constraints>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.10980392156862745" green="0.10980392156862745" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="6Ua-hG-A4I"/>
+                            <constraint firstAttribute="trailing" secondItem="wWu-sM-CTK" secondAttribute="trailing" constant="1" id="CHY-dn-da7"/>
+                            <constraint firstItem="98R-ht-aZh" firstAttribute="top" secondItem="0l2-7Q-fTd" secondAttribute="top" constant="15" id="Lra-cC-6m6"/>
+                            <constraint firstAttribute="bottom" secondItem="wWu-sM-CTK" secondAttribute="bottom" constant="-53" id="QTt-zz-3Wc"/>
+                            <constraint firstItem="98R-ht-aZh" firstAttribute="leading" secondItem="0l2-7Q-fTd" secondAttribute="leading" constant="20" id="T9c-c2-yDk"/>
+                            <constraint firstItem="Iht-ce-2XJ" firstAttribute="leading" secondItem="98R-ht-aZh" secondAttribute="trailing" constant="70" id="etM-QS-W5L"/>
+                            <constraint firstItem="wWu-sM-CTK" firstAttribute="leading" secondItem="0l2-7Q-fTd" secondAttribute="leading" constant="15" id="iOe-eD-nq8"/>
+                            <constraint firstItem="wWu-sM-CTK" firstAttribute="top" secondItem="Iht-ce-2XJ" secondAttribute="bottom" constant="10" id="oeP-VS-qLb"/>
+                            <constraint firstAttribute="trailing" secondItem="Iht-ce-2XJ" secondAttribute="trailing" constant="17" id="pWZ-fB-8Yr"/>
+                            <constraint firstItem="Iht-ce-2XJ" firstAttribute="top" secondItem="0l2-7Q-fTd" secondAttribute="top" constant="10" id="t86-7O-4Qs"/>
+                            <constraint firstAttribute="width" constant="350" id="vgb-d0-TcK"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="0l2-7Q-fTd" firstAttribute="top" secondItem="dr5-JH-aSe" secondAttribute="top" constant="15" id="Hu3-vF-6Uz"/>
+                    <constraint firstItem="0l2-7Q-fTd" firstAttribute="leading" secondItem="dr5-JH-aSe" secondAttribute="leading" constant="7" id="Jzl-R1-4lB"/>
+                    <constraint firstAttribute="trailing" secondItem="0l2-7Q-fTd" secondAttribute="trailing" constant="20" id="msA-Bd-jJq"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+            <connections>
+                <outlet property="viewWaveform" destination="0l2-7Q-fTd" id="cHj-QP-k6z"/>
+                <outlet property="waveformState" destination="Iht-ce-2XJ" id="f63-rw-QzI"/>
+            </connections>
+            <point key="canvasLocation" x="200.00000000000003" y="79.017857142857139"/>
+        </tableViewCell>
+    </objects>
+</document>

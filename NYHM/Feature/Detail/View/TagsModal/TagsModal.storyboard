@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tags Modal View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="TagsModal" modalPresentationStyle="fullScreen" id="Y6W-OH-hqX" customClass="TagsModalViewController" customModule="NYHM" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc" customClass="TagsModalView" customModule="NYHM" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="73g-yj-H5N">
+                                <rect key="frame" x="0.0" y="52" width="414" height="44"/>
+                                <color key="barTintColor" red="0.109803915" green="0.109803915" blue="0.1176470518" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <items>
+                                    <navigationItem title="Select Tags" id="YCP-9h-FvU">
+                                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="I9g-Mk-eGJ">
+                                            <color key="tintColor" red="1" green="0.80711019039154053" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <connections>
+                                                <action selector="addNewTag:" destination="5EZ-qb-Rvc" id="WZR-Lx-ZKt"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ZFx-2C-sxA">
+                                <rect key="frame" x="0.0" y="96" width="414" height="766"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tagCell" textLabel="0D6-wJ-eCb" style="IBUITableViewCellStyleDefault" id="2ji-YV-Thy">
+                                        <rect key="frame" x="20" y="49.5" width="374" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2ji-YV-Thy" id="S9g-KN-zhH">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0D6-wJ-eCb">
+                                                    <rect key="frame" x="20" y="0.0" width="334" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.17254883050918579" green="0.17254924774169922" blue="0.18114304542541504" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" red="0.10980368405580521" green="0.10980410128831863" blue="0.11839092522859573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="ZFx-2C-sxA" secondAttribute="bottom" id="Dev-F8-XJG"/>
+                            <constraint firstItem="ZFx-2C-sxA" firstAttribute="top" secondItem="73g-yj-H5N" secondAttribute="bottom" id="HKv-HK-s5u"/>
+                            <constraint firstItem="73g-yj-H5N" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="8" id="Mqz-qM-VfB"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ZFx-2C-sxA" secondAttribute="trailing" id="WBS-Dj-OdQ"/>
+                            <constraint firstItem="73g-yj-H5N" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="csR-O8-5OK"/>
+                            <constraint firstItem="ZFx-2C-sxA" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="f8K-hg-Oh2"/>
+                            <constraint firstItem="73g-yj-H5N" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="tUg-9K-1Cu"/>
+                        </constraints>
+                        <connections>
+                            <outlet property="tagTableView" destination="ZFx-2C-sxA" id="OFf-jl-e5O"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="tagsModalView" destination="5EZ-qb-Rvc" id="63P-L1-0jt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="35" y="79"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="plus" catalog="system" width="128" height="113"/>
+    </resources>
+</document>
