@@ -20,6 +20,7 @@
 		5F0E44462859582200C846E1 /* TagsModalViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E44452859582200C846E1 /* TagsModalViewController+DataSource.swift */; };
 		5F0E444828598A8600C846E1 /* TagsModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E444728598A8600C846E1 /* TagsModalView.swift */; };
 		5F0E444B28599C9000C846E1 /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = 5F0E444A28599C9000C846E1 /* FloatingPanel */; };
+		5F166835285C911E0013B0B7 /* TranscriptionModalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F166834285C911E0013B0B7 /* TranscriptionModalLayout.swift */; };
 		5FA0EAD2285A2F0F00B2C345 /* TagsModalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA0EAD1285A2F0F00B2C345 /* TagsModalLayout.swift */; };
 		5FE3BFAC285B4468009B63D3 /* TagsModalDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE3BFAB285B4468009B63D3 /* TagsModalDelegate.swift */; };
 		FB27AF042857409C00D0B270 /* TranscriptionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27AF032857409C00D0B270 /* TranscriptionRepository.swift */; };
@@ -92,6 +93,7 @@
 		5F0E44432859576700C846E1 /* TagsModalViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TagsModalViewController+Delegate.swift"; sourceTree = "<group>"; };
 		5F0E44452859582200C846E1 /* TagsModalViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TagsModalViewController+DataSource.swift"; sourceTree = "<group>"; };
 		5F0E444728598A8600C846E1 /* TagsModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsModalView.swift; sourceTree = "<group>"; };
+		5F166834285C911E0013B0B7 /* TranscriptionModalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionModalLayout.swift; sourceTree = "<group>"; };
 		5FA0EAD1285A2F0F00B2C345 /* TagsModalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsModalLayout.swift; sourceTree = "<group>"; };
 		5FE3BFAB285B4468009B63D3 /* TagsModalDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsModalDelegate.swift; sourceTree = "<group>"; };
 		FB27AF032857409C00D0B270 /* TranscriptionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionRepository.swift; sourceTree = "<group>"; };
@@ -425,6 +427,7 @@
 			children = (
 				FB9EE563285600A0004EEA24 /* TranscriptionViewController.swift */,
 				FB9EE565285600AC004EEA24 /* Transcription.storyboard */,
+				5F166834285C911E0013B0B7 /* TranscriptionModalLayout.swift */,
 			);
 			path = Transcription;
 			sourceTree = "<group>";
@@ -606,6 +609,7 @@
 				3987E1D82858E45300A1C3AC /* WaveformSwitchCell.swift in Sources */,
 				FB9EE5182855FE5E004EEA24 /* NYHM.xcdatamodeld in Sources */,
 				5F0E44442859576700C846E1 /* TagsModalViewController+Delegate.swift in Sources */,
+				5F166835285C911E0013B0B7 /* TranscriptionModalLayout.swift in Sources */,
 				FB298E7C285B5D550063B522 /* Button+Ext.swift in Sources */,
 				FB851E722859DCBF00DDBD3B /* DetailViewController+Delegate.swift in Sources */,
 				FBF0D9412858AFF8005378EA /* HomeViewController+DataSource.swift in Sources */,

@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import FloatingPanel
 
 extension HomeViewController: UITableViewDelegate {
     
@@ -84,6 +85,38 @@ extension HomeViewController: HomeDelegate {
         homeView.tableView.reloadRows(at: indexPathsToReload, with: .middle)
     }
     
+    func showTranscriptionModal() {
+        let modal = FloatingPanelController(delegate: self)
+        let customLayout = TranscriptionModalLayout()
+        modal.layout = customLayout
+        
+        let storyboard = UIStoryboard(name: "Transcription", bundle: nil)
+        guard let transcriptionVC = storyboard.instantiateViewController(withIdentifier: "transcriptionVC") as? TranscriptionViewController else {return}
+        
+        transcriptionVC.delegate = self
+        
+        modal.set(contentViewController: transcriptionVC)
+        
+        let appearance = SurfaceAppearance()
+        appearance.cornerRadius = 10.0
+        modal.surfaceView.appearance = appearance
+
+        self.present(modal, animated: true, completion: nil)
+    }
+    
+}
+
+extension HomeViewController: FloatingPanelControllerDelegate {
+    func floatingPanelDidChangeState(_ modal: FloatingPanelController) {
+        let transcriptionVC = modal.contentViewController as? TranscriptionViewController
+        
+        if modal.state == .full {
+            transcriptionVC?.stateDidChange(newState: 1)
+        }
+        else if modal.state == .half {
+            transcriptionVC?.stateDidChange(newState: 2)
+        }
+    }
 }
 
 extension HomeViewController: SaveTranscriptionProtocol {

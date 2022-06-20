@@ -147,10 +147,10 @@
             </objects>
             <point key="canvasLocation" x="1157" y="98"/>
         </scene>
-        <!--Transcription-->
+        <!--transcriptionVC-->
         <scene sceneID="DPI-En-IIT">
             <objects>
-                <viewControllerPlaceholder storyboardName="Transcription" id="Ero-fy-8Cf" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="transcriptionVC" storyboardName="Transcription" referencedIdentifier="transcriptionVC" id="Ero-fy-8Cf" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="TdG-Q2-D2W"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RP9-83-svy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
