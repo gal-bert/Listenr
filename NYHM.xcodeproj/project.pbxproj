@@ -14,6 +14,10 @@
 		3987E1D52858E27400A1C3AC /* WaveformSwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3987E1D42858E27400A1C3AC /* WaveformSwitchCell.xib */; };
 		3987E1D82858E45300A1C3AC /* WaveformSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3987E1D72858E45300A1C3AC /* WaveformSwitchCell.swift */; };
 		3987E1DC2858F0A700A1C3AC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3987E1DB2858F0A700A1C3AC /* SettingsView.swift */; };
+		39F39BB3285C59D800A74E3A /* TagTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F39BB2285C59D800A74E3A /* TagTableCell.swift */; };
+		39F39BB5285C708E00A74E3A /* TagTableCell+DragDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F39BB4285C708E00A74E3A /* TagTableCell+DragDelegate.swift */; };
+		39F39BB8285CEAF700A74E3A /* AddNewTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F39BB7285CEAF700A74E3A /* AddNewTagCell.swift */; };
+		39F39BBA285CEB5300A74E3A /* AddNewTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39F39BB9285CEB5300A74E3A /* AddNewTagCell.xib */; };
 		5F0E443D285953AF00C846E1 /* TagsModal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F0E443C285953AF00C846E1 /* TagsModal.storyboard */; };
 		5F0E4442285956E100C846E1 /* TagsModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E4441285956E100C846E1 /* TagsModalViewController.swift */; };
 		5F0E44442859576700C846E1 /* TagsModalViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E44432859576700C846E1 /* TagsModalViewController+Delegate.swift */; };
@@ -88,6 +92,10 @@
 		3987E1D42858E27400A1C3AC /* WaveformSwitchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WaveformSwitchCell.xib; sourceTree = "<group>"; };
 		3987E1D72858E45300A1C3AC /* WaveformSwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveformSwitchCell.swift; sourceTree = "<group>"; };
 		3987E1DB2858F0A700A1C3AC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		39F39BB2285C59D800A74E3A /* TagTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagTableCell.swift; sourceTree = "<group>"; };
+		39F39BB4285C708E00A74E3A /* TagTableCell+DragDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TagTableCell+DragDelegate.swift"; sourceTree = "<group>"; };
+		39F39BB7285CEAF700A74E3A /* AddNewTagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTagCell.swift; sourceTree = "<group>"; };
+		39F39BB9285CEB5300A74E3A /* AddNewTagCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewTagCell.xib; sourceTree = "<group>"; };
 		5F0E443C285953AF00C846E1 /* TagsModal.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TagsModal.storyboard; sourceTree = "<group>"; };
 		5F0E4441285956E100C846E1 /* TagsModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsModalViewController.swift; sourceTree = "<group>"; };
 		5F0E44432859576700C846E1 /* TagsModalViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TagsModalViewController+Delegate.swift"; sourceTree = "<group>"; };
@@ -169,6 +177,8 @@
 		3987E1D12858E17F00A1C3AC /* ItemSettingsCell */ = {
 			isa = PBXGroup;
 			children = (
+				39F39BB6285CEA3C00A74E3A /* AddNewTagCell */,
+				39F39BB1285C59A500A74E3A /* TagTableCell */,
 				3987E1D62858E42D00A1C3AC /* WaveformSwitchCell */,
 			);
 			path = ItemSettingsCell;
@@ -201,6 +211,24 @@
 				3987E1DB2858F0A700A1C3AC /* SettingsView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		39F39BB1285C59A500A74E3A /* TagTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				39F39BB2285C59D800A74E3A /* TagTableCell.swift */,
+				39F39BB4285C708E00A74E3A /* TagTableCell+DragDelegate.swift */,
+			);
+			path = TagTableCell;
+			sourceTree = "<group>";
+		};
+		39F39BB6285CEA3C00A74E3A /* AddNewTagCell */ = {
+			isa = PBXGroup;
+			children = (
+				39F39BB7285CEAF700A74E3A /* AddNewTagCell.swift */,
+				39F39BB9285CEB5300A74E3A /* AddNewTagCell.xib */,
+			);
+			path = AddNewTagCell;
 			sourceTree = "<group>";
 		};
 		5F0E4440285956CC00C846E1 /* TagsModal */ = {
@@ -575,6 +603,7 @@
 				FB9EE5432855FECC004EEA24 /* Home.storyboard in Resources */,
 				FBF0D9392858A9A4005378EA /* ItemHomeCell.xib in Resources */,
 				FB9EE51D2855FE5F004EEA24 /* LaunchScreen.storyboard in Resources */,
+				39F39BBA285CEB5300A74E3A /* AddNewTagCell.xib in Resources */,
 				FB9EE566285600AC004EEA24 /* Transcription.storyboard in Resources */,
 				FBD82DCD285B722800675347 /* UserDefault in Resources */,
 				FB9EE568285600BC004EEA24 /* Settings.storyboard in Resources */,
@@ -608,6 +637,7 @@
 				FB27AF042857409C00D0B270 /* TranscriptionRepository.swift in Sources */,
 				3987E1D82858E45300A1C3AC /* WaveformSwitchCell.swift in Sources */,
 				FB9EE5182855FE5E004EEA24 /* NYHM.xcdatamodeld in Sources */,
+				39F39BB5285C708E00A74E3A /* TagTableCell+DragDelegate.swift in Sources */,
 				5F0E44442859576700C846E1 /* TagsModalViewController+Delegate.swift in Sources */,
 				5F166835285C911E0013B0B7 /* TranscriptionModalLayout.swift in Sources */,
 				FB298E7C285B5D550063B522 /* Button+Ext.swift in Sources */,
@@ -630,6 +660,7 @@
 				5FA0EAD2285A2F0F00B2C345 /* TagsModalLayout.swift in Sources */,
 				FB9EE5412855FE8C004EEA24 /* HomeViewController.swift in Sources */,
 				FBF0D9452858B288005378EA /* TableView+Ext.swift in Sources */,
+				39F39BB8285CEAF700A74E3A /* AddNewTagCell.swift in Sources */,
 				FB27AF0C285775E300D0B270 /* TagsRepository.swift in Sources */,
 				5F0E444828598A8600C846E1 /* TagsModalView.swift in Sources */,
 				5F0E44462859582200C846E1 /* TagsModalViewController+DataSource.swift in Sources */,
@@ -639,6 +670,7 @@
 				FB9EE56228560080004EEA24 /* DetailViewController.swift in Sources */,
 				FBDA69DD28582161008312FF /* DetailView.swift in Sources */,
 				FB298E7E285B604A0063B522 /* ConvertHelper.swift in Sources */,
+				39F39BB3285C59D800A74E3A /* TagTableCell.swift in Sources */,
 				FB9EE56A285600C9004EEA24 /* SettingsViewController.swift in Sources */,
 				FB851E742859DD8700DDBD3B /* DetailDelegate.swift in Sources */,
 				FBF0D93B2858AD93005378EA /* ItemHomeCell.swift in Sources */,

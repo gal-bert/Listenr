@@ -17,12 +17,14 @@ class WaveformSwitchCell : UITableViewCell {
         return UINib(nibName: "waveformCellSB", bundle: nil)
     }
     
+    @IBOutlet weak var viewWaveform: UIView!
     @IBOutlet weak var waveformState: UISwitch!
     @IBAction func handleSwitchWaveform(_ sender: UISwitch) {
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.viewWaveform?.layer.cornerRadius = 10
     }
     
     override func layoutSubviews() {
