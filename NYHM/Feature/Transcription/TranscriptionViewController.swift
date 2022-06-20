@@ -8,6 +8,7 @@
 import UIKit
 import Speech
 import AVKit
+import WatchConnectivity
 
 protocol SaveTranscriptionProtocol {
     func reloadTableView()
@@ -45,6 +46,8 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     var timer: Timer?
     var durationTemp:Int = 0
     
+    var session: WCSession?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,6 +59,7 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         
         transcriptionResultTextView.text = ""
         
+        setupWatchSession()
         initSpeechAuth()
         initRecordingSession()
         initDuration()
@@ -63,6 +67,14 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         transcribeOnLoad()
         startRecording()
         
+    }
+    
+    func setupWatchSession() {
+        if WCSession.isSupported() {
+            session = WCSession.default
+            session?.delegate = self
+            session?.activate()
+        }
     }
     
     func initDuration() -> Void {
@@ -211,7 +223,10 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
                     self.transcriptionResultTextView.text = concat
                     print(concat)
                     
-                    
+                    if let validSession = self.session, validSession.isReachable {
+                        let dataToWatch: [String: Any] = ["result": self.transcriptionResultTextView.text as Any]
+                        validSession.sendMessage(dataToWatch, replyHandler: nil)
+                    }
                 }
                 
             }
@@ -251,6 +266,11 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             }
             transcriptionResultTextView.text = transcriptionTemp
             transcriptionTemp2 = ""
+            
+            if let validSession = self.session, validSession.isReachable {
+                let dataToWatch: [String: Any] = ["result": transcriptionResultTextView.text as Any]
+                validSession.sendMessage(dataToWatch, replyHandler: nil)
+            }
             
             audioEngine.stop()
             recognitionRequest?.endAudio()
