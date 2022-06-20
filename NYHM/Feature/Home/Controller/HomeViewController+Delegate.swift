@@ -59,7 +59,7 @@ extension HomeViewController: HomeDelegate {
             currentSort = .alphabetAsc
         }
         
-        reloadData()
+        homeView.tableView.reloadData()
     }
     
     func sortByDate() {
@@ -71,7 +71,7 @@ extension HomeViewController: HomeDelegate {
             currentSort = .timeAsc
         }
         
-        reloadData()
+        homeView.tableView.reloadData()
     }
     
     private func reloadData() {
