@@ -8,7 +8,12 @@
 import Foundation
 import UIKit
 
-extension SettingsViewController: UITableViewDelegate {
+extension SettingsViewController: UITableViewDelegate, AddNewDelegate {
+    func reloadData() {
+        tagArr = tagRepo.getAll()
+        settingsView.tableView.reloadData()
+        print("Delegate parent success!")
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

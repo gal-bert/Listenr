@@ -30,6 +30,10 @@ class TagsRepository: TagsRepositoryDataSource {
         coreData.add(name: name, position: position)
     }
     
+    func update(name: String, position: Int64, item: Tags) {
+        coreData.update(name: name, position: position, item: item)
+    }
+    
     func delete(item: Tags) {
         coreData.delete(item: item)
     }
