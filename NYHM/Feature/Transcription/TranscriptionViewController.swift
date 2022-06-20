@@ -21,8 +21,6 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     @IBOutlet weak var transcribeActionButton: UIButton!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
-    var homeController = HomeViewController()
-    
     var delegate:SaveTranscriptionProtocol?
     
     var transcriptionTemp = ""
@@ -62,7 +60,10 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         
         transcribeOnLoad()
         startRecording()
-        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        delegate?.reloadTableView()
     }
     
     func initDuration() -> Void {
@@ -275,6 +276,18 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         }
     }
 
+    func stateDidChange(newState: Int) {
+        switch newState {
+        case 1: // full modal
+            // TODO: Ganti tampilan buat full modal disini
+            durationLabel.textColor = .black
+        case 2: // half modal
+            // TODO: Ganti tampilan buat half modal disini
+            durationLabel.textColor = .blue
+        default:
+            print("default")
+        }
+    }
     
     @IBAction func cancel(_ sender: Any) {
         audioEngine.stop()

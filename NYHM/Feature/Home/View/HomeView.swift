@@ -52,9 +52,7 @@ class HomeView: UIView {
         delegate?.chooseLanguage()
     }
     
-    
     @IBAction func transcribeButton(_ sender: Any) {
-        castedDelegate.performSegue(withIdentifier: "toTranscriptionPageSegue", sender: self)
+        delegate?.showTranscriptionModal()
     }
-    
 }
