@@ -17,9 +17,12 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        detailView.generatePopOverMenu()
         navigationItem.largeTitleDisplayMode = .never
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(didTapShare))
+        
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(didTapShare))
+        
+        navigationItem.rightBarButtonItem = detailView.popOverButton
         
 //        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
 //        let filename = path.appendingPathComponent("iHear_2022616_16405.m4a") // URL
