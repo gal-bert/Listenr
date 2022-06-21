@@ -59,7 +59,7 @@ extension HomeViewController: HomeDelegate {
             currentSort = .alphabetAsc
         }
         
-        homeView.tableView.reloadData()
+        reloadData()
     }
     
     func sortByDate() {
@@ -71,18 +71,18 @@ extension HomeViewController: HomeDelegate {
             currentSort = .timeAsc
         }
         
-        homeView.tableView.reloadData()
+        reloadData()
     }
     
     private func reloadData() {
         var indexPathsToReload = [IndexPath]()
         
         for index in transcriptions.indices {
-            let indexPath = IndexPath(row: index, section: 0)
+            let indexPath = IndexPath(row: 0, section: index)
             indexPathsToReload.append(indexPath)
         }
-        
         homeView.tableView.reloadRows(at: indexPathsToReload, with: .middle)
+        
     }
     
     func showTranscriptionModal() {
