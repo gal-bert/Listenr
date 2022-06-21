@@ -25,9 +25,28 @@ extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            repo.delete(item: transcriptions[indexPath.section])
-            transcriptions = repo.showAll()
-            tableView.deleteSections(IndexSet(arrayLiteral: indexPath.section), with: .left)
+            
+            let alert = UIAlertController(title: "Delete Transcription?", message: "Are you sure to delete the selected transcription?", preferredStyle: .alert)
+
+            alert.addAction(UIAlertAction(
+                title: "Delete",
+                style: .destructive,
+                handler: { _ in
+                    self.repo.delete(item: self.transcriptions[indexPath.section])
+                    self.transcriptions = self.repo.showAll()
+                    tableView.deleteSections(IndexSet(arrayLiteral: indexPath.section), with: .left)
+                }
+            ))
+
+            alert.addAction(UIAlertAction(
+                title: "Cancel",
+                style: .cancel,
+                handler: nil
+            ))
+
+            present(alert, animated: true)
+            
+            
         }
     }
     
