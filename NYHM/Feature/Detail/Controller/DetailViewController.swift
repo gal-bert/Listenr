@@ -38,7 +38,7 @@ class DetailViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        let newTags = detailView.tagsLabel.text!
+        let newTags = detailView.tagsLabel.text! == "Add Tags" ? "Untagged" : detailView.tagsLabel.text!
         let newTitle = detailView.titleTextView.text!
         let newResult = detailView.resultTextView.text!
         
@@ -47,10 +47,7 @@ class DetailViewController: UIViewController {
         let isResultChange = newResult != transcription?.result
         
         if (isTagsChange || isTitleChange || isResultChange) {
-            
-            if newTags != "Add Tags" {
-                TranscriptionRepository.shared.update(item: transcription!, newTitle: newTitle, newResult: newResult, newTags: newTags)
-            }
+            TranscriptionRepository.shared.update(item: transcription!, newTitle: newTitle, newResult: newResult, newTags: newTags)
         }
         
         detailView.player?.stop()
