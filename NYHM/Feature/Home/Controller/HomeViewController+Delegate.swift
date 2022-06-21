@@ -50,39 +50,23 @@ extension HomeViewController: HomeDelegate {
         present(sheet, animated: true)
     }
     
-    func sortByName() {
-        if currentSort == SortType.alphabetAsc {
-            transcriptions = repo.showAll(sortBy: .alphabetDesc)
-            currentSort = .alphabetDesc
-        } else {
-            transcriptions = repo.showAll(sortBy: .alphabetAsc)
-            currentSort = .alphabetAsc
-        }
+    func sortBy(type: SortType) {
+        transcriptions = repo.showAll(sortBy: type)
+        currentSort = type
         
-        homeView.tableView.reloadData()
-    }
-    
-    func sortByDate() {
-        if currentSort == SortType.timeAsc {
-            transcriptions = repo.showAll(sortBy: .timeDesc)
-            currentSort = .timeDesc
-        } else {
-            transcriptions = repo.showAll(sortBy: .timeAsc)
-            currentSort = .timeAsc
-        }
-        
-        homeView.tableView.reloadData()
+        homeView.generatePopOverMenu()
+        reloadData()
     }
     
     private func reloadData() {
         var indexPathsToReload = [IndexPath]()
         
         for index in transcriptions.indices {
-            let indexPath = IndexPath(row: index, section: 0)
+            let indexPath = IndexPath(row: 0, section: index)
             indexPathsToReload.append(indexPath)
         }
-        
         homeView.tableView.reloadRows(at: indexPathsToReload, with: .middle)
+        
     }
     
     func showTranscriptionModal() {
