@@ -266,7 +266,8 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             recognitionRequest?.endAudio()
             pauseRecording()
             
-            transcribeActionButton.setTitle("Start", for: .normal)
+            transcribeActionButton.setTitle("Resume", for: .normal)
+            transcribeActionButton.setImage(UIImage(), for: .normal)
             saveButton.isEnabled = true
             isPlaying = false
         }
@@ -278,7 +279,8 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             startTranscription()
             continueRecording()
             
-            transcribeActionButton.setTitle("Stop", for: .normal)
+            transcribeActionButton.setTitle("", for: .normal)
+            transcribeActionButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
             saveButton.isEnabled = false
             isPlaying = true
             

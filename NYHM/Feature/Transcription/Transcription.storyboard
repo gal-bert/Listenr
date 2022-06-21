@@ -44,7 +44,7 @@
                                     <constraint firstAttribute="height" constant="50" id="vBX-fL-Jpq"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Button" cornerStyle="capsule"/>
                                 <connections>
                                     <action selector="transcriptionActionButton:" destination="CPy-Iy-pxf" eventType="touchUpInside" id="hw0-4y-rZQ"/>
                                 </connections>
