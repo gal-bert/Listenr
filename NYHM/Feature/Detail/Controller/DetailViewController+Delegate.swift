@@ -64,6 +64,15 @@ extension DetailViewController: DetailDelegate {
         shareModal.popoverPresentationController?.sourceView = self.view
         present(shareModal, animated: true)
     }
+    
+    func checkTagTruncate() {
+        if detailView.maxLabelWidth! < detailView.tagsLabel.intrinsicContentSize.width {
+            detailView.tagToSuperView.isActive = true
+        }
+        else {
+            detailView.tagToSuperView.isActive = false
+        }
+    }
 }
 
 extension DetailViewController: FloatingPanelControllerDelegate {
@@ -79,6 +88,7 @@ extension DetailViewController: FloatingPanelControllerDelegate {
 extension DetailViewController: TagsModalDelegate {
     func tagSelected(tagName: String) {
         detailView.tagsLabel.text = tagName
+        checkTagTruncate()
         TranscriptionRepository.shared.update(item: transcription!, newTitle: (transcription?.title)!, newResult: (transcription?.result)!, newTags: tagName)
     }
 }
