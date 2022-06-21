@@ -55,9 +55,6 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        transcriptionResultTextView.layer.borderColor = UIColor.black.cgColor
-        transcriptionResultTextView.layer.borderWidth = 1
-        
         speechRecognizer?.delegate = self
         audioRecorder?.delegate = self
         
@@ -70,8 +67,6 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         transcribeOnLoad()
         startRecording()
         
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 
     
@@ -321,41 +316,25 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         }
     }
     
-    //    func stopIfDismissed() {
-    //        audioEngine.stop()
-    //        print("AudioEngine Stopped")
-    //        dismiss(animated: true)
-    //    }
-    
     @IBAction func cancel(_ sender: Any) {
-        
-        //        present(
-        //            Alerts.pushAlert(
-        //                title: "Warning",
-        //                message: "Are you sure to cancel the transcription?",
-        //                destructiveMessage: "Yes, dismiss",
-        //                completionIfDestructive: stopIfDismissed()
-        //            ),
-        //            animated: true
-        //        )
-        
-        let alert = UIAlertController(title: "Title", message: "Message", preferredStyle: .alert)
-        
+                
+        let alert = UIAlertController(title: "Cancel Transcription?", message: "Are you sure to cancel the current transcription session?", preferredStyle: .alert)
+
         alert.addAction(UIAlertAction(
-            title: "Cancel",
-            style: .cancel,
-            handler: nil
-        ))
-        
-        alert.addAction(UIAlertAction(
-            title: "Dismiss",
+            title: "Yes, Cancel",
             style: .destructive,
             handler: { _ in
                 self.audioEngine.stop()
                 self.dismiss(animated: true)
             }
         ))
-        
+
+        alert.addAction(UIAlertAction(
+            title: "Stay Transcribing",
+            style: .cancel,
+            handler: nil
+        ))
+
         present(alert, animated: true)
         
     }

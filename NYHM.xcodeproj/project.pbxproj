@@ -132,7 +132,7 @@
 		FB9EE5422855FECC004EEA24 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		FB9EE54B2855FFA9004EEA24 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		FB9EE55E2856006C004EEA24 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
-		FB9EE56128560080004EEA24 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		FB9EE56128560080004EEA24 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		FB9EE563285600A0004EEA24 /* TranscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionViewController.swift; sourceTree = "<group>"; };
 		FB9EE565285600AC004EEA24 /* Transcription.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Transcription.storyboard; sourceTree = "<group>"; };
 		FB9EE567285600BC004EEA24 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };

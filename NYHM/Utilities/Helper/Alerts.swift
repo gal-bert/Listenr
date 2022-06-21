@@ -9,7 +9,7 @@ import UIKit
 
 class Alerts {
     
-    static func pushAlert(title:String, message:String, destructiveMessage:String,  completionIfDestructive: () ) -> UIAlertController {
+    static func pushAlert(title:String, message:String, destructiveMessage:String, completionIfDestructive:() ) -> UIAlertController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(
