@@ -50,27 +50,11 @@ extension HomeViewController: HomeDelegate {
         present(sheet, animated: true)
     }
     
-    func sortByName() {
-        if currentSort == SortType.alphabetAsc {
-            transcriptions = repo.showAll(sortBy: .alphabetDesc)
-            currentSort = .alphabetDesc
-        } else {
-            transcriptions = repo.showAll(sortBy: .alphabetAsc)
-            currentSort = .alphabetAsc
-        }
+    func sortBy(type: SortType) {
+        transcriptions = repo.showAll(sortBy: type)
+        currentSort = type
         
-        reloadData()
-    }
-    
-    func sortByDate() {
-        if currentSort == SortType.timeAsc {
-            transcriptions = repo.showAll(sortBy: .timeDesc)
-            currentSort = .timeDesc
-        } else {
-            transcriptions = repo.showAll(sortBy: .timeAsc)
-            currentSort = .timeAsc
-        }
-        
+        homeView.generatePopOverMenu()
         reloadData()
     }
     
