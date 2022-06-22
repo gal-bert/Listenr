@@ -66,9 +66,28 @@ extension DetailViewController: DetailDelegate {
     }
     
     func didTapDelete(item: Transcriptions) {
-        let repo = TranscriptionRepository.shared
-        repo.delete(item: item)
-        navigationController?.popViewController(animated: true)
+        
+        let alert = UIAlertController(title: "Delete Transcription?", message: "Are you sure to delete this transcription?", preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(
+            title: "Delete",
+            style: .destructive,
+            handler: { _ in
+                let repo = TranscriptionRepository.shared
+                repo.delete(item: item)
+                self.navigationController?.popViewController(animated: true)
+            }
+        ))
+
+        alert.addAction(UIAlertAction(
+            title: "Cancel",
+            style: .cancel,
+            handler: nil
+        ))
+
+        present(alert, animated: true)
+        
+       
     }
 }
 
