@@ -15,4 +15,5 @@ protocol DetailDelegate {
     func didTapTags()
     func didTapShare()
     func checkTagTruncate()
+    func didTapDelete(item: Transcriptions)
 }

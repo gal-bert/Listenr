@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0C311F0D285A342800EA2FFE /* Int+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C311F0C285A342800EA2FFE /* Int+Ext.swift */; };
 		0C5C8AC3285B661C00536BB2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5C8AC2285B661C00536BB2 /* Constants.swift */; };
+		0CEBF757286175F400FA3211 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CEBF756286175F400FA3211 /* Alerts.swift */; };
 		393A04C02858F523009ACA3B /* SettingsViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393A04BF2858F523009ACA3B /* SettingsViewController+Delegate.swift */; };
 		393A04C22858F64B009ACA3B /* SettingsViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393A04C12858F64B009ACA3B /* SettingsViewController+DataSource.swift */; };
 		3987E1D52858E27400A1C3AC /* WaveformSwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3987E1D42858E27400A1C3AC /* WaveformSwitchCell.xib */; };
@@ -87,6 +88,7 @@
 /* Begin PBXFileReference section */
 		0C311F0C285A342800EA2FFE /* Int+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Ext.swift"; sourceTree = "<group>"; };
 		0C5C8AC2285B661C00536BB2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0CEBF756286175F400FA3211 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		393A04BF2858F523009ACA3B /* SettingsViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+Delegate.swift"; sourceTree = "<group>"; };
 		393A04C12858F64B009ACA3B /* SettingsViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+DataSource.swift"; sourceTree = "<group>"; };
 		3987E1D42858E27400A1C3AC /* WaveformSwitchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WaveformSwitchCell.xib; sourceTree = "<group>"; };
@@ -130,7 +132,7 @@
 		FB9EE5422855FECC004EEA24 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		FB9EE54B2855FFA9004EEA24 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		FB9EE55E2856006C004EEA24 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
-		FB9EE56128560080004EEA24 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		FB9EE56128560080004EEA24 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		FB9EE563285600A0004EEA24 /* TranscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionViewController.swift; sourceTree = "<group>"; };
 		FB9EE565285600AC004EEA24 /* Transcription.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Transcription.storyboard; sourceTree = "<group>"; };
 		FB9EE567285600BC004EEA24 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
@@ -369,6 +371,7 @@
 				0C5C8AC2285B661C00536BB2 /* Constants.swift */,
 				FB298E7B285B5D550063B522 /* Button+Ext.swift */,
 				FB298E7D285B604A0063B522 /* ConvertHelper.swift */,
+				0CEBF756286175F400FA3211 /* Alerts.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -676,6 +679,7 @@
 				FBF0D93B2858AD93005378EA /* ItemHomeCell.swift in Sources */,
 				FB8043A82859666A0022E919 /* HomeDelegate.swift in Sources */,
 				393A04C02858F523009ACA3B /* SettingsViewController+Delegate.swift in Sources */,
+				0CEBF757286175F400FA3211 /* Alerts.swift in Sources */,
 				3987E1DC2858F0A700A1C3AC /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

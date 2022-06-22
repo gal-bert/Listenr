@@ -73,6 +73,29 @@ extension DetailViewController: DetailDelegate {
             detailView.tagToSuperView.isActive = false
         }
     }
+    
+    func didTapDelete(item: Transcriptions) {
+        
+        let alert = UIAlertController(title: "Delete Transcription?", message: "Are you sure to delete this transcription?", preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(
+            title: "Delete",
+            style: .destructive,
+            handler: { _ in
+                let repo = TranscriptionRepository.shared
+                repo.delete(item: item)
+                self.navigationController?.popViewController(animated: true)
+            }
+        ))
+
+        alert.addAction(UIAlertAction(
+            title: "Cancel",
+            style: .cancel,
+            handler: nil
+        ))
+
+        present(alert, animated: true)
+    }
 }
 
 extension DetailViewController: FloatingPanelControllerDelegate {
