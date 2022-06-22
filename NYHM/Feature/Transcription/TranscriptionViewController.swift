@@ -17,9 +17,17 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var durationLabel: UILabel!
+    @IBOutlet weak var durationLabelBottom: UILabel!
     @IBOutlet weak var transcriptionResultTextView: UITextView!
     @IBOutlet weak var transcribeActionButton: UIButton!
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    
+    @IBOutlet weak var textViewToTitleConstraint: NSLayoutConstraint!
+    @IBOutlet weak var textViewToButtonConstraint: NSLayoutConstraint!
+    @IBOutlet weak var navbar: UINavigationBar!
+    
+    @IBOutlet weak var titleToSuperview: NSLayoutConstraint!
+    @IBOutlet weak var durationToSuperView: NSLayoutConstraint!
     
     var delegate:SaveTranscriptionProtocol?
     
@@ -43,11 +51,9 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     var timer: Timer?
     var durationTemp:Int = 0
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        transcriptionResultTextView.layer.borderColor = UIColor.black.cgColor
-        transcriptionResultTextView.layer.borderWidth = 1
         
         speechRecognizer?.delegate = self
         audioRecorder?.delegate = self
@@ -60,7 +66,9 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         
         transcribeOnLoad()
         startRecording()
+        
     }
+
     
     override func viewWillDisappear(_ animated: Bool) {
         delegate?.reloadTableView()
@@ -69,6 +77,7 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     func initDuration() -> Void {
         
         durationLabel.text = "00:00:00"
+        durationLabelBottom.text = "00:00:00"
         
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
             if self.isPlaying {
@@ -79,6 +88,7 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
                     let minutes = seconds.getStringFrom(seconds: minutes)
                     let seconds = seconds.getStringFrom(seconds: seconds)
                     self.durationLabel.text = "\(hours):\(minutes):\(seconds)"
+                    self.durationLabelBottom.text = "\(hours):\(minutes):\(seconds)"
                 }
                 
                 
@@ -212,9 +222,7 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
                     self.transcriptionResultTextView.text = concat
                     print(concat)
                     
-                    
                 }
-                
             }
             
             if error != nil || isFinal {
@@ -224,6 +232,7 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
                 self.recognitionRequest = nil
                 self.recognitionTask = nil
             }
+            
         })
         
         let recordingFormat = inputNode.outputFormat(forBus: 0)
@@ -257,7 +266,8 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             recognitionRequest?.endAudio()
             pauseRecording()
             
-            transcribeActionButton.setTitle("Start", for: .normal)
+            transcribeActionButton.setTitle("Resume", for: .normal)
+            transcribeActionButton.setImage(UIImage(), for: .normal)
             saveButton.isEnabled = true
             isPlaying = false
         }
@@ -269,29 +279,66 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             startTranscription()
             continueRecording()
             
-            transcribeActionButton.setTitle("Stop", for: .normal)
+            transcribeActionButton.setTitle("", for: .normal)
+            transcribeActionButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
             saveButton.isEnabled = false
             isPlaying = true
             
         }
     }
-
+    
     func stateDidChange(newState: Int) {
+        
         switch newState {
+            
         case 1: // full modal
-            // TODO: Ganti tampilan buat full modal disini
-            durationLabel.textColor = .black
+            navbar.isHidden = false
+            titleToSuperview.constant = 60
+            durationLabel.isHidden = true
+            textViewToTitleConstraint.constant = 20
+            textViewToButtonConstraint.constant = 60
+            durationLabelBottom.isHidden = false
+            titleTextField.isHidden = false
+            durationToSuperView.constant = 100
+            
+            
         case 2: // half modal
-            // TODO: Ganti tampilan buat half modal disini
-            durationLabel.textColor = .blue
+            
+            navbar.isHidden = true
+            titleToSuperview.constant = 20
+            durationLabel.isHidden = false
+            textViewToTitleConstraint.constant = 40
+            textViewToButtonConstraint.constant = 400
+            durationLabelBottom.isHidden = true
+            titleTextField.isHidden = true
+            durationToSuperView.constant = 20
+            
         default:
             print("default")
         }
     }
     
     @IBAction func cancel(_ sender: Any) {
-        audioEngine.stop()
-        dismiss(animated: true)
+                
+        let alert = UIAlertController(title: "Cancel Transcription?", message: "Are you sure to cancel the current transcription session?", preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(
+            title: "Yes, Cancel",
+            style: .destructive,
+            handler: { _ in
+                self.audioEngine.stop()
+                self.dismiss(animated: true)
+            }
+        ))
+
+        alert.addAction(UIAlertAction(
+            title: "Stay Transcribing",
+            style: .cancel,
+            handler: nil
+        ))
+
+        present(alert, animated: true)
+        
     }
     
     @IBAction func save(_ sender: Any) {
@@ -332,3 +379,4 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     }
     
 }
+
