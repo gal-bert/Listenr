@@ -12,8 +12,6 @@ class AddNewTagCell: UITableViewCell {
     
     let tagRepo = TagsRepository.shared
     
-    var delegate: AddNewDelegate?
-    
     static let identifier = "AddNewTagCellSB"
     
     static func nib() -> UINib {
@@ -30,7 +28,7 @@ class AddNewTagCell: UITableViewCell {
             string: "Add New Tag",
             attributes: attributes
         )
-        
+        labelNewTagValue.isUserInteractionEnabled = false
     }
     
     override func layoutSubviews() {
@@ -38,22 +36,6 @@ class AddNewTagCell: UITableViewCell {
     }
     
     @IBOutlet weak var labelNewTagValue: UITextField!
-    @IBAction func newTagEndOnExit(_ sender: UITextField) {
-        
-        let tagArr = tagRepo.getAll()
-        if labelNewTagValue.text != "" {
-            if tagArr.count > 0 {
-                let lastPosition = tagArr[tagArr.count - 1].position
-                tagRepo.add(name: labelNewTagValue.text!, position: Int(lastPosition))
-            } else {
-                tagRepo.add(name: labelNewTagValue.text!, position: 1)
-            }
-        }
-        labelNewTagValue.text = ""
-        
-        delegate?.reloadData()
-//        TagTableCell.fetchData()
-    }
 }
 
 protocol AddNewDelegate {

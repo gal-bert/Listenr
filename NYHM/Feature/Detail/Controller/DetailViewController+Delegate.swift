@@ -65,6 +65,15 @@ extension DetailViewController: DetailDelegate {
         present(shareModal, animated: true)
     }
     
+    func checkTagTruncate() {
+        if detailView.maxLabelWidth! < detailView.tagsLabel.intrinsicContentSize.width {
+            detailView.tagToSuperView.isActive = true
+        }
+        else {
+            detailView.tagToSuperView.isActive = false
+        }
+    }
+    
     func didTapDelete(item: Transcriptions) {
         
         let alert = UIAlertController(title: "Delete Transcription?", message: "Are you sure to delete this transcription?", preferredStyle: .alert)
@@ -86,8 +95,6 @@ extension DetailViewController: DetailDelegate {
         ))
 
         present(alert, animated: true)
-        
-       
     }
 }
 
@@ -104,6 +111,7 @@ extension DetailViewController: FloatingPanelControllerDelegate {
 extension DetailViewController: TagsModalDelegate {
     func tagSelected(tagName: String) {
         detailView.tagsLabel.text = tagName
+        checkTagTruncate()
         TranscriptionRepository.shared.update(item: transcription!, newTitle: (transcription?.title)!, newResult: (transcription?.result)!, newTags: tagName)
     }
 }

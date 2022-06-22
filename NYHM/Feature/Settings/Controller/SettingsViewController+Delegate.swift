@@ -18,4 +18,10 @@ extension SettingsViewController: UITableViewDelegate, AddNewDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 2 {
+            self.addNewTag(tagCount: tagArr.count, delegate: self)
+        }
+    }
 }
