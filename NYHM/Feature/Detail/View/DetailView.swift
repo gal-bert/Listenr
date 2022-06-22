@@ -33,12 +33,17 @@ class DetailView: UIView {
         return label
     }()
     
+    var temporaryData: Transcriptions!
+    var popOverButton: UIBarButtonItem = UIBarButtonItem(title: "", image: UIImage(systemName: "ellipsis"))
+    
     private var delegate: DetailDelegate?
     
     func setup(data: Transcriptions, delegate: DetailDelegate) {
         self.delegate = delegate
+//        generatePopOverMenu()
         
         addSubview(helpTimeLabel)
+        temporaryData = data
         
         titleTextView.text = data.title
         resultTextView.text = data.result
@@ -189,4 +194,24 @@ class DetailView: UIView {
         helpTimeLabel.isHidden = isInterruptable ? false : true
     }
     
+    @objc func generatePopOverMenu() {
+        
+        let shareHandle = UIAction(title: "Share", image: UIImage(systemName: "square.and.arrow.up"), handler: { (_) in
+            self.delegate?.didTapShare()
+        })
+        
+        
+        let deleteHandle = UIAction(title: "Delete", image: UIImage(systemName: "trash")?.withTintColor(.red, renderingMode: .alwaysOriginal), handler: { (_) in
+            self.delegate?.didTapDelete(item: self.temporaryData!)
+        })
+        
+        var menuItems: [UIAction] {
+            return [
+                shareHandle,
+                deleteHandle
+            ]
+        }
+        
+        popOverButton.menu = UIMenu(identifier: nil, options: [], children: menuItems)
+    }
 }

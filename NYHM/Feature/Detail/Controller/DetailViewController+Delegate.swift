@@ -64,6 +64,12 @@ extension DetailViewController: DetailDelegate {
         shareModal.popoverPresentationController?.sourceView = self.view
         present(shareModal, animated: true)
     }
+    
+    func didTapDelete(item: Transcriptions) {
+        let repo = TranscriptionRepository.shared
+        repo.delete(item: item)
+        navigationController?.popViewController(animated: true)
+    }
 }
 
 extension DetailViewController: FloatingPanelControllerDelegate {
