@@ -10,12 +10,20 @@ import UIKit
 import SwiftUI
 
 extension UIViewController {
-    func addNewTag(tagCount: Int, delegate: TagsModalViewController) {
+    func addNewTag(tagCount: Int, delegate: UIViewController) {
+        print("tag count", tagCount)
         let alert = UIAlertController(title: "Add New Tag", message: nil, preferredStyle: .alert)
         let addAction = UIAlertAction(title: "Add", style: .default) { (action) in
             let textField = alert.textFields![0]
             TagsRepository.shared.add(name: textField.text ?? "", position: tagCount)
-            delegate.delegate!.tagSelected(tagName: textField.text!)
+            
+            if delegate is TagsModalViewController {
+                (delegate as! TagsModalViewController).delegate!.tagSelected(tagName: textField.text!)
+            }
+            else if delegate is SettingsViewController {
+                (delegate as! SettingsViewController).reloadData()
+            }
+            
             delegate.dismiss(animated: true)
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)

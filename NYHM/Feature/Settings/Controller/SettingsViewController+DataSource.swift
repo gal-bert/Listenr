@@ -26,7 +26,6 @@ extension SettingsViewController: UITableViewDataSource {
             return cell
         } else if indexPath.section == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: AddNewTagCell.identifier, for: indexPath) as! AddNewTagCell
-            cell.delegate = self
             return cell
         } else {
             return cell3
