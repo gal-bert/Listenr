@@ -14,7 +14,7 @@ protocol SaveTranscriptionProtocol {
     func reloadTableView()
 }
 
-class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate, AVAudioRecorderDelegate {
+class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate, AVAudioRecorderDelegate, SessionManager {
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var durationLabel: UILabel!
@@ -46,10 +46,23 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     var timer: Timer?
     var durationTemp:Int = 0
     
-    var session: WCSession?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(
+            self, selector: #selector(type(of: self).dataDidFlow(_:)),
+            name: .dataDidFlow, object: nil
+        )
+        
+        NotificationCenter.default.addObserver(
+            self, selector: #selector(type(of: self).activationDidComplete(_:)),
+            name: .activationDidComplete, object: nil
+        )
+        
+        NotificationCenter.default.addObserver(
+            self, selector: #selector(type(of: self).reachabilityDidChange(_:)),
+            name: .reachabilityDidChange, object: nil
+        )
         
         transcriptionResultTextView.layer.borderColor = UIColor.black.cgColor
         transcriptionResultTextView.layer.borderWidth = 1
@@ -59,7 +72,6 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         
         transcriptionResultTextView.text = ""
         
-        setupWatchSession()
         initSpeechAuth()
         initRecordingSession()
         initDuration()
@@ -67,14 +79,11 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         transcribeOnLoad()
         startRecording()
         
+        print("Hayolooh...")
     }
     
-    func setupWatchSession() {
-        if WCSession.isSupported() {
-            session = WCSession.default
-            session?.delegate = self
-            session?.activate()
-        }
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     func initDuration() -> Void {
@@ -223,10 +232,9 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
                     self.transcriptionResultTextView.text = concat
                     print(concat)
                     
-                    if let validSession = self.session, validSession.isReachable {
-                        let dataToWatch: [String: Any] = ["result": self.transcriptionResultTextView.text as Any]
-                        validSession.sendMessage(dataToWatch, replyHandler: nil)
-                    }
+                    //TODO: sendMessage
+//                    self.sendIsPlaying([MessageKeyLoad.isPlaying: self.isPlaying])
+                    self.sendMessage([MessageKeyLoad.result: concat])
                 }
                 
             }
@@ -267,10 +275,7 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             transcriptionResultTextView.text = transcriptionTemp
             transcriptionTemp2 = ""
             
-            if let validSession = self.session, validSession.isReachable {
-                let dataToWatch: [String: Any] = ["result": transcriptionResultTextView.text as Any]
-                validSession.sendMessage(dataToWatch, replyHandler: nil)
-            }
+            //TODO: sendMessage
             
             audioEngine.stop()
             recognitionRequest?.endAudio()
@@ -279,6 +284,7 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             transcribeActionButton.setTitle("Start", for: .normal)
             saveButton.isEnabled = true
             isPlaying = false
+            sendIsPausing([MessageKeyLoad.isPausing: true])
         }
         
         // State is stopped, command to start
@@ -291,18 +297,27 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             transcribeActionButton.setTitle("Stop", for: .normal)
             saveButton.isEnabled = false
             isPlaying = true
-            
+            sendIsPlaying([MessageKeyLoad.isPlaying: true])
         }
     }
 
     
     @IBAction func cancel(_ sender: Any) {
+        sendCanceling([MessageKeyLoad.canceling: true])
+        globalCancel()
+    }
+    
+    func globalCancel() {
         audioEngine.stop()
         dismiss(animated: true)
     }
     
     @IBAction func save(_ sender: Any) {
-        
+        sendSaving([MessageKeyLoad.saving: true])
+        globalSave()
+    }
+    
+    func globalSave() {
         audioEngine.stop()
         stopRecording()
         
@@ -328,10 +343,8 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         )
         
         print("\(filenameToSave)")
-        
         delegate?.reloadTableView()
         dismiss(animated: true)
-        
     }
     
     @IBAction func transcriptionActionButton(_ sender: Any) {

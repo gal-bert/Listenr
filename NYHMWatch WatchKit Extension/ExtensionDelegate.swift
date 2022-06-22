@@ -6,8 +6,19 @@
 //
 
 import WatchKit
+import WatchConnectivity
 
 class ExtensionDelegate: NSObject, WKExtensionDelegate {
+    private lazy var sessionDelegator: SessionDelegator = {
+        return SessionDelegator()
+    }()
+
+    override init() {
+        super.init()
+        assert(WCSession.isSupported(), "This app requires a platform supporting Watch Connectivity!")
+        WCSession.default.delegate = sessionDelegator
+        WCSession.default.activate()
+    }
 
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.

@@ -37,10 +37,16 @@
 		FB2BE431285FED92008FE4BD /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BE430285FED92008FE4BD /* ComplicationController.swift */; };
 		FB2BE433285FED93008FE4BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB2BE432285FED93008FE4BD /* Assets.xcassets */; };
 		FB2BE437285FED93008FE4BD /* NYHMWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = FB2BE41C285FED91008FE4BD /* NYHMWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		FB2BE44128601229008FE4BD /* TranscriptionViewController+WCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BE44028601229008FE4BD /* TranscriptionViewController+WCDelegate.swift */; };
 		FB8043A82859666A0022E919 /* HomeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8043A72859666A0022E919 /* HomeDelegate.swift */; };
 		FB851E722859DCBF00DDBD3B /* DetailViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB851E712859DCBF00DDBD3B /* DetailViewController+Delegate.swift */; };
 		FB851E742859DD8700DDBD3B /* DetailDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB851E732859DD8700DDBD3B /* DetailDelegate.swift */; };
+		FB95687328631EC300050556 /* SessionDelegator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95687228631EC300050556 /* SessionDelegator.swift */; };
+		FB95687428631EC500050556 /* SessionDelegator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95687228631EC300050556 /* SessionDelegator.swift */; };
+		FB95687628631ED200050556 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95687528631ED200050556 /* SessionManager.swift */; };
+		FB95687728631ED300050556 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95687528631ED200050556 /* SessionManager.swift */; };
+		FB95687928631EE600050556 /* MessageStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95687828631EE600050556 /* MessageStatus.swift */; };
+		FB95687A28631EE800050556 /* MessageStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95687828631EE600050556 /* MessageStatus.swift */; };
+		FB95687C286328E000050556 /* TranscriptionViewController+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95687B286328E000050556 /* TranscriptionViewController+Notification.swift */; };
 		FB9EE50E2855FE5E004EEA24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9EE50D2855FE5E004EEA24 /* AppDelegate.swift */; };
 		FB9EE5102855FE5E004EEA24 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9EE50F2855FE5E004EEA24 /* SceneDelegate.swift */; };
 		FB9EE5182855FE5E004EEA24 /* NYHM.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FB9EE5162855FE5E004EEA24 /* NYHM.xcdatamodeld */; };
@@ -158,10 +164,13 @@
 		FB2BE430285FED92008FE4BD /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		FB2BE432285FED93008FE4BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB2BE434285FED93008FE4BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FB2BE44028601229008FE4BD /* TranscriptionViewController+WCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TranscriptionViewController+WCDelegate.swift"; sourceTree = "<group>"; };
 		FB8043A72859666A0022E919 /* HomeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDelegate.swift; sourceTree = "<group>"; };
 		FB851E712859DCBF00DDBD3B /* DetailViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailViewController+Delegate.swift"; sourceTree = "<group>"; };
 		FB851E732859DD8700DDBD3B /* DetailDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDelegate.swift; sourceTree = "<group>"; };
+		FB95687228631EC300050556 /* SessionDelegator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDelegator.swift; sourceTree = "<group>"; };
+		FB95687528631ED200050556 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		FB95687828631EE600050556 /* MessageStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageStatus.swift; sourceTree = "<group>"; };
+		FB95687B286328E000050556 /* TranscriptionViewController+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TranscriptionViewController+Notification.swift"; sourceTree = "<group>"; };
 		FB9EE50A2855FE5E004EEA24 /* NYHM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYHM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB9EE50D2855FE5E004EEA24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB9EE50F2855FE5E004EEA24 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -297,9 +306,20 @@
 			path = "NYHMWatch WatchKit Extension";
 			sourceTree = "<group>";
 		};
+		FB95687128631EB300050556 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				FB95687828631EE600050556 /* MessageStatus.swift */,
+				FB95687228631EC300050556 /* SessionDelegator.swift */,
+				FB95687528631ED200050556 /* SessionManager.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		FB9EE5012855FE5E004EEA24 = {
 			isa = PBXGroup;
 			children = (
+				FB95687128631EB300050556 /* Shared */,
 				FB9EE50C2855FE5E004EEA24 /* NYHM */,
 				FB9EE5262855FE5F004EEA24 /* NYHMTests */,
 				FB9EE5302855FE5F004EEA24 /* NYHMUITests */,
@@ -515,7 +535,7 @@
 			children = (
 				FB9EE563285600A0004EEA24 /* TranscriptionViewController.swift */,
 				FB9EE565285600AC004EEA24 /* Transcription.storyboard */,
-				FB2BE44028601229008FE4BD /* TranscriptionViewController+WCDelegate.swift */,
+				FB95687B286328E000050556 /* TranscriptionViewController+Notification.swift */,
 			);
 			path = Transcription;
 			sourceTree = "<group>";
@@ -754,9 +774,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB95687428631EC500050556 /* SessionDelegator.swift in Sources */,
 				FB2BE42F285FED92008FE4BD /* ExtensionDelegate.swift in Sources */,
 				FB2BE42D285FED92008FE4BD /* InterfaceController.swift in Sources */,
+				FB95687728631ED300050556 /* SessionManager.swift in Sources */,
 				FB2BE431285FED92008FE4BD /* ComplicationController.swift in Sources */,
+				FB95687A28631EE800050556 /* MessageStatus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -783,10 +806,12 @@
 				5F0E4442285956E100C846E1 /* TagsModalViewController.swift in Sources */,
 				FBF0D9432858B26D005378EA /* Nib+Ext.swift in Sources */,
 				FBF0D93F2858AFEB005378EA /* HomeViewController+Delegate.swift in Sources */,
+				FB95687C286328E000050556 /* TranscriptionViewController+Notification.swift in Sources */,
 				FB9EE54C2855FFA9004EEA24 /* CoreDataManager.swift in Sources */,
+				FB95687628631ED200050556 /* SessionManager.swift in Sources */,
 				FBF0D9472858B6A6005378EA /* Date+Ext.swift in Sources */,
 				5FA0EAD2285A2F0F00B2C345 /* TagsModalLayout.swift in Sources */,
-				FB2BE44128601229008FE4BD /* TranscriptionViewController+WCDelegate.swift in Sources */,
+				FB95687328631EC300050556 /* SessionDelegator.swift in Sources */,
 				FB9EE5412855FE8C004EEA24 /* HomeViewController.swift in Sources */,
 				FBF0D9452858B288005378EA /* TableView+Ext.swift in Sources */,
 				FB27AF0C285775E300D0B270 /* TagsRepository.swift in Sources */,
@@ -799,6 +824,7 @@
 				FBDA69DD28582161008312FF /* DetailView.swift in Sources */,
 				FB298E7E285B604A0063B522 /* ConvertHelper.swift in Sources */,
 				FB9EE56A285600C9004EEA24 /* SettingsViewController.swift in Sources */,
+				FB95687928631EE600050556 /* MessageStatus.swift in Sources */,
 				FB851E742859DD8700DDBD3B /* DetailDelegate.swift in Sources */,
 				FBF0D93B2858AD93005378EA /* ItemHomeCell.swift in Sources */,
 				FB8043A82859666A0022E919 /* HomeDelegate.swift in Sources */,
