@@ -112,7 +112,7 @@
                                     <segue destination="x73-3y-Hwh" kind="show" id="W7J-hG-6u9"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem image="ellipsis" catalog="system" id="o63-aS-pga"/>
+                            <barButtonItem image="arrow.up.arrow.down" catalog="system" id="o63-aS-pga"/>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
@@ -182,7 +182,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ellipsis" catalog="system" width="128" height="37"/>
+        <image name="arrow.up.arrow.down" catalog="system" width="128" height="98"/>
         <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="mic.fill" catalog="system" width="108" height="128"/>
     </resources>
