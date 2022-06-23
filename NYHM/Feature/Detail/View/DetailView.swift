@@ -175,11 +175,11 @@ class DetailView: UIView {
         guard let player = player else { return }
         var time = player.currentTime
         time += value
-        if (time > player.duration) {
-            // stop, track skip or whatever you want
-        } else {
+//        if (time > player.duration) {
+//            // stop, track skip or whatever you want
+//        } else {
             player.currentTime = time;
-        }
+//        }
         
         changeView(isFromButton: true, sender: nil)
     }
