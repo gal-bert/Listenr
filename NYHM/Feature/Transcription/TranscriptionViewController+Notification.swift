@@ -40,33 +40,37 @@ extension TranscriptionViewController {
         if messageStatus.isPlaying != nil {
             if messageStatus.isPlaying!.value {
                 transcribeOnLoad()
+                print("inside if playing")
+                return
             }
-            return
+            print("outside if playing")
         }
         
         if messageStatus.isPausing != nil {
             if messageStatus.isPausing!.value {
                 transcribeOnLoad()
+                print("inside if pausing")
+                return
             }
-            return
+            print("outside if pausing")
         }
         
         if messageStatus.saved != nil {
             if messageStatus.saved!.value {
                 globalSave()
                 print("inside if save")
+                return
             }
             print("outside if save")
-            return
         }
         
         if messageStatus.canceled != nil {
             if messageStatus.canceled!.value {
                 globalCancel()
                 print("inside if cancel")
+                return
             }
             print("outside if cancel")
-            return
         }
     }
 }

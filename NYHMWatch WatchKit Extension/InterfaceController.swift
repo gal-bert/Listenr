@@ -86,13 +86,17 @@ class InterfaceController: WKInterfaceController, SessionManager {
         }
         
         if messageStatus.saved != nil {
-            resetUI()
-            return
+            if messageStatus.saved!.value {
+                resetUI()
+                return
+            }
         }
         
         if messageStatus.canceled != nil {
-            resetUI()
-            return
+            if messageStatus.canceled!.value {
+                resetUI()
+                return
+            }
         }
     }
     
