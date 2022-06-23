@@ -29,6 +29,8 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     @IBOutlet weak var titleToSuperview: NSLayoutConstraint!
     @IBOutlet weak var durationToSuperView: NSLayoutConstraint!
     
+    @IBOutlet weak var textViewToDurationConstraint: NSLayoutConstraint!
+    
     var delegate:SaveTranscriptionProtocol?
     
     var transcriptionTemp = ""
@@ -57,7 +59,11 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     var waveTimer: Timer?
     
     var waveView = WaveView()
-    @IBOutlet weak var sinewaveView: UIView!
+    
+    var sineWaveView = UIView()
+//    @IBOutlet weak var sinewaveView: UIView!
+    
+    let isWaveformVisible = UserDefaults.standard.bool(forKey: Constants.IS_WAVEFORM_VISIBLE)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,15 +80,16 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         transcribeOnLoad()
         startRecording()
         
-        sinewaveView = waveView.theView
-        view.addSubview(waveView.theView)
-        waveView.setup(x: 0, y: (Int(self.view.frame.size.height) - Int(140 * 2.7)), width: Int(self.view.frame.size.width), height: Int(140))
+//        sineWaveView = waveView.theView
+//        sineWaveView.tag = 378
+        turnTheWave(bool: isWaveformVisible)
         
     }
-
     
     override func viewWillDisappear(_ animated: Bool) {
         waveTimer?.invalidate()
+        waveView.timer.invalidate()
+        turnTheWave(bool: false)
         delegate?.reloadTableView()
     }
     
@@ -166,36 +173,54 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             audioRecorder?.record()
             
             audioRecorder!.isMeteringEnabled = true
-            
-            sinewaveView = waveView.theView
-            print("sine", sinewaveView)
-            waveView.setup(x: Int(sinewaveView!.frame.midX), y: Int(sinewaveView!.frame.midY), width: Int(self.view.frame.size.width), height: Int(140))
-            
-            startWave()
+            if isWaveformVisible {
+                startWave()
+            }
             
         } catch {
-            waveTimer?.invalidate()
+            if isWaveformVisible {
+                waveTimer?.invalidate()
+                waveView.timer.invalidate()
+            }
+            audioRecorder!.isMeteringEnabled = false
             stopRecording()
         }
         
     }
     
     func continueRecording() -> Void {
+        audioRecorder?.isMeteringEnabled = true
+        if isWaveformVisible {
+            startWave()
+        }
         audioRecorder?.record()
     }
     
     func pauseRecording() -> Void {
+        audioRecorder!.isMeteringEnabled = false
+        if isWaveformVisible {
+            waveTimer?.invalidate()
+        }
         audioRecorder?.pause()
     }
     
     func stopRecording() -> Void {
-        waveTimer?.invalidate()
+        audioRecorder!.isMeteringEnabled = false
+        if isWaveformVisible {
+            waveTimer?.invalidate()
+            waveView.timer.invalidate()
+        }
         audioRecorder?.stop()
         audioRecorder = nil
     }
     
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if !flag {
+            if isWaveformVisible {
+                waveTimer?.invalidate()
+                waveView.timer.invalidate()
+            }
+            audioRecorder!.isMeteringEnabled = false
             stopRecording()
         }
     }
@@ -320,10 +345,22 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             durationLabel.isHidden = true
             textViewToTitleConstraint.constant = 20
             textViewToButtonConstraint.constant = 60
+            
+            textViewToDurationConstraint.constant = 20
+            
             durationLabelBottom.isHidden = false
             titleTextField.isHidden = false
             durationToSuperView.constant = 100
             
+            if isWaveformVisible {
+                textViewToButtonConstraint.constant = 160
+                textViewToDurationConstraint.constant = 120
+                audioRecorder!.isMeteringEnabled = true
+                turnTheWave(bool: true)
+            } else {
+                audioRecorder!.isMeteringEnabled = false
+                turnTheWave(bool: false)
+            }
             
         case 2: // half modal
             
@@ -335,6 +372,9 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             durationLabelBottom.isHidden = true
             titleTextField.isHidden = true
             durationToSuperView.constant = 20
+            
+            audioRecorder!.isMeteringEnabled = false
+            turnTheWave(bool: false)
             
         default:
             print("default")
@@ -366,6 +406,12 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     
     @IBAction func save(_ sender: Any) {
         
+        audioRecorder!.isMeteringEnabled = false
+        if isWaveformVisible {
+            waveTimer?.invalidate()
+            waveView.timer.invalidate()
+            turnTheWave(bool: false)
+        }
         audioEngine.stop()
         stopRecording()
         

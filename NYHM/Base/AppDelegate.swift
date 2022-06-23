@@ -15,7 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UserDefaults.standard.register(defaults: [
             Constants.SELECTED_LANGUAGE: "id",
-            Constants.IS_FIRST_TIME: true
+            Constants.IS_FIRST_TIME: true,
+            Constants.IS_WAVEFORM_VISIBLE: true
         ])
         
         return true

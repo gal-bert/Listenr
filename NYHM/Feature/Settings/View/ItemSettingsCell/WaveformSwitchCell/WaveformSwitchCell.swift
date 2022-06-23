@@ -17,9 +17,12 @@ class WaveformSwitchCell : UITableViewCell {
         return UINib(nibName: "waveformCellSB", bundle: nil)
     }
     
+    let isWaveformVisible = UserDefaults.standard.bool(forKey: Constants.IS_WAVEFORM_VISIBLE)
+    
     @IBOutlet weak var viewWaveform: UIView!
     @IBOutlet weak var waveformState: UISwitch!
     @IBAction func handleSwitchWaveform(_ sender: UISwitch) {
+        UserDefaults.standard.set(waveformState.isOn, forKey: Constants.IS_WAVEFORM_VISIBLE)
     }
     
     override func awakeFromNib() {
@@ -29,5 +32,7 @@ class WaveformSwitchCell : UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        
+        waveformState.setOn(isWaveformVisible, animated: true)
     }
 }

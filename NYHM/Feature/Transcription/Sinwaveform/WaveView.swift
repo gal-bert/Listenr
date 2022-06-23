@@ -19,6 +19,9 @@ class WaveView {
     var steps = 300
     let shapeLayer = CAShapeLayer()
     var timer: Timer!
+    var refresherTime = 0
+    // increasing speed, higher means faster
+    let waveSpeed = 0.18
     
     let sumPath = UIBezierPath()
     
@@ -33,11 +36,24 @@ class WaveView {
         
         centerY = Double(theView.frame.height) / 2
         stepAxis_coordinates_X = Double(theView.frame.width / CGFloat(steps))
+        restartTimer()
+    }
+    
+    func restartTimer() {
         timer = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(onTimer(timer:)), userInfo: nil, repeats: true)
-        
     }
  
     @objc func onTimer(timer: Timer) {
+        refresherTime += 1
+        // function to refresh timer, prevent infinite loop
+        if refresherTime > 2000 {
+            timer.invalidate()
+            // delayed function
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                self.restartTimer()
+                self.refresherTime = 0
+            }
+        }
         drawSineWaves()
     }
     
@@ -50,7 +66,7 @@ class WaveView {
             let path = UIBezierPath()
             let sine = getAtIndex(index: i)
             
-            sine.timeWaveStep(timer: 0.15)
+            sine.timeWaveStep(timer: waveSpeed)
             
             let f = Double.pi * 2 / Double(steps) * sine.frequency
             
