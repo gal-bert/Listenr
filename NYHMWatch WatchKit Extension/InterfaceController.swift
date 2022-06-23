@@ -64,8 +64,14 @@ class InterfaceController: WKInterfaceController, SessionManager {
         
         if messageStatus.message != nil {
             resultLabel.setText(messageStatus.message!.value + "\n")
-            isPlaying = true
-            updatePlayButton()
+            return
+        }
+        
+        if messageStatus.starting != nil {
+            if messageStatus.starting!.value {
+                isPlaying = true
+                updatePlayButton()
+            }
             return
         }
         

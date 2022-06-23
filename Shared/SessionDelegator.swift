@@ -30,6 +30,8 @@ class SessionDelegator: NSObject, WCSessionDelegate {
             messageStatus.isPlaying = IsPlaying(message)
         } else if message[MessageKeyLoad.isPausing] != nil {
             messageStatus.isPausing = IsPausing(message)
+        } else if message[MessageKeyLoad.starting] != nil {
+            messageStatus.starting = Started(message)
         } else if message[MessageKeyLoad.saving] != nil {
             messageStatus.saved = Saved(message)
         } else if message[MessageKeyLoad.canceling] != nil {

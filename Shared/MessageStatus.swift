@@ -14,6 +14,7 @@ struct MessageStatus {
     var isPausing: IsPausing?
     var saved: Saved?
     var canceled: Canceled?
+    var starting: Started?
     var errorMessage: String?
     
     init(phrase: Phrase) {
@@ -68,10 +69,19 @@ struct Canceled {
     }
 }
 
+struct Started {
+    var value: Bool
+    
+    init(_ value: [String: Any]) {
+        self.value = value[MessageKeyLoad.starting] as! Bool
+    }
+}
+
 struct MessageKeyLoad {
     static let result = "result"
     static let isPlaying = "isPlaying"
     static let isPausing = "isPausing"
     static let saving = "saving"
     static let canceling = "canceling"
+    static let starting = "starting"
 }

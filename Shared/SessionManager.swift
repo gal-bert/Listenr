@@ -14,6 +14,7 @@ protocol SessionManager {
     func sendIsPausing(_ value: [String: Any])
     func sendSaving(_ value: [String: Any])
     func sendCanceling(_ value: [String: Any])
+    func sendStarting(_ value: [String: Any])
 }
 
 extension SessionManager {
@@ -105,6 +106,25 @@ extension SessionManager {
         WCSession.default.sendMessage(value, replyHandler: { _ in
             messageStatus.phrase = .replied
             messageStatus.canceled = Canceled([MessageKeyLoad.canceling: false])
+            self.postNotificationOnMainQueueAsync(name: .dataDidFlow, object: messageStatus)
+        }, errorHandler: { error in
+            messageStatus.phrase = .failed
+            messageStatus.errorMessage = error.localizedDescription
+            self.postNotificationOnMainQueueAsync(name: .dataDidFlow, object: messageStatus)
+        })
+    }
+    
+    func sendStarting(_ value: [String: Any]) {
+        var messageStatus = MessageStatus(phrase: .sent)
+        messageStatus.starting = Started(value)
+        
+        guard WCSession.default.activationState == .activated else {
+            return handleSessionUnactivated(with: messageStatus)
+        }
+        
+        WCSession.default.sendMessage(value, replyHandler: { _ in
+            messageStatus.phrase = .replied
+            messageStatus.starting = Started([MessageKeyLoad.starting: false])
             self.postNotificationOnMainQueueAsync(name: .dataDidFlow, object: messageStatus)
         }, errorHandler: { error in
             messageStatus.phrase = .failed

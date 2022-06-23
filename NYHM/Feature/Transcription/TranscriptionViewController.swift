@@ -79,6 +79,7 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         transcribeOnLoad()
         startRecording()
         
+        sendStarting([MessageKeyLoad.starting: true])
     }
     
     deinit {
