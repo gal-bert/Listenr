@@ -51,6 +51,13 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     var timer: Timer?
     var durationTemp:Int = 0
     
+    var numberOfChannelForAudio = 2
+    
+    let updateInterval = 0.00005
+    var waveTimer: Timer?
+    
+    var waveView = WaveView()
+    @IBOutlet weak var sinewaveView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,10 +74,15 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         transcribeOnLoad()
         startRecording()
         
+        sinewaveView = waveView.theView
+        view.addSubview(waveView.theView)
+        waveView.setup(x: 0, y: (Int(self.view.frame.size.height) - Int(140 * 2.7)), width: Int(self.view.frame.size.width), height: Int(140))
+        
     }
 
     
     override func viewWillDisappear(_ animated: Bool) {
+        waveTimer?.invalidate()
         delegate?.reloadTableView()
     }
     
@@ -147,12 +159,22 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
                 settings: [
                     AVFormatIDKey: kAudioFormatAppleLossless,
                     AVSampleRateKey: 44100.0,
-                    AVNumberOfChannelsKey: 2,
+                    AVNumberOfChannelsKey: numberOfChannelForAudio,
                     AVEncoderAudioQualityKey: AVAudioQuality.max.rawValue
                 ]
             )
             audioRecorder?.record()
+            
+            audioRecorder!.isMeteringEnabled = true
+            
+            sinewaveView = waveView.theView
+            print("sine", sinewaveView)
+            waveView.setup(x: Int(sinewaveView!.frame.midX), y: Int(sinewaveView!.frame.midY), width: Int(self.view.frame.size.width), height: Int(140))
+            
+            startWave()
+            
         } catch {
+            waveTimer?.invalidate()
             stopRecording()
         }
         
@@ -167,6 +189,7 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     }
     
     func stopRecording() -> Void {
+        waveTimer?.invalidate()
         audioRecorder?.stop()
         audioRecorder = nil
     }
