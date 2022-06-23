@@ -64,6 +64,11 @@ class TagTableCell : UITableViewCell, UITableViewDelegate, UITableViewDataSource
         if editingStyle == .delete {
             tagRepo.delete(item: tagArr[indexPath.row])
             tagArr = tagRepo.getAll()
+            
+            for (index, tag) in tagArr.enumerated() {
+                tagRepo.update(name: tag.name!, position: Int64(index), item: tag)
+            }
+            
             tableView.reloadData()
             delegate?.reloadData()
         }

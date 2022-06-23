@@ -22,9 +22,12 @@ class DetailView: UIView {
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var playButton: UIButton!
     
+    @IBOutlet var tagToSuperView: NSLayoutConstraint!
+    
     var timer: Timer?
     var isInterruptable = false
     var player: AVAudioPlayer?
+    var maxLabelWidth: CGFloat?
     
     var helpTimeLabel: UILabel = {
         let label = UILabel()
@@ -51,7 +54,9 @@ class DetailView: UIView {
         createdAtLabel.text = data.createdAt?.fixedFormat()
         durationLabel.text = data.duration
         
+        maxLabelWidth = tagsLabel.frame.width
         tagsLabel.text = data.tags == "Untagged" ? "Add Tags" : data.tags
+        self.delegate?.checkTagTruncate()
         
         let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let filename = path.appendingPathComponent(data.filename!) // URL
@@ -170,11 +175,11 @@ class DetailView: UIView {
         guard let player = player else { return }
         var time = player.currentTime
         time += value
-        if (time > player.duration) {
-            // stop, track skip or whatever you want
-        } else {
+//        if (time > player.duration) {
+//            // stop, track skip or whatever you want
+//        } else {
             player.currentTime = time;
-        }
+//        }
         
         changeView(isFromButton: true, sender: nil)
     }
