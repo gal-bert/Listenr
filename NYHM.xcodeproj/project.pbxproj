@@ -15,6 +15,10 @@
 		3987E1D52858E27400A1C3AC /* WaveformSwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3987E1D42858E27400A1C3AC /* WaveformSwitchCell.xib */; };
 		3987E1D82858E45300A1C3AC /* WaveformSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3987E1D72858E45300A1C3AC /* WaveformSwitchCell.swift */; };
 		3987E1DC2858F0A700A1C3AC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3987E1DB2858F0A700A1C3AC /* SettingsView.swift */; };
+		39F318B6286347C500B1001F /* WaveClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F318B5286347C500B1001F /* WaveClass.swift */; };
+		39F318B82863485800B1001F /* WavePreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F318B72863485800B1001F /* WavePreferences.swift */; };
+		39F318BC286348BF00B1001F /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F318BB286348BF00B1001F /* WaveView.swift */; };
+		39F318BE28634D2D00B1001F /* WaveController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F318BD28634D2D00B1001F /* WaveController.swift */; };
 		39F39BB3285C59D800A74E3A /* TagTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F39BB2285C59D800A74E3A /* TagTableCell.swift */; };
 		39F39BB5285C708E00A74E3A /* TagTableCell+DragDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F39BB4285C708E00A74E3A /* TagTableCell+DragDelegate.swift */; };
 		39F39BB8285CEAF700A74E3A /* AddNewTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F39BB7285CEAF700A74E3A /* AddNewTagCell.swift */; };
@@ -94,6 +98,10 @@
 		3987E1D42858E27400A1C3AC /* WaveformSwitchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WaveformSwitchCell.xib; sourceTree = "<group>"; };
 		3987E1D72858E45300A1C3AC /* WaveformSwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveformSwitchCell.swift; sourceTree = "<group>"; };
 		3987E1DB2858F0A700A1C3AC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		39F318B5286347C500B1001F /* WaveClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveClass.swift; sourceTree = "<group>"; };
+		39F318B72863485800B1001F /* WavePreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WavePreferences.swift; sourceTree = "<group>"; };
+		39F318BB286348BF00B1001F /* WaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
+		39F318BD28634D2D00B1001F /* WaveController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveController.swift; sourceTree = "<group>"; };
 		39F39BB2285C59D800A74E3A /* TagTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagTableCell.swift; sourceTree = "<group>"; };
 		39F39BB4285C708E00A74E3A /* TagTableCell+DragDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TagTableCell+DragDelegate.swift"; sourceTree = "<group>"; };
 		39F39BB7285CEAF700A74E3A /* AddNewTagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTagCell.swift; sourceTree = "<group>"; };
@@ -213,6 +221,17 @@
 				3987E1DB2858F0A700A1C3AC /* SettingsView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		39F318B42863477100B1001F /* Sinwaveform */ = {
+			isa = PBXGroup;
+			children = (
+				39F318B5286347C500B1001F /* WaveClass.swift */,
+				39F318B72863485800B1001F /* WavePreferences.swift */,
+				39F318BB286348BF00B1001F /* WaveView.swift */,
+				39F318BD28634D2D00B1001F /* WaveController.swift */,
+			);
+			path = Sinwaveform;
 			sourceTree = "<group>";
 		};
 		39F39BB1285C59A500A74E3A /* TagTableCell */ = {
@@ -456,6 +475,7 @@
 		FB9EE56B285600DC004EEA24 /* Transcription */ = {
 			isa = PBXGroup;
 			children = (
+				39F318B42863477100B1001F /* Sinwaveform */,
 				FB9EE563285600A0004EEA24 /* TranscriptionViewController.swift */,
 				FB9EE565285600AC004EEA24 /* Transcription.storyboard */,
 				5F166834285C911E0013B0B7 /* TranscriptionModalLayout.swift */,
@@ -643,7 +663,9 @@
 				39F39BB5285C708E00A74E3A /* TagTableCell+DragDelegate.swift in Sources */,
 				5F0E44442859576700C846E1 /* TagsModalViewController+Delegate.swift in Sources */,
 				5F166835285C911E0013B0B7 /* TranscriptionModalLayout.swift in Sources */,
+				39F318BE28634D2D00B1001F /* WaveController.swift in Sources */,
 				FB298E7C285B5D550063B522 /* Button+Ext.swift in Sources */,
+				39F318B82863485800B1001F /* WavePreferences.swift in Sources */,
 				FB851E722859DCBF00DDBD3B /* DetailViewController+Delegate.swift in Sources */,
 				FBF0D9412858AFF8005378EA /* HomeViewController+DataSource.swift in Sources */,
 				FB27AF0A28576ED400D0B270 /* SortType.swift in Sources */,
@@ -673,8 +695,10 @@
 				FB9EE56228560080004EEA24 /* DetailViewController.swift in Sources */,
 				FBDA69DD28582161008312FF /* DetailView.swift in Sources */,
 				FB298E7E285B604A0063B522 /* ConvertHelper.swift in Sources */,
+				39F318B6286347C500B1001F /* WaveClass.swift in Sources */,
 				39F39BB3285C59D800A74E3A /* TagTableCell.swift in Sources */,
 				FB9EE56A285600C9004EEA24 /* SettingsViewController.swift in Sources */,
+				39F318BC286348BF00B1001F /* WaveView.swift in Sources */,
 				FB851E742859DD8700DDBD3B /* DetailDelegate.swift in Sources */,
 				FBF0D93B2858AD93005378EA /* ItemHomeCell.swift in Sources */,
 				FB8043A82859666A0022E919 /* HomeDelegate.swift in Sources */,
