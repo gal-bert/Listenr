@@ -37,6 +37,17 @@ struct TagsCoreDataSource: TagsRepositoryDataSource {
         }
     }
     
+    func update(name: String, position: Int64, item: Tags) {
+        item.name = name
+        item.position = position
+        
+        do {
+            try context.save()
+        } catch {
+            print("Failed to update tags!")
+        }
+    }
+    
     func delete(item: Tags) {
         context.delete(item)
         

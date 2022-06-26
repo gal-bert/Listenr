@@ -18,8 +18,11 @@ class SettingsView: UIView {
         self.viewController = viewController
         tableView.delegate = viewController
         tableView.dataSource = viewController
-        
+            
         tableView.registerCell(type: WaveformSwitchCell.self, identifier: WaveformSwitchCell.identifier)
+        tableView.registerCell(type: AddNewTagCell.self, identifier: AddNewTagCell.identifier)
+        
+        tableView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
         
     }
 }

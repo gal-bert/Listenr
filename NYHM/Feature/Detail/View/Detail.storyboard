@@ -30,22 +30,28 @@
                                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="32"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cbj-0X-sIQ">
-                                                <rect key="frame" x="138" y="84" width="36" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00 Jun 2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cbj-0X-sIQ">
+                                                <rect key="frame" x="164" y="84" width="97" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="97" id="Erm-UG-o3d"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" name="accentSecondaryColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="8CB-AB-I0k">
-                                                <rect key="frame" x="110" y="83.5" width="24" height="21.5"/>
+                                                <rect key="frame" x="136" y="83.5" width="24" height="21.5"/>
                                                 <color key="tintColor" name="textSecondaryColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="Sv5-I5-tmy"/>
                                                     <constraint firstAttribute="width" constant="24" id="bic-1B-nwI"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:04" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jjk-xg-0zP">
-                                                <rect key="frame" x="48" y="84" width="46" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:04" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jjk-xg-0zP">
+                                                <rect key="frame" x="48" y="84" width="72" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="72" id="XGC-zm-cQ5"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" name="accentSecondaryColor"/>
                                                 <nil key="highlightedColor"/>
@@ -66,7 +72,7 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j5C-mH-lc2">
-                                                <rect key="frame" x="190" y="82.5" width="80.5" height="24"/>
+                                                <rect key="frame" x="277" y="82.5" width="121" height="24"/>
                                                 <subviews>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wdh-9Y-LhF">
                                                         <rect key="frame" x="8" y="6" width="12" height="12"/>
@@ -83,7 +89,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Tag" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcj-Rw-mfB">
-                                                        <rect key="frame" x="24" y="5" width="46.5" height="14.5"/>
+                                                        <rect key="frame" x="24" y="5" width="87" height="14.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="textColor" name="secondaryColor"/>
                                                         <nil key="highlightedColor"/>
@@ -122,6 +128,7 @@
                                             <constraint firstItem="cH4-8X-7kZ" firstAttribute="leading" secondItem="2no-Dk-vPW" secondAttribute="leading" constant="20" id="bmF-Xw-pN0"/>
                                             <constraint firstItem="C17-Mh-kKd" firstAttribute="leading" secondItem="2no-Dk-vPW" secondAttribute="leading" constant="20" id="gSw-Wo-toa"/>
                                             <constraint firstItem="j0H-c0-VJF" firstAttribute="leading" secondItem="2no-Dk-vPW" secondAttribute="leading" constant="20" id="jSV-eJ-pcN"/>
+                                            <constraint firstAttribute="trailing" secondItem="j5C-mH-lc2" secondAttribute="trailing" constant="16" id="mMy-gt-f1Z"/>
                                             <constraint firstItem="j5C-mH-lc2" firstAttribute="centerY" secondItem="Cbj-0X-sIQ" secondAttribute="centerY" id="ngs-zU-tCC"/>
                                             <constraint firstItem="cH4-8X-7kZ" firstAttribute="top" secondItem="j0H-c0-VJF" secondAttribute="bottom" constant="8" id="r7W-3x-kWD"/>
                                             <constraint firstItem="Cbj-0X-sIQ" firstAttribute="centerY" secondItem="8CB-AB-I0k" secondAttribute="centerY" id="svy-dN-lbn"/>
@@ -229,6 +236,7 @@
                             <outlet property="playButton" destination="TV5-qJ-jaS" id="Mta-YK-trC"/>
                             <outlet property="progressBar" destination="lpd-DW-UFL" id="8n0-22-87N"/>
                             <outlet property="resultTextView" destination="C17-Mh-kKd" id="vre-r7-Ufc"/>
+                            <outlet property="tagToSuperView" destination="mMy-gt-f1Z" id="VKv-EJ-U4y"/>
                             <outlet property="tagsLabel" destination="fcj-Rw-mfB" id="ZAJ-cD-lyv"/>
                             <outlet property="titleTextView" destination="j0H-c0-VJF" id="ySW-Em-mad"/>
                         </connections>

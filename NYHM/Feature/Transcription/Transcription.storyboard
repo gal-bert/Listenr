@@ -11,7 +11,7 @@
         <!--Transcription View Controller-->
         <scene sceneID="jAv-Fu-Cft">
             <objects>
-                <viewController id="CPy-Iy-pxf" customClass="TranscriptionViewController" customModule="NYHM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="transcriptionVC" id="CPy-Iy-pxf" customClass="TranscriptionViewController" customModule="NYHM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ANI-f6-caN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -44,13 +44,13 @@
                                     <constraint firstAttribute="height" constant="50" id="vBX-fL-Jpq"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Button" cornerStyle="capsule"/>
                                 <connections>
                                     <action selector="transcriptionActionButton:" destination="CPy-Iy-pxf" eventType="touchUpInside" id="hw0-4y-rZQ"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BGk-bT-Blu">
-                                <rect key="frame" x="20" y="159" width="335" height="509"/>
+                                <rect key="frame" x="20" y="138" width="335" height="502"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
@@ -58,8 +58,14 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aB5-Ev-kJW">
-                                <rect key="frame" x="20" y="118" width="335" height="21"/>
+                                <rect key="frame" x="20" y="108" width="335" height="20"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wY9-s1-cd5">
+                                <rect key="frame" x="20" y="660" width="335" height="8"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -68,19 +74,26 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="n5K-r9-FV4" firstAttribute="trailing" secondItem="BGk-bT-Blu" secondAttribute="trailing" constant="20" id="3HY-Dd-OLS"/>
+                            <constraint firstItem="WJG-of-n7k" firstAttribute="top" secondItem="wY9-s1-cd5" secondAttribute="bottom" constant="20" id="9g8-Jc-FpV"/>
+                            <constraint firstItem="n5K-r9-FV4" firstAttribute="trailing" secondItem="wY9-s1-cd5" secondAttribute="trailing" constant="20" id="Fn9-4g-Okd"/>
                             <constraint firstAttribute="trailing" secondItem="DjZ-fw-9i5" secondAttribute="trailing" id="FuI-Mu-dcd"/>
                             <constraint firstItem="BGk-bT-Blu" firstAttribute="leading" secondItem="n5K-r9-FV4" secondAttribute="leading" constant="20" id="Gkc-PG-phf"/>
-                            <constraint firstItem="BGk-bT-Blu" firstAttribute="top" secondItem="aB5-Ev-kJW" secondAttribute="bottom" constant="20" id="GuU-4Z-9Dq"/>
-                            <constraint firstItem="aB5-Ev-kJW" firstAttribute="top" secondItem="Cf5-jU-ZDm" secondAttribute="bottom" constant="20" id="Hua-BE-Qwi"/>
+                            <constraint firstItem="BGk-bT-Blu" firstAttribute="top" secondItem="aB5-Ev-kJW" secondAttribute="bottom" constant="10" id="GuU-4Z-9Dq"/>
+                            <constraint firstItem="aB5-Ev-kJW" firstAttribute="top" secondItem="Cf5-jU-ZDm" secondAttribute="bottom" constant="10" id="Hua-BE-Qwi"/>
+                            <constraint firstItem="BGk-bT-Blu" firstAttribute="top" secondItem="Cf5-jU-ZDm" secondAttribute="bottom" constant="40" id="JMN-wr-dZM"/>
                             <constraint firstItem="WJG-of-n7k" firstAttribute="leading" secondItem="n5K-r9-FV4" secondAttribute="leading" constant="100" id="KGE-1Q-4DK"/>
                             <constraint firstItem="Cf5-jU-ZDm" firstAttribute="top" secondItem="DjZ-fw-9i5" secondAttribute="bottom" constant="20" id="RcG-uY-LJd"/>
+                            <constraint firstItem="WJG-of-n7k" firstAttribute="top" secondItem="BGk-bT-Blu" secondAttribute="bottom" constant="48" id="UKN-ft-U4F"/>
+                            <constraint firstItem="Cf5-jU-ZDm" firstAttribute="top" secondItem="ANI-f6-caN" secondAttribute="topMargin" constant="20" id="aNY-8k-NlQ"/>
                             <constraint firstItem="DjZ-fw-9i5" firstAttribute="top" secondItem="ANI-f6-caN" secondAttribute="top" id="axf-iJ-lve"/>
                             <constraint firstItem="DjZ-fw-9i5" firstAttribute="leading" secondItem="ANI-f6-caN" secondAttribute="leading" id="brM-OI-geP"/>
+                            <constraint firstItem="wY9-s1-cd5" firstAttribute="top" secondItem="BGk-bT-Blu" secondAttribute="bottom" constant="20" id="dLv-IX-Zjq"/>
                             <constraint firstItem="Cf5-jU-ZDm" firstAttribute="leading" secondItem="n5K-r9-FV4" secondAttribute="leading" constant="20" id="jUe-o7-klN"/>
-                            <constraint firstItem="WJG-of-n7k" firstAttribute="top" secondItem="BGk-bT-Blu" secondAttribute="bottom" constant="20" id="l17-6k-cdf"/>
+                            <constraint firstItem="aB5-Ev-kJW" firstAttribute="top" secondItem="n5K-r9-FV4" secondAttribute="top" constant="64" id="mHr-bv-gLs"/>
                             <constraint firstItem="n5K-r9-FV4" firstAttribute="trailing" secondItem="aB5-Ev-kJW" secondAttribute="trailing" constant="20" id="o1O-cy-GaN"/>
                             <constraint firstItem="n5K-r9-FV4" firstAttribute="trailing" secondItem="WJG-of-n7k" secondAttribute="trailing" constant="100" id="o22-4b-7hT"/>
                             <constraint firstItem="n5K-r9-FV4" firstAttribute="bottom" secondItem="WJG-of-n7k" secondAttribute="bottom" constant="40" id="p5Z-NG-Who"/>
+                            <constraint firstItem="wY9-s1-cd5" firstAttribute="leading" secondItem="n5K-r9-FV4" secondAttribute="leading" constant="20" id="pOv-4V-uid"/>
                             <constraint firstItem="n5K-r9-FV4" firstAttribute="trailing" secondItem="Cf5-jU-ZDm" secondAttribute="trailing" constant="20" id="pZv-rM-Ehi"/>
                             <constraint firstItem="aB5-Ev-kJW" firstAttribute="leading" secondItem="n5K-r9-FV4" secondAttribute="leading" constant="20" id="whL-gC-W6J"/>
                         </constraints>
@@ -88,8 +101,15 @@
                     <navigationItem key="navigationItem" id="pZE-mt-aeA"/>
                     <connections>
                         <outlet property="durationLabel" destination="aB5-Ev-kJW" id="08l-Qm-lv5"/>
+                        <outlet property="durationLabelBottom" destination="wY9-s1-cd5" id="r5G-M0-8U2"/>
+                        <outlet property="durationToSuperView" destination="mHr-bv-gLs" id="Ns9-4q-znl"/>
+                        <outlet property="navbar" destination="DjZ-fw-9i5" id="QLP-nU-0gR"/>
                         <outlet property="saveButton" destination="LNf-mY-6OR" id="hzx-d8-gAv"/>
+                        <outlet property="textViewToButtonConstraint" destination="UKN-ft-U4F" id="4nN-J8-to9"/>
+                        <outlet property="textViewToDurationConstraint" destination="dLv-IX-Zjq" id="xwL-iS-YXD"/>
+                        <outlet property="textViewToTitleConstraint" destination="JMN-wr-dZM" id="Rh7-wf-g9j"/>
                         <outlet property="titleTextField" destination="Cf5-jU-ZDm" id="jhI-x3-Nmr"/>
+                        <outlet property="titleToSuperview" destination="aNY-8k-NlQ" id="EI2-B8-5T5"/>
                         <outlet property="transcribeActionButton" destination="WJG-of-n7k" id="HjI-VB-yc2"/>
                         <outlet property="transcriptionResultTextView" destination="BGk-bT-Blu" id="dC0-OI-UTO"/>
                     </connections>

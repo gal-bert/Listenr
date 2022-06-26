@@ -59,7 +59,42 @@ extension DetailViewController: DetailDelegate {
     }
     
     @objc func didTapShare() {
-        //TODO: add action here
+        let textConcat = "\(transcription?.title ?? "")\n\nDuration: \(transcription?.duration ?? "")\nDate: \(transcription?.createdAt?.fixedFormat() ?? "")\nTag: \(transcription?.tags ?? "")\n\n\(transcription?.result ?? "")"
+        let shareModal = UIActivityViewController(activityItems: [textConcat], applicationActivities: nil)
+        shareModal.popoverPresentationController?.sourceView = self.view
+        present(shareModal, animated: true)
+    }
+    
+    func checkTagTruncate() {
+        if detailView.maxLabelWidth! < detailView.tagsLabel.intrinsicContentSize.width {
+            detailView.tagToSuperView.isActive = true
+        }
+        else {
+            detailView.tagToSuperView.isActive = false
+        }
+    }
+    
+    func didTapDelete(item: Transcriptions) {
+        
+        let alert = UIAlertController(title: "Delete Transcription?", message: "Are you sure to delete this transcription?", preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(
+            title: "Delete",
+            style: .destructive,
+            handler: { _ in
+                let repo = TranscriptionRepository.shared
+                repo.delete(item: item)
+                self.navigationController?.popViewController(animated: true)
+            }
+        ))
+
+        alert.addAction(UIAlertAction(
+            title: "Cancel",
+            style: .cancel,
+            handler: nil
+        ))
+
+        present(alert, animated: true)
     }
 }
 
@@ -76,6 +111,7 @@ extension DetailViewController: FloatingPanelControllerDelegate {
 extension DetailViewController: TagsModalDelegate {
     func tagSelected(tagName: String) {
         detailView.tagsLabel.text = tagName
+        checkTagTruncate()
         TranscriptionRepository.shared.update(item: transcription!, newTitle: (transcription?.title)!, newResult: (transcription?.result)!, newTags: tagName)
     }
 }

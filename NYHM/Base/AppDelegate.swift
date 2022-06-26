@@ -17,6 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        UserDefaults.standard.register(defaults: [
+            Constants.SELECTED_LANGUAGE: "id",
+            Constants.IS_FIRST_TIME: true,
+            Constants.IS_WAVEFORM_VISIBLE: true
+        ])
+        
         assert(WCSession.isSupported(), "This app requires Watch Connectivity support!")
         WCSession.default.delegate = sessionDelegator
         WCSession.default.activate()

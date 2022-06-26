@@ -112,7 +112,7 @@
                                     <segue destination="x73-3y-Hwh" kind="show" id="W7J-hG-6u9"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem image="ellipsis" catalog="system" id="o63-aS-pga"/>
+                            <barButtonItem image="arrow.up.arrow.down" catalog="system" id="o63-aS-pga"/>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
@@ -147,10 +147,10 @@
             </objects>
             <point key="canvasLocation" x="1157" y="98"/>
         </scene>
-        <!--Transcription-->
+        <!--transcriptionVC-->
         <scene sceneID="DPI-En-IIT">
             <objects>
-                <viewControllerPlaceholder storyboardName="Transcription" id="Ero-fy-8Cf" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="transcriptionVC" storyboardName="Transcription" referencedIdentifier="transcriptionVC" id="Ero-fy-8Cf" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="TdG-Q2-D2W"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RP9-83-svy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -182,7 +182,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ellipsis" catalog="system" width="128" height="37"/>
+        <image name="arrow.up.arrow.down" catalog="system" width="128" height="98"/>
         <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="mic.fill" catalog="system" width="108" height="128"/>
     </resources>

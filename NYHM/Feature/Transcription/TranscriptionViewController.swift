@@ -18,11 +18,19 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var durationLabel: UILabel!
+    @IBOutlet weak var durationLabelBottom: UILabel!
     @IBOutlet weak var transcriptionResultTextView: UITextView!
     @IBOutlet weak var transcribeActionButton: UIButton!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
-    var homeController = HomeViewController()
+    @IBOutlet weak var textViewToTitleConstraint: NSLayoutConstraint!
+    @IBOutlet weak var textViewToButtonConstraint: NSLayoutConstraint!
+    @IBOutlet weak var navbar: UINavigationBar!
+    
+    @IBOutlet weak var titleToSuperview: NSLayoutConstraint!
+    @IBOutlet weak var durationToSuperView: NSLayoutConstraint!
+    
+    @IBOutlet weak var textViewToDurationConstraint: NSLayoutConstraint!
     
     var delegate:SaveTranscriptionProtocol?
     
@@ -45,6 +53,18 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     
     var timer: Timer?
     var durationTemp:Int = 0
+    
+    var numberOfChannelForAudio = 2
+    
+    let updateInterval = 0.00005
+    var waveTimer: Timer?
+    
+    var waveView = WaveView()
+    
+    var sineWaveView = UIView()
+//    @IBOutlet weak var sinewaveView: UIView!
+    
+    let isWaveformVisible = UserDefaults.standard.bool(forKey: Constants.IS_WAVEFORM_VISIBLE)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,15 +100,29 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         startRecording()
         
         sendStarting([MessageKeyLoad.starting: true])
+//        sineWaveView = waveView.theView
+//        sineWaveView.tag = 378
+        turnTheWave(bool: isWaveformVisible)
+        
     }
     
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        waveTimer?.invalidate()
+        waveView.timer.invalidate()
+        turnTheWave(bool: false)
+        delegate?.reloadTableView()
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     func initDuration() -> Void {
         
         durationLabel.text = "00:00:00"
+        durationLabelBottom.text = "00:00:00"
         
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
             if self.isPlaying {
@@ -99,6 +133,7 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
                     let minutes = seconds.getStringFrom(seconds: minutes)
                     let seconds = seconds.getStringFrom(seconds: seconds)
                     self.durationLabel.text = "\(hours):\(minutes):\(seconds)"
+                    self.durationLabelBottom.text = "\(hours):\(minutes):\(seconds)"
                 }
                 
                 
@@ -157,32 +192,61 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
                 settings: [
                     AVFormatIDKey: kAudioFormatAppleLossless,
                     AVSampleRateKey: 44100.0,
-                    AVNumberOfChannelsKey: 2,
+                    AVNumberOfChannelsKey: numberOfChannelForAudio,
                     AVEncoderAudioQualityKey: AVAudioQuality.max.rawValue
                 ]
             )
             audioRecorder?.record()
+            
+            audioRecorder!.isMeteringEnabled = true
+            if isWaveformVisible {
+                startWave()
+            }
+            
         } catch {
+            if isWaveformVisible {
+                waveTimer?.invalidate()
+                waveView.timer.invalidate()
+            }
+            audioRecorder!.isMeteringEnabled = false
             stopRecording()
         }
         
     }
     
     func continueRecording() -> Void {
+        audioRecorder?.isMeteringEnabled = true
+        if isWaveformVisible {
+            startWave()
+        }
         audioRecorder?.record()
     }
     
     func pauseRecording() -> Void {
+        audioRecorder!.isMeteringEnabled = false
+        if isWaveformVisible {
+            waveTimer?.invalidate()
+        }
         audioRecorder?.pause()
     }
     
     func stopRecording() -> Void {
+        audioRecorder!.isMeteringEnabled = false
+        if isWaveformVisible {
+            waveTimer?.invalidate()
+            waveView.timer.invalidate()
+        }
         audioRecorder?.stop()
         audioRecorder = nil
     }
     
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if !flag {
+            if isWaveformVisible {
+                waveTimer?.invalidate()
+                waveView.timer.invalidate()
+            }
+            audioRecorder!.isMeteringEnabled = false
             stopRecording()
         }
     }
@@ -236,7 +300,6 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
 //                    self.sendIsPlaying([MessageKeyLoad.isPlaying: self.isPlaying])
                     self.sendMessage([MessageKeyLoad.result: concat])
                 }
-                
             }
             
             if error != nil || isFinal {
@@ -246,6 +309,7 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
                 self.recognitionRequest = nil
                 self.recognitionTask = nil
             }
+            
         })
         
         let recordingFormat = inputNode.outputFormat(forBus: 0)
@@ -281,7 +345,8 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             recognitionRequest?.endAudio()
             pauseRecording()
             
-            transcribeActionButton.setTitle("Start", for: .normal)
+            transcribeActionButton.setTitle("Resume", for: .normal)
+            transcribeActionButton.setImage(UIImage(), for: .normal)
             saveButton.isEnabled = true
             isPlaying = false
             sendIsPausing([MessageKeyLoad.isPausing: true])
@@ -294,17 +359,80 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             startTranscription()
             continueRecording()
             
-            transcribeActionButton.setTitle("Stop", for: .normal)
+            transcribeActionButton.setTitle("", for: .normal)
+            transcribeActionButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
             saveButton.isEnabled = false
             isPlaying = true
             sendIsPlaying([MessageKeyLoad.isPlaying: true])
         }
     }
-
+    
+    func stateDidChange(newState: Int) {
+        
+        switch newState {
+            
+        case 1: // full modal
+            navbar.isHidden = false
+            titleToSuperview.constant = 60
+            durationLabel.isHidden = true
+            textViewToTitleConstraint.constant = 20
+            textViewToButtonConstraint.constant = 60
+            
+            textViewToDurationConstraint.constant = 20
+            
+            durationLabelBottom.isHidden = false
+            titleTextField.isHidden = false
+            durationToSuperView.constant = 100
+            
+            if isWaveformVisible {
+                textViewToButtonConstraint.constant = 160
+                textViewToDurationConstraint.constant = 120
+                audioRecorder!.isMeteringEnabled = true
+                turnTheWave(bool: true)
+            } else {
+                audioRecorder!.isMeteringEnabled = false
+                turnTheWave(bool: false)
+            }
+            
+        case 2: // half modal
+            
+            navbar.isHidden = true
+            titleToSuperview.constant = 20
+            durationLabel.isHidden = false
+            textViewToTitleConstraint.constant = 40
+            textViewToButtonConstraint.constant = 400
+            durationLabelBottom.isHidden = true
+            titleTextField.isHidden = true
+            durationToSuperView.constant = 20
+            
+            audioRecorder!.isMeteringEnabled = false
+            turnTheWave(bool: false)
+            
+        default:
+            print("default")
+        }
+    }
     
     @IBAction func cancel(_ sender: Any) {
-        sendCanceling([MessageKeyLoad.canceling: true])
-        globalCancel()
+        let alert = UIAlertController(title: "Cancel Transcription?", message: "Are you sure to cancel the current transcription session?", preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(
+            title: "Yes, Cancel",
+            style: .destructive,
+            handler: { _ in
+                self.sendCanceling([MessageKeyLoad.canceling: true])
+                self.audioEngine.stop()
+                self.dismiss(animated: true)
+            }
+        ))
+
+        alert.addAction(UIAlertAction(
+            title: "Stay Transcribing",
+            style: .cancel,
+            handler: nil
+        ))
+
+        present(alert, animated: true)
     }
     
     func globalCancel() {
@@ -318,6 +446,13 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     }
     
     func globalSave() {
+        audioRecorder!.isMeteringEnabled = false
+        if isWaveformVisible {
+            waveTimer?.invalidate()
+            waveView.timer.invalidate()
+            turnTheWave(bool: false)
+        }
+        
         audioEngine.stop()
         stopRecording()
         
@@ -351,8 +486,5 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         transcribeOnLoad()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        NotificationCenter.default.removeObserver(self)
-    }
 }
+

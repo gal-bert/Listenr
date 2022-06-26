@@ -10,6 +10,6 @@ import UIKit
 
 protocol HomeDelegate: AnyObject {
     func chooseLanguage()
-    func sortByName()
-    func sortByDate()
+    func sortBy(type: SortType)
+    func showTranscriptionModal()
 }

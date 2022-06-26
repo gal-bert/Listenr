@@ -29,6 +29,14 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let isFirstTime = UserDefaults.standard.bool(forKey: Constants.IS_FIRST_TIME)
+        if isFirstTime == true {
+            TagsRepository.shared.add(name: "Lecture", position: 0)
+            TagsRepository.shared.add(name: "Seminar", position: 1)
+            TagsRepository.shared.add(name: "Conversation", position: 2)
+            UserDefaults.standard.set(false, forKey: Constants.IS_FIRST_TIME)
+        }
+        
         transcriptions = repo.showAll()
         homeView.setup(viewController: self)
         
@@ -43,17 +51,4 @@ class HomeViewController: UIViewController {
         transcriptions = repo.showAll()
         homeView.tableView.reloadData()
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "toTranscriptionPageSegue" {
-            if let dest = segue.destination as? TranscriptionViewController {
-                dest.delegate = self
-            }
-        }
-        
-    }
-    
-    
-    
 }

@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import FloatingPanel
 
 extension HomeViewController: UITableViewDelegate {
     
@@ -24,9 +25,28 @@ extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            repo.delete(item: transcriptions[indexPath.section])
-            transcriptions = repo.showAll()
-            tableView.deleteSections(IndexSet(arrayLiteral: indexPath.section), with: .left)
+            
+            let alert = UIAlertController(title: "Delete Transcription?", message: "Are you sure to delete the selected transcription?", preferredStyle: .alert)
+
+            alert.addAction(UIAlertAction(
+                title: "Delete",
+                style: .destructive,
+                handler: { _ in
+                    self.repo.delete(item: self.transcriptions[indexPath.section])
+                    self.transcriptions = self.repo.showAll()
+                    tableView.deleteSections(IndexSet(arrayLiteral: indexPath.section), with: .left)
+                }
+            ))
+
+            alert.addAction(UIAlertAction(
+                title: "Cancel",
+                style: .cancel,
+                handler: nil
+            ))
+
+            present(alert, animated: true)
+            
+            
         }
     }
     
@@ -49,27 +69,11 @@ extension HomeViewController: HomeDelegate {
         present(sheet, animated: true)
     }
     
-    func sortByName() {
-        if currentSort == SortType.alphabetAsc {
-            transcriptions = repo.showAll(sortBy: .alphabetDesc)
-            currentSort = .alphabetDesc
-        } else {
-            transcriptions = repo.showAll(sortBy: .alphabetAsc)
-            currentSort = .alphabetAsc
-        }
+    func sortBy(type: SortType) {
+        transcriptions = repo.showAll(sortBy: type)
+        currentSort = type
         
-        reloadData()
-    }
-    
-    func sortByDate() {
-        if currentSort == SortType.timeAsc {
-            transcriptions = repo.showAll(sortBy: .timeDesc)
-            currentSort = .timeDesc
-        } else {
-            transcriptions = repo.showAll(sortBy: .timeAsc)
-            currentSort = .timeAsc
-        }
-        
+        homeView.generatePopOverMenu()
         reloadData()
     }
     
@@ -77,13 +81,45 @@ extension HomeViewController: HomeDelegate {
         var indexPathsToReload = [IndexPath]()
         
         for index in transcriptions.indices {
-            let indexPath = IndexPath(row: index, section: 0)
+            let indexPath = IndexPath(row: 0, section: index)
             indexPathsToReload.append(indexPath)
         }
-        
         homeView.tableView.reloadRows(at: indexPathsToReload, with: .middle)
+        
     }
     
+    func showTranscriptionModal() {
+        let modal = FloatingPanelController(delegate: self)
+        let customLayout = TranscriptionModalLayout()
+        modal.layout = customLayout
+        
+        let storyboard = UIStoryboard(name: "Transcription", bundle: nil)
+        guard let transcriptionVC = storyboard.instantiateViewController(withIdentifier: "transcriptionVC") as? TranscriptionViewController else {return}
+        
+        transcriptionVC.delegate = self
+        
+        modal.set(contentViewController: transcriptionVC)
+        
+        let appearance = SurfaceAppearance()
+        appearance.cornerRadius = 10.0
+        modal.surfaceView.appearance = appearance
+
+        self.present(modal, animated: true, completion: nil)
+    }
+    
+}
+
+extension HomeViewController: FloatingPanelControllerDelegate {
+    func floatingPanelDidChangeState(_ modal: FloatingPanelController) {
+        let transcriptionVC = modal.contentViewController as? TranscriptionViewController
+        
+        if modal.state == .full {
+            transcriptionVC?.stateDidChange(newState: 1)
+        }
+        else if modal.state == .half {
+            transcriptionVC?.stateDidChange(newState: 2)
+        }
+    }
 }
 
 extension HomeViewController: SaveTranscriptionProtocol {
