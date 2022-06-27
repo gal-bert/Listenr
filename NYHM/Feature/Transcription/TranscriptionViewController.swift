@@ -155,6 +155,8 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             print("Recording Session Error")
             print(error.localizedDescription)
         }
+        
+        setupNotifications()
     }
     
     func startRecording() -> Void {
@@ -335,6 +337,36 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         }
     }
     
+    func setupNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(handleInterruption), name: AVAudioSession.interruptionNotification, object: AVAudioSession.sharedInstance())
+    }
+    
+    func removeInterruptionObserver() {
+        NotificationCenter.default.removeObserver(self)
+    }
+
+    @objc func handleInterruption(notification: Notification) {
+        guard let userInfo = notification.userInfo,
+            let typeValue = userInfo[AVAudioSessionInterruptionTypeKey] as? UInt,
+            let type = AVAudioSession.InterruptionType(rawValue: typeValue),
+            let reason = AVAudioSession.InterruptionReason(rawValue: typeValue) else {
+                return
+        }
+
+        switch type {
+            case .began:
+                switch reason {
+                    case .appWasSuspended:
+                    if isPlaying == true {
+                        transcriptionTemp = transcriptionResultTextView.text
+                        saveTranscription()
+                    }
+                    default: ()
+                }
+            default: ()
+        }
+    }
+    
     func stateDidChange(newState: Int) {
         
         switch newState {
@@ -391,6 +423,7 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             handler: { _ in
                 self.audioEngine.stop()
                 self.dismiss(animated: true)
+                self.removeInterruptionObserver()
             }
         ))
 
@@ -405,7 +438,10 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     }
     
     @IBAction func save(_ sender: Any) {
-        
+        saveTranscription()
+    }
+    
+    func saveTranscription() {
         audioRecorder!.isMeteringEnabled = false
         if isWaveformVisible {
             waveTimer?.invalidate()
@@ -436,6 +472,7 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             filename: filenameToSave
         )
         
+        removeInterruptionObserver()
         print("\(filenameToSave)")
         
         delegate?.reloadTableView()
