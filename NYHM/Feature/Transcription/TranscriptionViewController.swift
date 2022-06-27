@@ -8,12 +8,13 @@
 import UIKit
 import Speech
 import AVKit
+import WatchConnectivity
 
 protocol SaveTranscriptionProtocol {
     func reloadTableView()
 }
 
-class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate, AVAudioRecorderDelegate {
+class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate, AVAudioRecorderDelegate, SessionManager {
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var durationLabel: UILabel!
@@ -68,6 +69,24 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(
+            self, selector: #selector(type(of: self).dataDidFlow(_:)),
+            name: .dataDidFlow, object: nil
+        )
+        
+        NotificationCenter.default.addObserver(
+            self, selector: #selector(type(of: self).activationDidComplete(_:)),
+            name: .activationDidComplete, object: nil
+        )
+        
+        NotificationCenter.default.addObserver(
+            self, selector: #selector(type(of: self).reachabilityDidChange(_:)),
+            name: .reachabilityDidChange, object: nil
+        )
+        
+        transcriptionResultTextView.layer.borderColor = UIColor.black.cgColor
+        transcriptionResultTextView.layer.borderWidth = 1
+        
         speechRecognizer?.delegate = self
         audioRecorder?.delegate = self
         
@@ -80,19 +99,24 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         transcribeOnLoad()
         startRecording()
         
+        sendStarting([MessageKeyLoad.starting: true])
 //        sineWaveView = waveView.theView
 //        sineWaveView.tag = 378
         turnTheWave(bool: isWaveformVisible)
         
     }
     
-    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
     
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
         waveTimer?.invalidate()
         waveView.timer.invalidate()
         turnTheWave(bool: false)
         delegate?.reloadTableView()
+        NotificationCenter.default.removeObserver(self)
     }
     
     func initDuration() -> Void {
@@ -278,6 +302,9 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
                     self.transcriptionResultTextView.text = concat
                     print(concat)
                     
+                    //TODO: sendMessage
+//                    self.sendIsPlaying([MessageKeyLoad.isPlaying: self.isPlaying])
+                    self.sendMessage([MessageKeyLoad.result: concat])
                 }
             }
             
@@ -318,6 +345,8 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             transcriptionResultTextView.text = transcriptionTemp
             transcriptionTemp2 = ""
             
+            //TODO: sendMessage
+            
             audioEngine.stop()
             recognitionRequest?.endAudio()
             pauseRecording()
@@ -326,6 +355,7 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             transcribeActionButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
             saveButton.isEnabled = true
             isPlaying = false
+            sendIsPausing([MessageKeyLoad.isPausing: true])
         }
         
         // State is stopped, command to start
@@ -339,9 +369,7 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             transcribeActionButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
             saveButton.isEnabled = false
             isPlaying = true
-            
-            
-            
+            sendIsPlaying([MessageKeyLoad.isPlaying: true])
         }
         let fourthBg = UIColor(named: "fourthBg")
         
@@ -371,7 +399,7 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
                     case .appWasSuspended:
                     if isPlaying == true {
                         transcriptionTemp = transcriptionResultTextView.text
-                        saveTranscription()
+                        globalSave()
                     }
                     default: ()
                 }
@@ -426,13 +454,13 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     }
     
     @IBAction func cancel(_ sender: Any) {
-                
         let alert = UIAlertController(title: "Cancel Transcription?", message: "Are you sure to cancel the current transcription session?", preferredStyle: .alert)
 
         alert.addAction(UIAlertAction(
             title: "Yes, Cancel",
             style: .destructive,
             handler: { _ in
+                self.sendCanceling([MessageKeyLoad.canceling: true])
                 self.audioEngine.stop()
                 self.dismiss(animated: true)
                 self.removeInterruptionObserver()
@@ -446,20 +474,26 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         ))
 
         present(alert, animated: true)
-        
+    }
+    
+    func globalCancel() {
+        audioEngine.stop()
+        dismiss(animated: true)
     }
     
     @IBAction func save(_ sender: Any) {
-        saveTranscription()
+        sendSaving([MessageKeyLoad.saving: true])
+        globalSave()
     }
     
-    func saveTranscription() {
+    func globalSave() {
         audioRecorder!.isMeteringEnabled = false
         if isWaveformVisible {
             waveTimer?.invalidate()
             waveView.timer.invalidate()
             turnTheWave(bool: false)
         }
+        
         audioEngine.stop()
         stopRecording()
         
@@ -486,13 +520,8 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         
         removeInterruptionObserver()
         print("\(filenameToSave)")
-        
         delegate?.reloadTableView()
         dismiss(animated: true)
-        
-    
-        
-        
     }
     
     

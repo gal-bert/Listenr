@@ -39,6 +39,14 @@
 		FB27AF0E2857788600D0B270 /* TagsCoreDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27AF0D2857788600D0B270 /* TagsCoreDataSource.swift */; };
 		FB298E7C285B5D550063B522 /* Button+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB298E7B285B5D550063B522 /* Button+Ext.swift */; };
 		FB298E7E285B604A0063B522 /* ConvertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB298E7D285B604A0063B522 /* ConvertHelper.swift */; };
+		FB2BE420285FED91008FE4BD /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB2BE41E285FED91008FE4BD /* Interface.storyboard */; };
+		FB2BE422285FED92008FE4BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB2BE421285FED92008FE4BD /* Assets.xcassets */; };
+		FB2BE428285FED92008FE4BD /* NYHMWatch WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FB2BE427285FED92008FE4BD /* NYHMWatch WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FB2BE42D285FED92008FE4BD /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BE42C285FED92008FE4BD /* InterfaceController.swift */; };
+		FB2BE42F285FED92008FE4BD /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BE42E285FED92008FE4BD /* ExtensionDelegate.swift */; };
+		FB2BE431285FED92008FE4BD /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BE430285FED92008FE4BD /* ComplicationController.swift */; };
+		FB2BE433285FED93008FE4BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB2BE432285FED93008FE4BD /* Assets.xcassets */; };
+		FB2BE437285FED93008FE4BD /* NYHMWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = FB2BE41C285FED91008FE4BD /* NYHMWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FB649BA7286A15B700ADF103 /* Inter-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB649B9E286A15B600ADF103 /* Inter-Light.ttf */; };
 		FB649BA8286A15B700ADF103 /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB649B9F286A15B600ADF103 /* Inter-Medium.ttf */; };
 		FB649BA9286A15B700ADF103 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB649BA0286A15B600ADF103 /* Inter-Regular.ttf */; };
@@ -51,6 +59,13 @@
 		FB8043A82859666A0022E919 /* HomeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8043A72859666A0022E919 /* HomeDelegate.swift */; };
 		FB851E722859DCBF00DDBD3B /* DetailViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB851E712859DCBF00DDBD3B /* DetailViewController+Delegate.swift */; };
 		FB851E742859DD8700DDBD3B /* DetailDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB851E732859DD8700DDBD3B /* DetailDelegate.swift */; };
+		FB95687328631EC300050556 /* SessionDelegator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95687228631EC300050556 /* SessionDelegator.swift */; };
+		FB95687428631EC500050556 /* SessionDelegator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95687228631EC300050556 /* SessionDelegator.swift */; };
+		FB95687628631ED200050556 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95687528631ED200050556 /* SessionManager.swift */; };
+		FB95687728631ED300050556 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95687528631ED200050556 /* SessionManager.swift */; };
+		FB95687928631EE600050556 /* MessageStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95687828631EE600050556 /* MessageStatus.swift */; };
+		FB95687A28631EE800050556 /* MessageStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95687828631EE600050556 /* MessageStatus.swift */; };
+		FB95687C286328E000050556 /* TranscriptionViewController+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95687B286328E000050556 /* TranscriptionViewController+Notification.swift */; };
 		FB9EE50E2855FE5E004EEA24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9EE50D2855FE5E004EEA24 /* AppDelegate.swift */; };
 		FB9EE5102855FE5E004EEA24 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9EE50F2855FE5E004EEA24 /* SceneDelegate.swift */; };
 		FB9EE5182855FE5E004EEA24 /* NYHM.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FB9EE5162855FE5E004EEA24 /* NYHM.xcdatamodeld */; };
@@ -84,6 +99,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		FB2BE429285FED92008FE4BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB9EE5022855FE5E004EEA24 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB2BE426285FED92008FE4BD;
+			remoteInfo = "NYHMWatch WatchKit Extension";
+		};
+		FB2BE435285FED93008FE4BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB9EE5022855FE5E004EEA24 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB2BE41B285FED91008FE4BD;
+			remoteInfo = NYHMWatch;
+		};
 		FB9EE5242855FE5F004EEA24 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FB9EE5022855FE5E004EEA24 /* Project object */;
@@ -99,6 +128,31 @@
 			remoteInfo = NYHM;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FB2BE438285FED93008FE4BD /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				FB2BE437285FED93008FE4BD /* NYHMWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB2BE43B285FED93008FE4BD /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				FB2BE428285FED92008FE4BD /* NYHMWatch WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		02D07F422867FA58005E3166 /* homeLottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = homeLottie.json; sourceTree = "<group>"; };
@@ -133,6 +187,15 @@
 		FB27AF0D2857788600D0B270 /* TagsCoreDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsCoreDataSource.swift; sourceTree = "<group>"; };
 		FB298E7B285B5D550063B522 /* Button+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Ext.swift"; sourceTree = "<group>"; };
 		FB298E7D285B604A0063B522 /* ConvertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertHelper.swift; sourceTree = "<group>"; };
+		FB2BE41C285FED91008FE4BD /* NYHMWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYHMWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB2BE41F285FED91008FE4BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		FB2BE421285FED92008FE4BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FB2BE427285FED92008FE4BD /* NYHMWatch WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "NYHMWatch WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB2BE42C285FED92008FE4BD /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		FB2BE42E285FED92008FE4BD /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		FB2BE430285FED92008FE4BD /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		FB2BE432285FED93008FE4BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FB2BE434285FED93008FE4BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB649B9E286A15B600ADF103 /* Inter-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Light.ttf"; sourceTree = "<group>"; };
 		FB649B9F286A15B600ADF103 /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
 		FB649BA0286A15B600ADF103 /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
@@ -145,6 +208,10 @@
 		FB8043A72859666A0022E919 /* HomeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDelegate.swift; sourceTree = "<group>"; };
 		FB851E712859DCBF00DDBD3B /* DetailViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailViewController+Delegate.swift"; sourceTree = "<group>"; };
 		FB851E732859DD8700DDBD3B /* DetailDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDelegate.swift; sourceTree = "<group>"; };
+		FB95687228631EC300050556 /* SessionDelegator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDelegator.swift; sourceTree = "<group>"; };
+		FB95687528631ED200050556 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		FB95687828631EE600050556 /* MessageStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageStatus.swift; sourceTree = "<group>"; };
+		FB95687B286328E000050556 /* TranscriptionViewController+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TranscriptionViewController+Notification.swift"; sourceTree = "<group>"; };
 		FB9EE50A2855FE5E004EEA24 /* NYHM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYHM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB9EE50D2855FE5E004EEA24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB9EE50F2855FE5E004EEA24 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -180,6 +247,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		FB2BE424285FED92008FE4BD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FB9EE5072855FE5E004EEA24 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -284,6 +358,37 @@
 			path = TagsModal;
 			sourceTree = "<group>";
 		};
+		FB2BE41D285FED91008FE4BD /* NYHMWatch */ = {
+			isa = PBXGroup;
+			children = (
+				FB2BE41E285FED91008FE4BD /* Interface.storyboard */,
+				FB2BE421285FED92008FE4BD /* Assets.xcassets */,
+			);
+			path = NYHMWatch;
+			sourceTree = "<group>";
+		};
+		FB2BE42B285FED92008FE4BD /* NYHMWatch WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				FB2BE42C285FED92008FE4BD /* InterfaceController.swift */,
+				FB2BE42E285FED92008FE4BD /* ExtensionDelegate.swift */,
+				FB2BE430285FED92008FE4BD /* ComplicationController.swift */,
+				FB2BE432285FED93008FE4BD /* Assets.xcassets */,
+				FB2BE434285FED93008FE4BD /* Info.plist */,
+			);
+			path = "NYHMWatch WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		FB95687128631EB300050556 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				FB95687828631EE600050556 /* MessageStatus.swift */,
+				FB95687228631EC300050556 /* SessionDelegator.swift */,
+				FB95687528631ED200050556 /* SessionManager.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		FB649B9D286A157C00ADF103 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -303,10 +408,13 @@
 		FB9EE5012855FE5E004EEA24 = {
 			isa = PBXGroup;
 			children = (
+				FB95687128631EB300050556 /* Shared */,
 				FB649B9D286A157C00ADF103 /* Fonts */,
 				FB9EE50C2855FE5E004EEA24 /* NYHM */,
 				FB9EE5262855FE5F004EEA24 /* NYHMTests */,
 				FB9EE5302855FE5F004EEA24 /* NYHMUITests */,
+				FB2BE41D285FED91008FE4BD /* NYHMWatch */,
+				FB2BE42B285FED92008FE4BD /* NYHMWatch WatchKit Extension */,
 				FB9EE50B2855FE5E004EEA24 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -317,6 +425,8 @@
 				FB9EE50A2855FE5E004EEA24 /* NYHM.app */,
 				FB9EE5232855FE5F004EEA24 /* NYHMTests.xctest */,
 				FB9EE52D2855FE5F004EEA24 /* NYHMUITests.xctest */,
+				FB2BE41C285FED91008FE4BD /* NYHMWatch.app */,
+				FB2BE427285FED92008FE4BD /* NYHMWatch WatchKit Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -518,6 +628,7 @@
 				39F318B42863477100B1001F /* Sinwaveform */,
 				FB9EE563285600A0004EEA24 /* TranscriptionViewController.swift */,
 				FB9EE565285600AC004EEA24 /* Transcription.storyboard */,
+				FB95687B286328E000050556 /* TranscriptionViewController+Notification.swift */,
 				5F166834285C911E0013B0B7 /* TranscriptionModalLayout.swift */,
 			);
 			path = Transcription;
@@ -555,6 +666,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		FB2BE41B285FED91008FE4BD /* NYHMWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB2BE43F285FED93008FE4BD /* Build configuration list for PBXNativeTarget "NYHMWatch" */;
+			buildPhases = (
+				FB2BE41A285FED91008FE4BD /* Resources */,
+				FB2BE43B285FED93008FE4BD /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FB2BE42A285FED92008FE4BD /* PBXTargetDependency */,
+			);
+			name = NYHMWatch;
+			productName = NYHMWatch;
+			productReference = FB2BE41C285FED91008FE4BD /* NYHMWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		FB2BE426285FED92008FE4BD /* NYHMWatch WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB2BE43E285FED93008FE4BD /* Build configuration list for PBXNativeTarget "NYHMWatch WatchKit Extension" */;
+			buildPhases = (
+				FB2BE423285FED92008FE4BD /* Sources */,
+				FB2BE424285FED92008FE4BD /* Frameworks */,
+				FB2BE425285FED92008FE4BD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "NYHMWatch WatchKit Extension";
+			productName = "NYHMWatch WatchKit Extension";
+			productReference = FB2BE427285FED92008FE4BD /* NYHMWatch WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		FB9EE5092855FE5E004EEA24 /* NYHM */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FB9EE5372855FE5F004EEA24 /* Build configuration list for PBXNativeTarget "NYHM" */;
@@ -562,10 +707,12 @@
 				FB9EE5062855FE5E004EEA24 /* Sources */,
 				FB9EE5072855FE5E004EEA24 /* Frameworks */,
 				FB9EE5082855FE5E004EEA24 /* Resources */,
+				FB2BE438285FED93008FE4BD /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				FB2BE436285FED93008FE4BD /* PBXTargetDependency */,
 			);
 			name = NYHM;
 			packageProductDependencies = (
@@ -622,6 +769,12 @@
 				LastSwiftUpdateCheck = 1330;
 				LastUpgradeCheck = 1330;
 				TargetAttributes = {
+					FB2BE41B285FED91008FE4BD = {
+						CreatedOnToolsVersion = 13.3;
+					};
+					FB2BE426285FED92008FE4BD = {
+						CreatedOnToolsVersion = 13.3;
+					};
 					FB9EE5092855FE5E004EEA24 = {
 						CreatedOnToolsVersion = 13.3;
 					};
@@ -655,11 +808,30 @@
 				FB9EE5092855FE5E004EEA24 /* NYHM */,
 				FB9EE5222855FE5F004EEA24 /* NYHMTests */,
 				FB9EE52C2855FE5F004EEA24 /* NYHMUITests */,
+				FB2BE41B285FED91008FE4BD /* NYHMWatch */,
+				FB2BE426285FED92008FE4BD /* NYHMWatch WatchKit Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		FB2BE41A285FED91008FE4BD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB2BE422285FED92008FE4BD /* Assets.xcassets in Resources */,
+				FB2BE420285FED91008FE4BD /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB2BE425285FED92008FE4BD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB2BE433285FED93008FE4BD /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FB9EE5082855FE5E004EEA24 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -705,6 +877,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		FB2BE423285FED92008FE4BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB95687428631EC500050556 /* SessionDelegator.swift in Sources */,
+				FB2BE42F285FED92008FE4BD /* ExtensionDelegate.swift in Sources */,
+				FB2BE42D285FED92008FE4BD /* InterfaceController.swift in Sources */,
+				FB95687728631ED300050556 /* SessionManager.swift in Sources */,
+				FB2BE431285FED92008FE4BD /* ComplicationController.swift in Sources */,
+				FB95687A28631EE800050556 /* MessageStatus.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FB9EE5062855FE5E004EEA24 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -732,9 +917,12 @@
 				5F0E4442285956E100C846E1 /* TagsModalViewController.swift in Sources */,
 				FBF0D9432858B26D005378EA /* Nib+Ext.swift in Sources */,
 				FBF0D93F2858AFEB005378EA /* HomeViewController+Delegate.swift in Sources */,
+				FB95687C286328E000050556 /* TranscriptionViewController+Notification.swift in Sources */,
 				FB9EE54C2855FFA9004EEA24 /* CoreDataManager.swift in Sources */,
+				FB95687628631ED200050556 /* SessionManager.swift in Sources */,
 				FBF0D9472858B6A6005378EA /* Date+Ext.swift in Sources */,
 				5FA0EAD2285A2F0F00B2C345 /* TagsModalLayout.swift in Sources */,
+				FB95687328631EC300050556 /* SessionDelegator.swift in Sources */,
 				FB9EE5412855FE8C004EEA24 /* HomeViewController.swift in Sources */,
 				FBF0D9452858B288005378EA /* TableView+Ext.swift in Sources */,
 				39F39BB8285CEAF700A74E3A /* AddNewTagCell.swift in Sources */,
@@ -750,6 +938,7 @@
 				39F318B6286347C500B1001F /* WaveClass.swift in Sources */,
 				39F39BB3285C59D800A74E3A /* TagTableCell.swift in Sources */,
 				FB9EE56A285600C9004EEA24 /* SettingsViewController.swift in Sources */,
+				FB95687928631EE600050556 /* MessageStatus.swift in Sources */,
 				39F318BC286348BF00B1001F /* WaveView.swift in Sources */,
 				FB851E742859DD8700DDBD3B /* DetailDelegate.swift in Sources */,
 				FBF0D93B2858AD93005378EA /* ItemHomeCell.swift in Sources */,
@@ -780,6 +969,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		FB2BE42A285FED92008FE4BD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB2BE426285FED92008FE4BD /* NYHMWatch WatchKit Extension */;
+			targetProxy = FB2BE429285FED92008FE4BD /* PBXContainerItemProxy */;
+		};
+		FB2BE436285FED93008FE4BD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB2BE41B285FED91008FE4BD /* NYHMWatch */;
+			targetProxy = FB2BE435285FED93008FE4BD /* PBXContainerItemProxy */;
+		};
 		FB9EE5252855FE5F004EEA24 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FB9EE5092855FE5E004EEA24 /* NYHM */;
@@ -793,6 +992,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		FB2BE41E285FED91008FE4BD /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB2BE41F285FED91008FE4BD /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		FB9EE51B2855FE5F004EEA24 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -804,6 +1011,120 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		FB2BE439285FED93008FE4BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z824M97CF2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_MODULE = NYHMWatch_WatchKit_Extension;
+				INFOPLIST_KEY_CFBundleDisplayName = NYHMWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.hafizhmo.NYHM;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hafizhmo.NYHM.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+			};
+			name = Debug;
+		};
+		FB2BE43A285FED93008FE4BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z824M97CF2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_MODULE = NYHMWatch_WatchKit_Extension;
+				INFOPLIST_KEY_CFBundleDisplayName = NYHMWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.hafizhmo.NYHM;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hafizhmo.NYHM.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+			};
+			name = Release;
+		};
+		FB2BE43C285FED93008FE4BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z824M97CF2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "NYHMWatch WatchKit Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "NYHMWatch WatchKit Extension";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = NYHMWatch_WatchKit_Extension.ComplicationController;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_WKExtensionDelegateClassName = NYHMWatch_WatchKit_Extension.ExtensionDelegate;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hafizhmo.NYHM.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+			};
+			name = Debug;
+		};
+		FB2BE43D285FED93008FE4BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z824M97CF2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "NYHMWatch WatchKit Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "NYHMWatch WatchKit Extension";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = NYHMWatch_WatchKit_Extension.ComplicationController;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_WKExtensionDelegateClassName = NYHMWatch_WatchKit_Extension.ExtensionDelegate;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hafizhmo.NYHM.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+			};
+			name = Release;
+		};
 		FB9EE5352855FE5F004EEA24 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -925,7 +1246,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5658ASKD6C;
+				DEVELOPMENT_TEAM = Z824M97CF2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NYHM/Info.plist;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
@@ -956,7 +1277,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5658ASKD6C;
+				DEVELOPMENT_TEAM = Z824M97CF2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NYHM/Info.plist;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
@@ -987,6 +1308,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z824M97CF2;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MARKETING_VERSION = 1.0;
@@ -1006,6 +1328,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z824M97CF2;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MARKETING_VERSION = 1.0;
@@ -1024,6 +1347,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z824M97CF2;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hafizhmo.NYHMUITests;
@@ -1041,6 +1365,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z824M97CF2;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hafizhmo.NYHMUITests;
@@ -1055,6 +1380,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		FB2BE43E285FED93008FE4BD /* Build configuration list for PBXNativeTarget "NYHMWatch WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB2BE43C285FED93008FE4BD /* Debug */,
+				FB2BE43D285FED93008FE4BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB2BE43F285FED93008FE4BD /* Build configuration list for PBXNativeTarget "NYHMWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB2BE439285FED93008FE4BD /* Debug */,
+				FB2BE43A285FED93008FE4BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		FB9EE5052855FE5E004EEA24 /* Build configuration list for PBXProject "NYHM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

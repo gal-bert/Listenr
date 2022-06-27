@@ -7,9 +7,14 @@
 
 import UIKit
 import CoreData
+import WatchConnectivity
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    private lazy var sessionDelegator: SessionDelegator = {
+        return SessionDelegator()
+    }()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -19,6 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Constants.IS_WAVEFORM_VISIBLE: true
         ])
         
+        assert(WCSession.isSupported(), "This app requires Watch Connectivity support!")
+        WCSession.default.delegate = sessionDelegator
+        WCSession.default.activate()
         return true
     }
 
