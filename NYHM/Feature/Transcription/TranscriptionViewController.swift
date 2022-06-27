@@ -86,6 +86,8 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         
     }
     
+    
+    
     override func viewWillDisappear(_ animated: Bool) {
         waveTimer?.invalidate()
         waveView.timer.invalidate()
@@ -115,7 +117,10 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         }
     }
     
+    
+    
     func initSpeechAuth() -> Void {
+        
         SFSpeechRecognizer.requestAuthorization { (authStatus) in
             var msg = ""
             
@@ -132,6 +137,7 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
                 fatalError()
             }
             print(msg)
+            
         }
     }
     
@@ -316,8 +322,8 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             recognitionRequest?.endAudio()
             pauseRecording()
             
-            transcribeActionButton.setTitle("Resume", for: .normal)
-            transcribeActionButton.setImage(UIImage(), for: .normal)
+            transcribeActionButton.setTitle("", for: .normal)
+            transcribeActionButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
             saveButton.isEnabled = true
             isPlaying = false
         }
@@ -334,7 +340,13 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             saveButton.isEnabled = false
             isPlaying = true
             
+            
+            
         }
+        let fourthBg = UIColor(named: "fourthBg")
+        
+        self.titleTextField.backgroundColor = fourthBg
+       
     }
     
     func setupNotifications() {
@@ -478,11 +490,16 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         delegate?.reloadTableView()
         dismiss(animated: true)
         
+    
+        
+        
     }
+    
     
     @IBAction func transcriptionActionButton(_ sender: Any) {
         transcribeOnLoad()
     }
+    
     
 }
 

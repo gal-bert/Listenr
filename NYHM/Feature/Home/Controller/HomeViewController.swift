@@ -50,5 +50,19 @@ class HomeViewController: UIViewController {
         
         transcriptions = repo.showAll()
         homeView.tableView.reloadData()
+        
+        let primBg = UIColor(named: "primBg")
+        homeView.backgroundColor = primBg
+        
+        if transcriptions.isEmpty
+        {
+            homeView.vertView.isHidden = false
+        }
+        else
+        {
+        homeView.vertView.isHidden = true
+        }
+
+        
     }
 }

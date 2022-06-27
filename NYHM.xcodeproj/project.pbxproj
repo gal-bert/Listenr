@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02D07F432867FA58005E3166 /* homeLottie.json in Resources */ = {isa = PBXBuildFile; fileRef = 02D07F422867FA58005E3166 /* homeLottie.json */; };
 		0C311F0D285A342800EA2FFE /* Int+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C311F0C285A342800EA2FFE /* Int+Ext.swift */; };
 		0C5C8AC3285B661C00536BB2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5C8AC2285B661C00536BB2 /* Constants.swift */; };
 		0CEBF757286175F400FA3211 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CEBF756286175F400FA3211 /* Alerts.swift */; };
@@ -28,7 +29,6 @@
 		5F0E44442859576700C846E1 /* TagsModalViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E44432859576700C846E1 /* TagsModalViewController+Delegate.swift */; };
 		5F0E44462859582200C846E1 /* TagsModalViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E44452859582200C846E1 /* TagsModalViewController+DataSource.swift */; };
 		5F0E444828598A8600C846E1 /* TagsModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E444728598A8600C846E1 /* TagsModalView.swift */; };
-		5F0E444B28599C9000C846E1 /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = 5F0E444A28599C9000C846E1 /* FloatingPanel */; };
 		5F166835285C911E0013B0B7 /* TranscriptionModalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F166834285C911E0013B0B7 /* TranscriptionModalLayout.swift */; };
 		5FA0EAD2285A2F0F00B2C345 /* TagsModalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA0EAD1285A2F0F00B2C345 /* TagsModalLayout.swift */; };
 		5FE3BFAC285B4468009B63D3 /* TagsModalDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE3BFAB285B4468009B63D3 /* TagsModalDelegate.swift */; };
@@ -39,6 +39,15 @@
 		FB27AF0E2857788600D0B270 /* TagsCoreDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27AF0D2857788600D0B270 /* TagsCoreDataSource.swift */; };
 		FB298E7C285B5D550063B522 /* Button+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB298E7B285B5D550063B522 /* Button+Ext.swift */; };
 		FB298E7E285B604A0063B522 /* ConvertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB298E7D285B604A0063B522 /* ConvertHelper.swift */; };
+		FB649BA7286A15B700ADF103 /* Inter-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB649B9E286A15B600ADF103 /* Inter-Light.ttf */; };
+		FB649BA8286A15B700ADF103 /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB649B9F286A15B600ADF103 /* Inter-Medium.ttf */; };
+		FB649BA9286A15B700ADF103 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB649BA0286A15B600ADF103 /* Inter-Regular.ttf */; };
+		FB649BAA286A15B700ADF103 /* Inter-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB649BA1286A15B600ADF103 /* Inter-Thin.ttf */; };
+		FB649BAB286A15B700ADF103 /* Inter-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB649BA2286A15B700ADF103 /* Inter-ExtraLight.ttf */; };
+		FB649BAC286A15B700ADF103 /* Inter-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB649BA3286A15B700ADF103 /* Inter-ExtraBold.ttf */; };
+		FB649BAD286A15B700ADF103 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB649BA4286A15B700ADF103 /* Inter-Bold.ttf */; };
+		FB649BAE286A15B700ADF103 /* Inter-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB649BA5286A15B700ADF103 /* Inter-Black.ttf */; };
+		FB649BAF286A15B700ADF103 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB649BA6286A15B700ADF103 /* Inter-SemiBold.ttf */; };
 		FB8043A82859666A0022E919 /* HomeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8043A72859666A0022E919 /* HomeDelegate.swift */; };
 		FB851E722859DCBF00DDBD3B /* DetailViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB851E712859DCBF00DDBD3B /* DetailViewController+Delegate.swift */; };
 		FB851E742859DD8700DDBD3B /* DetailDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB851E732859DD8700DDBD3B /* DetailDelegate.swift */; };
@@ -70,6 +79,8 @@
 		FBF0D9432858B26D005378EA /* Nib+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF0D9422858B26D005378EA /* Nib+Ext.swift */; };
 		FBF0D9452858B288005378EA /* TableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF0D9442858B288005378EA /* TableView+Ext.swift */; };
 		FBF0D9472858B6A6005378EA /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF0D9462858B6A6005378EA /* Date+Ext.swift */; };
+		FBF7E98F286A13DC000DDBA2 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = FBF7E98E286A13DC000DDBA2 /* Lottie */; };
+		FBF7E992286A13EB000DDBA2 /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = FBF7E991286A13EB000DDBA2 /* FloatingPanel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +101,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02D07F422867FA58005E3166 /* homeLottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = homeLottie.json; sourceTree = "<group>"; };
 		0C311F0C285A342800EA2FFE /* Int+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Ext.swift"; sourceTree = "<group>"; };
 		0C5C8AC2285B661C00536BB2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0CEBF756286175F400FA3211 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
@@ -121,6 +133,15 @@
 		FB27AF0D2857788600D0B270 /* TagsCoreDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsCoreDataSource.swift; sourceTree = "<group>"; };
 		FB298E7B285B5D550063B522 /* Button+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Ext.swift"; sourceTree = "<group>"; };
 		FB298E7D285B604A0063B522 /* ConvertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertHelper.swift; sourceTree = "<group>"; };
+		FB649B9E286A15B600ADF103 /* Inter-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Light.ttf"; sourceTree = "<group>"; };
+		FB649B9F286A15B600ADF103 /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
+		FB649BA0286A15B600ADF103 /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
+		FB649BA1286A15B600ADF103 /* Inter-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Thin.ttf"; sourceTree = "<group>"; };
+		FB649BA2286A15B700ADF103 /* Inter-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraLight.ttf"; sourceTree = "<group>"; };
+		FB649BA3286A15B700ADF103 /* Inter-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraBold.ttf"; sourceTree = "<group>"; };
+		FB649BA4286A15B700ADF103 /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
+		FB649BA5286A15B700ADF103 /* Inter-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Black.ttf"; sourceTree = "<group>"; };
+		FB649BA6286A15B700ADF103 /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
 		FB8043A72859666A0022E919 /* HomeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDelegate.swift; sourceTree = "<group>"; };
 		FB851E712859DCBF00DDBD3B /* DetailViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailViewController+Delegate.swift"; sourceTree = "<group>"; };
 		FB851E732859DD8700DDBD3B /* DetailDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDelegate.swift; sourceTree = "<group>"; };
@@ -163,7 +184,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F0E444B28599C9000C846E1 /* FloatingPanel in Frameworks */,
+				FBF7E98F286A13DC000DDBA2 /* Lottie in Frameworks */,
+				FBF7E992286A13EB000DDBA2 /* FloatingPanel in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,9 +284,26 @@
 			path = TagsModal;
 			sourceTree = "<group>";
 		};
+		FB649B9D286A157C00ADF103 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				FB649BA5286A15B700ADF103 /* Inter-Black.ttf */,
+				FB649BA4286A15B700ADF103 /* Inter-Bold.ttf */,
+				FB649BA3286A15B700ADF103 /* Inter-ExtraBold.ttf */,
+				FB649BA2286A15B700ADF103 /* Inter-ExtraLight.ttf */,
+				FB649B9E286A15B600ADF103 /* Inter-Light.ttf */,
+				FB649B9F286A15B600ADF103 /* Inter-Medium.ttf */,
+				FB649BA0286A15B600ADF103 /* Inter-Regular.ttf */,
+				FB649BA6286A15B700ADF103 /* Inter-SemiBold.ttf */,
+				FB649BA1286A15B600ADF103 /* Inter-Thin.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		FB9EE5012855FE5E004EEA24 = {
 			isa = PBXGroup;
 			children = (
+				FB649B9D286A157C00ADF103 /* Fonts */,
 				FB9EE50C2855FE5E004EEA24 /* NYHM */,
 				FB9EE5262855FE5F004EEA24 /* NYHMTests */,
 				FB9EE5302855FE5F004EEA24 /* NYHMUITests */,
@@ -426,6 +465,7 @@
 			children = (
 				FBF0D9372858A983005378EA /* ItemHomeCell */,
 				FB9EE5422855FECC004EEA24 /* Home.storyboard */,
+				02D07F422867FA58005E3166 /* homeLottie.json */,
 				FBF0D93C2858AE67005378EA /* HomeView.swift */,
 				FB8043A72859666A0022E919 /* HomeDelegate.swift */,
 			);
@@ -529,7 +569,8 @@
 			);
 			name = NYHM;
 			packageProductDependencies = (
-				5F0E444A28599C9000C846E1 /* FloatingPanel */,
+				FBF7E98E286A13DC000DDBA2 /* Lottie */,
+				FBF7E991286A13EB000DDBA2 /* FloatingPanel */,
 			);
 			productName = NYHM;
 			productReference = FB9EE50A2855FE5E004EEA24 /* NYHM.app */;
@@ -604,7 +645,8 @@
 			);
 			mainGroup = FB9EE5012855FE5E004EEA24;
 			packageReferences = (
-				5F0E444928599C9000C846E1 /* XCRemoteSwiftPackageReference "FloatingPanel" */,
+				FBF7E98D286A13DC000DDBA2 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				FBF7E990286A13EB000DDBA2 /* XCRemoteSwiftPackageReference "FloatingPanel" */,
 			);
 			productRefGroup = FB9EE50B2855FE5E004EEA24 /* Products */;
 			projectDirPath = "";
@@ -623,15 +665,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				3987E1D52858E27400A1C3AC /* WaveformSwitchCell.xib in Resources */,
+				FB649BA9286A15B700ADF103 /* Inter-Regular.ttf in Resources */,
 				FB9EE5432855FECC004EEA24 /* Home.storyboard in Resources */,
+				FB649BAB286A15B700ADF103 /* Inter-ExtraLight.ttf in Resources */,
 				FBF0D9392858A9A4005378EA /* ItemHomeCell.xib in Resources */,
 				FB9EE51D2855FE5F004EEA24 /* LaunchScreen.storyboard in Resources */,
+				FB649BAF286A15B700ADF103 /* Inter-SemiBold.ttf in Resources */,
+				FB649BA8286A15B700ADF103 /* Inter-Medium.ttf in Resources */,
+				FB649BAE286A15B700ADF103 /* Inter-Black.ttf in Resources */,
 				39F39BBA285CEB5300A74E3A /* AddNewTagCell.xib in Resources */,
+				FB649BA7286A15B700ADF103 /* Inter-Light.ttf in Resources */,
 				FB9EE566285600AC004EEA24 /* Transcription.storyboard in Resources */,
+				FB649BAD286A15B700ADF103 /* Inter-Bold.ttf in Resources */,
 				FBD82DCD285B722800675347 /* UserDefault in Resources */,
+				FB649BAC286A15B700ADF103 /* Inter-ExtraBold.ttf in Resources */,
 				FB9EE568285600BC004EEA24 /* Settings.storyboard in Resources */,
 				FB9EE51A2855FE5F004EEA24 /* Assets.xcassets in Resources */,
+				FB649BAA286A15B700ADF103 /* Inter-Thin.ttf in Resources */,
 				5F0E443D285953AF00C846E1 /* TagsModal.storyboard in Resources */,
+				02D07F432867FA58005E3166 /* homeLottie.json in Resources */,
 				FB9EE55F2856006C004EEA24 /* Detail.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1042,9 +1094,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		5F0E444928599C9000C846E1 /* XCRemoteSwiftPackageReference "FloatingPanel" */ = {
+		FBF7E98D286A13DC000DDBA2 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SCENEE/FloatingPanel.git";
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		FBF7E990286A13EB000DDBA2 /* XCRemoteSwiftPackageReference "FloatingPanel" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scenee/FloatingPanel";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 2.0.0;
@@ -1053,9 +1113,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5F0E444A28599C9000C846E1 /* FloatingPanel */ = {
+		FBF7E98E286A13DC000DDBA2 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5F0E444928599C9000C846E1 /* XCRemoteSwiftPackageReference "FloatingPanel" */;
+			package = FBF7E98D286A13DC000DDBA2 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+		FBF7E991286A13EB000DDBA2 /* FloatingPanel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FBF7E990286A13EB000DDBA2 /* XCRemoteSwiftPackageReference "FloatingPanel" */;
 			productName = FloatingPanel;
 		};
 /* End XCSwiftPackageProductDependency section */
