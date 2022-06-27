@@ -10,9 +10,12 @@ import UIKit
 
 class ItemHomeCell: UITableViewCell {
     
+    @IBOutlet weak var bgContentColor: UIView!
     @IBOutlet weak var createdAtLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tagsLabel: UILabel!
     
+   
 }
+

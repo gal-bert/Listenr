@@ -23,6 +23,11 @@ class SettingsView: UIView {
         tableView.registerCell(type: AddNewTagCell.self, identifier: AddNewTagCell.identifier)
         
         tableView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
-        
+//
+//        let primBg = UIColor(named: "primBg")
+//
+//        self.backgroundColor = primBg
+//
+//        tableView.backgroundColor = primBg
     }
 }

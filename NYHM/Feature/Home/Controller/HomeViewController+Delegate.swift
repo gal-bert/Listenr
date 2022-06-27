@@ -35,6 +35,16 @@ extension HomeViewController: UITableViewDelegate {
                     self.repo.delete(item: self.transcriptions[indexPath.section])
                     self.transcriptions = self.repo.showAll()
                     tableView.deleteSections(IndexSet(arrayLiteral: indexPath.section), with: .left)
+                    
+                    if self.transcriptions.isEmpty
+                    {
+                        self.homeView.vertView.isHidden = false
+                    }
+                    else
+                    {
+                        self.homeView.vertView.isHidden = true
+                    }
+
                 }
             ))
 
@@ -55,11 +65,15 @@ extension HomeViewController: UITableViewDelegate {
 extension HomeViewController: HomeDelegate {
     
     func chooseLanguage() {
+        
+        
         let sheet = UIAlertController(title: "Select Language", message: nil, preferredStyle: .actionSheet)
         sheet.addAction(UIAlertAction(title: "Bahasa Indonesia", style: .default, handler: {_ in
             self.homeView.languageLabel.text = "Bahasa Indonesia"
             UserDefaults.standard.set("id", forKey: Constants.SELECTED_LANGUAGE)
+            sheet.view.tintColor = UIColor (named: "actionPress")
             
+             
         }))
         sheet.addAction(UIAlertAction(title: "English", style: .default, handler: {_ in
             self.homeView.languageLabel.text = "English"
@@ -68,6 +82,7 @@ extension HomeViewController: HomeDelegate {
 
         present(sheet, animated: true)
     }
+    
     
     func sortBy(type: SortType) {
         transcriptions = repo.showAll(sortBy: type)
@@ -85,6 +100,16 @@ extension HomeViewController: HomeDelegate {
             indexPathsToReload.append(indexPath)
         }
         homeView.tableView.reloadRows(at: indexPathsToReload, with: .middle)
+        
+        if transcriptions.isEmpty
+        {
+            homeView.vertView.isHidden = false
+        }
+        else
+        {
+        homeView.vertView.isHidden = true
+        }
+
         
     }
     
@@ -105,6 +130,8 @@ extension HomeViewController: HomeDelegate {
         modal.surfaceView.appearance = appearance
 
         self.present(modal, animated: true, completion: nil)
+        
+        
     }
     
 }
@@ -126,6 +153,16 @@ extension HomeViewController: SaveTranscriptionProtocol {
     func reloadTableView() {
         transcriptions = TranscriptionRepository.shared.showAll()
         homeView.tableView.reloadData()
+        
+        if transcriptions.isEmpty
+        {
+            homeView.vertView.isHidden = false
+        }
+        else
+        {
+        homeView.vertView.isHidden = true
+        }
+
     }
 }
 

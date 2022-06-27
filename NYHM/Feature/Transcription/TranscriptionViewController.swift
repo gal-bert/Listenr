@@ -141,7 +141,10 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         }
     }
     
+    
+    
     func initSpeechAuth() -> Void {
+        
         SFSpeechRecognizer.requestAuthorization { (authStatus) in
             var msg = ""
             
@@ -158,6 +161,7 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
                 fatalError()
             }
             print(msg)
+            
         }
     }
     
@@ -181,6 +185,8 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             print("Recording Session Error")
             print(error.localizedDescription)
         }
+        
+        setupNotifications()
     }
     
     func startRecording() -> Void {
@@ -345,8 +351,8 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             recognitionRequest?.endAudio()
             pauseRecording()
             
-            transcribeActionButton.setTitle("Resume", for: .normal)
-            transcribeActionButton.setImage(UIImage(), for: .normal)
+            transcribeActionButton.setTitle("", for: .normal)
+            transcribeActionButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
             saveButton.isEnabled = true
             isPlaying = false
             sendIsPausing([MessageKeyLoad.isPausing: true])
@@ -364,6 +370,40 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             saveButton.isEnabled = false
             isPlaying = true
             sendIsPlaying([MessageKeyLoad.isPlaying: true])
+        }
+        let fourthBg = UIColor(named: "fourthBg")
+        
+        self.titleTextField.backgroundColor = fourthBg
+       
+    }
+    
+    func setupNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(handleInterruption), name: AVAudioSession.interruptionNotification, object: AVAudioSession.sharedInstance())
+    }
+    
+    func removeInterruptionObserver() {
+        NotificationCenter.default.removeObserver(self)
+    }
+
+    @objc func handleInterruption(notification: Notification) {
+        guard let userInfo = notification.userInfo,
+            let typeValue = userInfo[AVAudioSessionInterruptionTypeKey] as? UInt,
+            let type = AVAudioSession.InterruptionType(rawValue: typeValue),
+            let reason = AVAudioSession.InterruptionReason(rawValue: typeValue) else {
+                return
+        }
+
+        switch type {
+            case .began:
+                switch reason {
+                    case .appWasSuspended:
+                    if isPlaying == true {
+                        transcriptionTemp = transcriptionResultTextView.text
+                        globalSave()
+                    }
+                    default: ()
+                }
+            default: ()
         }
     }
     
@@ -423,6 +463,7 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
                 self.sendCanceling([MessageKeyLoad.canceling: true])
                 self.audioEngine.stop()
                 self.dismiss(animated: true)
+                self.removeInterruptionObserver()
             }
         ))
 
@@ -477,14 +518,17 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             filename: filenameToSave
         )
         
+        removeInterruptionObserver()
         print("\(filenameToSave)")
         delegate?.reloadTableView()
         dismiss(animated: true)
     }
     
+    
     @IBAction func transcriptionActionButton(_ sender: Any) {
         transcribeOnLoad()
     }
+    
     
 }
 

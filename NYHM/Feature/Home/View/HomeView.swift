@@ -7,8 +7,22 @@
 
 import Foundation
 import UIKit
+import Lottie
+
 
 class HomeView: UIView {
+    
+    
+    //Label Empty State
+    @IBOutlet weak var emptyLabel: UILabel!
+    @IBOutlet weak var boldLabel: UILabel!
+    @IBOutlet weak var lottieView: AnimationView!
+    @IBOutlet weak var vertView: UIStackView!
+    
+    
+    @IBOutlet weak var labelColor: UILabel!
+    @IBOutlet weak var bgLanguage: UIView!
+    @IBOutlet weak var bgButton: UIView!
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var sortButton: UIBarButtonItem!
@@ -28,11 +42,55 @@ class HomeView: UIView {
         generatePopOverMenu()
         
         let savedLanguage = UserDefaults.standard.string(forKey: Constants.SELECTED_LANGUAGE)
+        
         if savedLanguage! == "id" {
             languageLabel.text = "Bahasa Indonesia"
         } else {
             languageLabel.text = "English"
         }
+        
+        
+        labelColor.textColor = UIColor (named: "textPrim")
+        languageLabel.textColor = UIColor (named: "actionPress")
+        
+        //Color For Dark Mode to Light Mode
+        
+        
+        let secBg = UIColor(named: "secBg")
+        let primBg = UIColor(named: "primBg")
+        let thBg = UIColor(named: "thirdBg")
+        
+        tableView.backgroundColor = primBg
+        bgLanguage.backgroundColor = thBg
+        bgButton.backgroundColor = secBg
+        
+      
+        
+        
+        self.backgroundColor = primBg
+        
+        
+        lottieView.contentMode = .scaleAspectFill
+        //lottieView.translatesAutoresizingMaskIntoConstraints = false
+        
+        lottieView.play()
+        lottieView.loopMode = .loop
+        lottieView.backgroundBehavior = .pauseAndRestore
+     
+        
+
+                let imageAttachment = NSTextAttachment()
+                let theImage = UIImage(systemName: "mic.fill")?.withRenderingMode(.alwaysTemplate)
+                imageAttachment.image = theImage
+                let boldLabelPlacement = NSMutableAttributedString(string: "No Transcription available")
+                let stringPlaceWithIcon = NSMutableAttributedString(string: "\nClick the ")
+                stringPlaceWithIcon.append(NSAttributedString(attachment: imageAttachment))
+                stringPlaceWithIcon.append(NSAttributedString(string: " button to create a new transcription"))
+                boldLabel.attributedText = boldLabelPlacement
+                emptyLabel.attributedText = stringPlaceWithIcon
+        
+        
+        
     }
     
     @IBAction func didTapLanguage(_ sender: Any) {
@@ -86,6 +144,7 @@ class HomeView: UIView {
                 menuTimeDesc
             ]
         }
+        
         
         sortButton.menu = UIMenu(title: "Sort by", image: nil, identifier: nil, options: [], children: menuItems)
         tableView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)

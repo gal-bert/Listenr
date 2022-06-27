@@ -10,6 +10,8 @@ import UIKit
 
 class DetailView: UIView {
     
+    @IBOutlet weak var tagBg: UIView!
+    @IBOutlet weak var viewBg: UIScrollView!
     @IBOutlet weak var resultTextView: UITextView!
     @IBOutlet weak var titleTextView: UITextView!
     @IBOutlet weak var createdAtLabel: UILabel!
@@ -32,7 +34,7 @@ class DetailView: UIView {
     var helpTimeLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .title2)
-        label.textColor = .white
+        //label.textColor = .white
         return label
     }()
     
@@ -215,8 +217,32 @@ class DetailView: UIView {
                 shareHandle,
                 deleteHandle
             ]
+            
         }
         
         popOverButton.menu = UIMenu(identifier: nil, options: [], children: menuItems)
+        
+        
+        //THIS IS FOR DARK / LIGHT MODE
+        
+        titleTextView.textColor = UIColor(named: "textPrim")
+        resultTextView.textColor = UIColor(named: "textPrim")
+        durationLabel.textColor = UIColor(named: "blueText")
+        createdAtLabel.textColor = UIColor(named: "blueText")
+        tagsLabel.textColor = UIColor(named: "textPrim")
+        
+        
+        
+       
+        
+        let tagColor = UIColor(named: "tagColor")
+//        let primBg = UIColor(named: "primBg")
+        let secBg = UIColor(named: "secBg")
+        
+        self.backgroundColor = secBg
+        tagBg.backgroundColor = tagColor
+        viewBg.backgroundColor = secBg
+        
+        
     }
 }
