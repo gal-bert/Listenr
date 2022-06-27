@@ -30,9 +30,8 @@ extension UIViewController {
         
         addAction.isEnabled = false
         
-        alert.overrideUserInterfaceStyle = .dark
-        alert.view.tintColor = UIColor(red: 0.99, green: 0.82, blue: 0.15, alpha: 1.00)
-        
+//      alert.overrideUserInterfaceStyle = .dark
+//        alert.view.tintColor = UIColor(red: 0.99, green: 0.82, blue: 0.15, alpha: 1.00)
         alert.addTextField { textField in
             textField.placeholder = "Enter tag name"
             NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification, object: textField, queue: OperationQueue.main, using: {_ in

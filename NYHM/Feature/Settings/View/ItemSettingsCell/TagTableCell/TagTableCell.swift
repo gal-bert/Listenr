@@ -30,6 +30,8 @@ class TagTableCell : UITableViewCell, UITableViewDelegate, UITableViewDataSource
         
         tagArr = tagRepo.getAll()
         tagTableview.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        
+        tagTableview.backgroundColor = UIColor(named: "secBg")
     }
     
     override func layoutSubviews() {
@@ -44,9 +46,13 @@ class TagTableCell : UITableViewCell, UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "tagItemCell", for: indexPath)
+        
+        cell.backgroundColor = UIColor(named: "secBg")
+        
         var tag = cell.defaultContentConfiguration()
-        tag.textProperties.color = .white
+//        tag.textProperties.color = .white
         tag.text = tagArr[indexPath.row].name
         
         tag.image = UIImage(systemName: "line.3.horizontal")
