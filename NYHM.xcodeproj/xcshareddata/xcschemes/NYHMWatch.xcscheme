@@ -59,7 +59,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FB2BE41B285FED91008FE4BD"
-            BuildableName = "NYHMWatch.app"
+            BuildableName = "Listenr.app"
             BlueprintName = "NYHMWatch"
             ReferencedContainer = "container:NYHM.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FB2BE41B285FED91008FE4BD"
-            BuildableName = "NYHMWatch.app"
+            BuildableName = "Listenr.app"
             BlueprintName = "NYHMWatch"
             ReferencedContainer = "container:NYHM.xcodeproj">
          </BuildableReference>

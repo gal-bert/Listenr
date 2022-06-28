@@ -46,7 +46,7 @@
 		FB2BE42F285FED92008FE4BD /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BE42E285FED92008FE4BD /* ExtensionDelegate.swift */; };
 		FB2BE431285FED92008FE4BD /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BE430285FED92008FE4BD /* ComplicationController.swift */; };
 		FB2BE433285FED93008FE4BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB2BE432285FED93008FE4BD /* Assets.xcassets */; };
-		FB2BE437285FED93008FE4BD /* NYHMWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = FB2BE41C285FED91008FE4BD /* NYHMWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FB2BE437285FED93008FE4BD /* Listenr.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = FB2BE41C285FED91008FE4BD /* Listenr.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FB613C7D286A9E32008F4EA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB9EE5192855FE5F004EEA24 /* Assets.xcassets */; };
 		FB613C7E286A9E47008F4EA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB9EE5192855FE5F004EEA24 /* Assets.xcassets */; };
 		FB649BA7286A15B700ADF103 /* Inter-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB649B9E286A15B600ADF103 /* Inter-Light.ttf */; };
@@ -138,7 +138,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				FB2BE437285FED93008FE4BD /* NYHMWatch.app in Embed Watch Content */,
+				FB2BE437285FED93008FE4BD /* Listenr.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -189,7 +189,7 @@
 		FB27AF0D2857788600D0B270 /* TagsCoreDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsCoreDataSource.swift; sourceTree = "<group>"; };
 		FB298E7B285B5D550063B522 /* Button+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Ext.swift"; sourceTree = "<group>"; };
 		FB298E7D285B604A0063B522 /* ConvertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertHelper.swift; sourceTree = "<group>"; };
-		FB2BE41C285FED91008FE4BD /* NYHMWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYHMWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB2BE41C285FED91008FE4BD /* Listenr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Listenr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB2BE41F285FED91008FE4BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		FB2BE421285FED92008FE4BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB2BE427285FED92008FE4BD /* NYHMWatch WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "NYHMWatch WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -427,7 +427,7 @@
 				FB9EE50A2855FE5E004EEA24 /* NYHM.app */,
 				FB9EE5232855FE5F004EEA24 /* NYHMTests.xctest */,
 				FB9EE52D2855FE5F004EEA24 /* NYHMUITests.xctest */,
-				FB2BE41C285FED91008FE4BD /* NYHMWatch.app */,
+				FB2BE41C285FED91008FE4BD /* Listenr.app */,
 				FB2BE427285FED92008FE4BD /* NYHMWatch WatchKit Extension.appex */,
 			);
 			name = Products;
@@ -682,7 +682,7 @@
 			);
 			name = NYHMWatch;
 			productName = NYHMWatch;
-			productReference = FB2BE41C285FED91008FE4BD /* NYHMWatch.app */;
+			productReference = FB2BE41C285FED91008FE4BD /* Listenr.app */;
 			productType = "com.apple.product-type.application.watchapp2";
 		};
 		FB2BE426285FED92008FE4BD /* NYHMWatch WatchKit Extension */ = {
@@ -1023,15 +1023,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Z824M97CF2;
+				DEVELOPMENT_TEAM = CL42QD4LKB;
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = NYHMWatch_WatchKit_Extension;
-				INFOPLIST_KEY_CFBundleDisplayName = NYHMWatch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.hafizhmo.NYHM;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hafizhmo.NYHM.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Listenr;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1049,15 +1048,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Z824M97CF2;
+				DEVELOPMENT_TEAM = CL42QD4LKB;
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = NYHMWatch_WatchKit_Extension;
-				INFOPLIST_KEY_CFBundleDisplayName = NYHMWatch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.hafizhmo.NYHM;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hafizhmo.NYHM.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Listenr;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1073,7 +1071,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Z824M97CF2;
+				DEVELOPMENT_TEAM = CL42QD4LKB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "NYHMWatch WatchKit Extension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "NYHMWatch WatchKit Extension";
@@ -1104,7 +1102,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Z824M97CF2;
+				DEVELOPMENT_TEAM = CL42QD4LKB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "NYHMWatch WatchKit Extension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "NYHMWatch WatchKit Extension";
@@ -1251,7 +1249,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Z824M97CF2;
+				DEVELOPMENT_TEAM = CL42QD4LKB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NYHM/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Listenr.;
@@ -1284,7 +1282,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Z824M97CF2;
+				DEVELOPMENT_TEAM = CL42QD4LKB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NYHM/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Listenr.;
@@ -1316,7 +1314,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Z824M97CF2;
+				DEVELOPMENT_TEAM = CL42QD4LKB;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MARKETING_VERSION = 1.0;
@@ -1336,7 +1334,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Z824M97CF2;
+				DEVELOPMENT_TEAM = CL42QD4LKB;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MARKETING_VERSION = 1.0;
@@ -1355,7 +1353,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Z824M97CF2;
+				DEVELOPMENT_TEAM = CL42QD4LKB;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hafizhmo.NYHMUITests;
@@ -1373,7 +1371,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Z824M97CF2;
+				DEVELOPMENT_TEAM = CL42QD4LKB;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hafizhmo.NYHMUITests;
