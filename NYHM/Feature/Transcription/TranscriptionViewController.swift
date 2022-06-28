@@ -57,7 +57,7 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     var numberOfChannelForAudio = 2
     
     let updateInterval = 0.00005
-    var waveTimer: Timer?
+    weak var waveTimer: Timer!
     
     var waveView = WaveView()
     
@@ -121,9 +121,10 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
-        waveTimer?.invalidate()
-        waveView.timer.invalidate()
-        turnTheWave(bool: false)
+        if isWaveformVisible {
+            makeItInvalidate(wvtimer: true, wvviewtimer: true)
+            turnTheWave(bool: false)
+        }
         delegate?.reloadTableView()
         NotificationCenter.default.removeObserver(self)
     }
@@ -212,16 +213,15 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
                 ]
             )
             audioRecorder?.record()
-            
-            audioRecorder!.isMeteringEnabled = true
-            if isWaveformVisible {
-                startWave()
-            }
+//
+//            audioRecorder!.isMeteringEnabled = true
+//            if isWaveformVisible {
+//                startWave()
+//            }
             
         } catch {
             if isWaveformVisible {
-                waveTimer?.invalidate()
-                waveView.timer.invalidate()
+                makeItInvalidate(wvtimer: true, wvviewtimer: true)
             }
             audioRecorder!.isMeteringEnabled = false
             stopRecording()
@@ -239,28 +239,28 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     
     func pauseRecording() -> Void {
         audioRecorder!.isMeteringEnabled = false
-        if isWaveformVisible {
-            waveTimer?.invalidate()
-        }
         audioRecorder?.pause()
+        if isWaveformVisible {
+            makeItInvalidate(wvtimer: true, wvviewtimer: false)
+            WavePreferences.wavesArray[0].amplitude = 0.5
+            //            waveView.timer.invalidate()
+        }
     }
     
     func stopRecording() -> Void {
         audioRecorder!.isMeteringEnabled = false
-        if isWaveformVisible {
-            waveTimer?.invalidate()
-            waveView.timer.invalidate()
-        }
+//        if isWaveformVisible {
+//            makeItInvalidate(wvtimer: true, wvviewtimer: true)
+//        }
         audioRecorder?.stop()
         audioRecorder = nil
     }
     
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if !flag {
-            if isWaveformVisible {
-                waveTimer?.invalidate()
-                waveView.timer.invalidate()
-            }
+//            if isWaveformVisible {
+//                makeItInvalidate(wvtimer: true, wvviewtimer: true)
+//            }
             audioRecorder!.isMeteringEnabled = false
             stopRecording()
         }
@@ -470,9 +470,8 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             style: .destructive,
             handler: { _ in
                 self.sendCanceling([MessageKeyLoad.canceling: true])
-                self.waveTimer?.invalidate()
-                self.waveView.timer.invalidate()
-                self.turnTheWave(bool: false)
+//                self.makeItInvalidate(wvtimer: true, wvviewtimer: true)
+//                self.turnTheWave(bool: false)
                 self.audioEngine.stop()
                 self.dismiss(animated: true)
                 self.removeInterruptionObserver()
@@ -501,9 +500,8 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     func globalSave() {
         audioRecorder!.isMeteringEnabled = false
 //        if isWaveformVisible {
-        waveTimer?.invalidate()
-        waveView.timer.invalidate()
-        turnTheWave(bool: false)
+//            makeItInvalidate(wvtimer: true, wvviewtimer: true)
+//            turnTheWave(bool: false)
 //        }
         
         audioEngine.stop()
@@ -541,6 +539,16 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         transcribeOnLoad()
     }
     
-    
+    func makeItInvalidate(wvtimer: Bool, wvviewtimer: Bool) {
+        if wvtimer {
+            if waveTimer != nil {
+                waveTimer.invalidate()
+            }
+            waveTimer = nil
+        }
+        if wvviewtimer {
+            waveView.timer.invalidate()
+        }
+    }
 }
 
