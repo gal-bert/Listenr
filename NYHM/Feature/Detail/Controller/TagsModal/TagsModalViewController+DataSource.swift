@@ -17,7 +17,7 @@ extension TagsModalViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tagCell", for: indexPath)
         
         var cellContent = cell.defaultContentConfiguration()
-        cellContent.textProperties.color = .white
+        cellContent.textProperties.color = UIColor(named: "textPrim")!
         cellContent.text = tagList[indexPath.row].name
         cell.contentConfiguration = cellContent
         
