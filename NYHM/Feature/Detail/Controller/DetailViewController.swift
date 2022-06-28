@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import AVFAudio
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UITextViewDelegate {
     @IBOutlet var detailView: DetailView!
     
     var transcription: Transcriptions?
@@ -36,6 +36,11 @@ class DetailViewController: UIViewController {
         
         detailView.setup(data: transcription!, delegate: self)
         
+        detailView.titleTextView.delegate = self
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        
+        view.addGestureRecognizer(tap)
+        self.navigationItem.titleView?.addGestureRecognizer(tap)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -56,4 +61,17 @@ class DetailViewController: UIViewController {
         detailView.player?.stop()
     }
     
+    @objc func handleTap() {
+        detailView.titleTextView.resignFirstResponder()// dismiss keyoard
+        detailView.resultTextView.resignFirstResponder()
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
+        if text == "\n" {
+            detailView.titleTextView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
 }
