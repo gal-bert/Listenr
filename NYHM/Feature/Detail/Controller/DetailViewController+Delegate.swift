@@ -59,7 +59,7 @@ extension DetailViewController: DetailDelegate {
     }
     
     @objc func didTapShare() {
-        let textConcat = "\(transcription?.title ?? "")\n\nDuration: \(transcription?.duration ?? "")\nDate: \(transcription?.createdAt?.fixedFormat() ?? "")\nTag: \(transcription?.tags ?? "")\n\n\(transcription?.result ?? "")"
+        let textConcat = "\(detailView.titleTextView.text ?? "")\n\nDuration: \(transcription?.duration ?? "")\nDate: \(transcription?.createdAt?.fixedFormat() ?? "")\nTag: \(detailView.tagsLabel.text ?? "")\n\n\(detailView.resultTextView.text ?? "")"
         let shareModal = UIActivityViewController(activityItems: [textConcat], applicationActivities: nil)
         shareModal.popoverPresentationController?.sourceView = self.view
         present(shareModal, animated: true)
