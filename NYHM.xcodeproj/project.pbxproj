@@ -47,6 +47,8 @@
 		FB2BE431285FED92008FE4BD /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BE430285FED92008FE4BD /* ComplicationController.swift */; };
 		FB2BE433285FED93008FE4BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB2BE432285FED93008FE4BD /* Assets.xcassets */; };
 		FB2BE437285FED93008FE4BD /* NYHMWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = FB2BE41C285FED91008FE4BD /* NYHMWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FB613C7D286A9E32008F4EA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB9EE5192855FE5F004EEA24 /* Assets.xcassets */; };
+		FB613C7E286A9E47008F4EA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB9EE5192855FE5F004EEA24 /* Assets.xcassets */; };
 		FB649BA7286A15B700ADF103 /* Inter-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB649B9E286A15B600ADF103 /* Inter-Light.ttf */; };
 		FB649BA8286A15B700ADF103 /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB649B9F286A15B600ADF103 /* Inter-Medium.ttf */; };
 		FB649BA9286A15B700ADF103 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB649BA0286A15B600ADF103 /* Inter-Regular.ttf */; };
@@ -379,16 +381,6 @@
 			path = "NYHMWatch WatchKit Extension";
 			sourceTree = "<group>";
 		};
-		FB95687128631EB300050556 /* Shared */ = {
-			isa = PBXGroup;
-			children = (
-				FB95687828631EE600050556 /* MessageStatus.swift */,
-				FB95687228631EC300050556 /* SessionDelegator.swift */,
-				FB95687528631ED200050556 /* SessionManager.swift */,
-			);
-			path = Shared;
-			sourceTree = "<group>";
-		};
 		FB649B9D286A157C00ADF103 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -403,6 +395,16 @@
 				FB649BA1286A15B600ADF103 /* Inter-Thin.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		FB95687128631EB300050556 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				FB95687828631EE600050556 /* MessageStatus.swift */,
+				FB95687228631EC300050556 /* SessionDelegator.swift */,
+				FB95687528631ED200050556 /* SessionManager.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		FB9EE5012855FE5E004EEA24 = {
@@ -820,6 +822,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB2BE422285FED92008FE4BD /* Assets.xcassets in Resources */,
+				FB613C7E286A9E47008F4EA3 /* Assets.xcassets in Resources */,
 				FB2BE420285FED91008FE4BD /* Interface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -828,6 +831,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB613C7D286A9E32008F4EA3 /* Assets.xcassets in Resources */,
 				FB2BE433285FED93008FE4BD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1244,11 +1248,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Z824M97CF2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NYHM/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Listenr.;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1275,11 +1281,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Z824M97CF2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NYHM/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Listenr.;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

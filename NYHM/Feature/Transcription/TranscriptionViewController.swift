@@ -66,6 +66,10 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     
     let isWaveformVisible = UserDefaults.standard.bool(forKey: Constants.IS_WAVEFORM_VISIBLE)
     
+    @IBAction func titleExit(_ sender: Any) {
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -104,6 +108,11 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
 //        sineWaveView.tag = 378
         turnTheWave(bool: isWaveformVisible)
         
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        self.titleTextField.endEditing(true)
     }
     
     deinit {

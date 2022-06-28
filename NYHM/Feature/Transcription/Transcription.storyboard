@@ -51,6 +51,9 @@
                                 <color key="textColor" name="textPrim"/>
                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="titleExit:" destination="CPy-Iy-pxf" eventType="editingDidEndOnExit" id="df5-0v-uSW"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WJG-of-n7k">
                                 <rect key="frame" x="100" y="688" width="175" height="50"/>
