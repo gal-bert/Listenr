@@ -36,7 +36,12 @@ class WaveView {
         
         centerY = Double(theView.frame.height) / 2
         stepAxis_coordinates_X = Double(theView.frame.width / CGFloat(steps))
-        restartTimer()
+        
+        if timer == nil {
+            timer = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(onTimer(timer:)), userInfo: nil, repeats: true)
+        } else {
+            timer.invalidate()
+        }
     }
     
     func restartTimer() {

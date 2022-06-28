@@ -87,9 +87,9 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             self, selector: #selector(type(of: self).reachabilityDidChange(_:)),
             name: .reachabilityDidChange, object: nil
         )
-        
-        transcriptionResultTextView.layer.borderColor = UIColor.black.cgColor
-        transcriptionResultTextView.layer.borderWidth = 1
+//
+//        transcriptionResultTextView.layer.borderColor = UIColor.black.cgColor
+//        transcriptionResultTextView.layer.borderWidth = 1
         
         speechRecognizer?.delegate = self
         audioRecorder?.delegate = self
@@ -470,6 +470,9 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             style: .destructive,
             handler: { _ in
                 self.sendCanceling([MessageKeyLoad.canceling: true])
+                self.waveTimer?.invalidate()
+                self.waveView.timer.invalidate()
+                self.turnTheWave(bool: false)
                 self.audioEngine.stop()
                 self.dismiss(animated: true)
                 self.removeInterruptionObserver()
@@ -497,11 +500,11 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     
     func globalSave() {
         audioRecorder!.isMeteringEnabled = false
-        if isWaveformVisible {
-            waveTimer?.invalidate()
-            waveView.timer.invalidate()
-            turnTheWave(bool: false)
-        }
+//        if isWaveformVisible {
+        waveTimer?.invalidate()
+        waveView.timer.invalidate()
+        turnTheWave(bool: false)
+//        }
         
         audioEngine.stop()
         stopRecording()
