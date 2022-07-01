@@ -66,6 +66,8 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     
     let isWaveformVisible = UserDefaults.standard.bool(forKey: Constants.IS_WAVEFORM_VISIBLE)
     
+    var speechRecognitionIsAuthorized:Bool = false
+    
     @IBAction func titleExit(_ sender: Any) {
         
     }
@@ -98,7 +100,7 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         
         initSpeechAuth()
         initRecordingSession()
-        initDuration()
+//        initDuration()
         
         transcribeOnLoad()
         startRecording()
@@ -107,6 +109,8 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
 //        sineWaveView = waveView.theView
 //        sineWaveView.tag = 378
         turnTheWave(bool: isWaveformVisible)
+        
+        
         
     }
     
@@ -145,10 +149,9 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
                     self.durationLabel.text = "\(hours):\(minutes):\(seconds)"
                     self.durationLabelBottom.text = "\(hours):\(minutes):\(seconds)"
                 }
-                
-                
             }
         }
+        
     }
     
     
@@ -160,23 +163,45 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             
             switch authStatus {
             case .notDetermined:
-                msg = "Transcribe Ready"
+                msg = "Speech Recognition Auth Not Determined"
             case .denied:
-                msg = "Speech Recognition Permission Denied"
+                msg = "Speech Recognition Auth Permission Denied"
             case .restricted:
-                msg = "Speech Recognition Restricted"
+                msg = "Speech Recognition Auth Restricted"
             case .authorized:
-                msg = "Speech Recognition Restricted"
+                msg = "Speech Recognition Auth Authorized"
+                self.speechRecognitionIsAuthorized = true
             @unknown default:
                 fatalError()
             }
             print(msg)
+            
+            if self.speechRecognitionIsAuthorized {
+                DispatchQueue.main.async {
+                    self.initDuration()
+                }
+            }
             
         }
     }
     
     func initRecordingSession() -> Void {
         recordingSession = AVAudioSession.sharedInstance()
+        
+        switch recordingSession!.recordPermission {
+            case .granted:
+                print("Recording Permission granted")
+            case .denied:
+                print("Recording Permission denied")
+            case .undetermined:
+                print("Recording Request permission here")
+                AVAudioSession.sharedInstance().requestRecordPermission({ granted in
+//                    self.initDuration()
+                })
+            @unknown default:
+                print("Unknown case")
+            }
+        
         do{
             try recordingSession?.setCategory(.playAndRecord, mode: .default)
             try recordingSession?.setActive(true)
