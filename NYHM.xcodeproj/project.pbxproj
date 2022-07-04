@@ -7,13 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02D07F432867FA58005E3166 /* homeLottie.json in Resources */ = {isa = PBXBuildFile; fileRef = 02D07F422867FA58005E3166 /* homeLottie.json */; };
 		0C311F0D285A342800EA2FFE /* Int+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C311F0C285A342800EA2FFE /* Int+Ext.swift */; };
 		0C5C8AC3285B661C00536BB2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5C8AC2285B661C00536BB2 /* Constants.swift */; };
+		0CEBF757286175F400FA3211 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CEBF756286175F400FA3211 /* Alerts.swift */; };
 		393A04C02858F523009ACA3B /* SettingsViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393A04BF2858F523009ACA3B /* SettingsViewController+Delegate.swift */; };
 		393A04C22858F64B009ACA3B /* SettingsViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393A04C12858F64B009ACA3B /* SettingsViewController+DataSource.swift */; };
 		3987E1D52858E27400A1C3AC /* WaveformSwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3987E1D42858E27400A1C3AC /* WaveformSwitchCell.xib */; };
 		3987E1D82858E45300A1C3AC /* WaveformSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3987E1D72858E45300A1C3AC /* WaveformSwitchCell.swift */; };
 		3987E1DC2858F0A700A1C3AC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3987E1DB2858F0A700A1C3AC /* SettingsView.swift */; };
+		39F318B6286347C500B1001F /* WaveClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F318B5286347C500B1001F /* WaveClass.swift */; };
+		39F318B82863485800B1001F /* WavePreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F318B72863485800B1001F /* WavePreferences.swift */; };
+		39F318BC286348BF00B1001F /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F318BB286348BF00B1001F /* WaveView.swift */; };
+		39F318BE28634D2D00B1001F /* WaveController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F318BD28634D2D00B1001F /* WaveController.swift */; };
 		39F39BB3285C59D800A74E3A /* TagTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F39BB2285C59D800A74E3A /* TagTableCell.swift */; };
 		39F39BB5285C708E00A74E3A /* TagTableCell+DragDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F39BB4285C708E00A74E3A /* TagTableCell+DragDelegate.swift */; };
 		39F39BB8285CEAF700A74E3A /* AddNewTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F39BB7285CEAF700A74E3A /* AddNewTagCell.swift */; };
@@ -23,7 +29,6 @@
 		5F0E44442859576700C846E1 /* TagsModalViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E44432859576700C846E1 /* TagsModalViewController+Delegate.swift */; };
 		5F0E44462859582200C846E1 /* TagsModalViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E44452859582200C846E1 /* TagsModalViewController+DataSource.swift */; };
 		5F0E444828598A8600C846E1 /* TagsModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E444728598A8600C846E1 /* TagsModalView.swift */; };
-		5F0E444B28599C9000C846E1 /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = 5F0E444A28599C9000C846E1 /* FloatingPanel */; };
 		5F166835285C911E0013B0B7 /* TranscriptionModalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F166834285C911E0013B0B7 /* TranscriptionModalLayout.swift */; };
 		5FA0EAD2285A2F0F00B2C345 /* TagsModalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA0EAD1285A2F0F00B2C345 /* TagsModalLayout.swift */; };
 		5FE3BFAC285B4468009B63D3 /* TagsModalDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE3BFAB285B4468009B63D3 /* TagsModalDelegate.swift */; };
@@ -34,9 +39,35 @@
 		FB27AF0E2857788600D0B270 /* TagsCoreDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB27AF0D2857788600D0B270 /* TagsCoreDataSource.swift */; };
 		FB298E7C285B5D550063B522 /* Button+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB298E7B285B5D550063B522 /* Button+Ext.swift */; };
 		FB298E7E285B604A0063B522 /* ConvertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB298E7D285B604A0063B522 /* ConvertHelper.swift */; };
+		FB2BE420285FED91008FE4BD /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB2BE41E285FED91008FE4BD /* Interface.storyboard */; };
+		FB2BE422285FED92008FE4BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB2BE421285FED92008FE4BD /* Assets.xcassets */; };
+		FB2BE428285FED92008FE4BD /* NYHMWatch WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FB2BE427285FED92008FE4BD /* NYHMWatch WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FB2BE42D285FED92008FE4BD /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BE42C285FED92008FE4BD /* InterfaceController.swift */; };
+		FB2BE42F285FED92008FE4BD /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BE42E285FED92008FE4BD /* ExtensionDelegate.swift */; };
+		FB2BE431285FED92008FE4BD /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2BE430285FED92008FE4BD /* ComplicationController.swift */; };
+		FB2BE433285FED93008FE4BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB2BE432285FED93008FE4BD /* Assets.xcassets */; };
+		FB2BE437285FED93008FE4BD /* Listenr.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = FB2BE41C285FED91008FE4BD /* Listenr.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FB613C7D286A9E32008F4EA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB9EE5192855FE5F004EEA24 /* Assets.xcassets */; };
+		FB613C7E286A9E47008F4EA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB9EE5192855FE5F004EEA24 /* Assets.xcassets */; };
+		FB649BA7286A15B700ADF103 /* Inter-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB649B9E286A15B600ADF103 /* Inter-Light.ttf */; };
+		FB649BA8286A15B700ADF103 /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB649B9F286A15B600ADF103 /* Inter-Medium.ttf */; };
+		FB649BA9286A15B700ADF103 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB649BA0286A15B600ADF103 /* Inter-Regular.ttf */; };
+		FB649BAA286A15B700ADF103 /* Inter-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB649BA1286A15B600ADF103 /* Inter-Thin.ttf */; };
+		FB649BAB286A15B700ADF103 /* Inter-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB649BA2286A15B700ADF103 /* Inter-ExtraLight.ttf */; };
+		FB649BAC286A15B700ADF103 /* Inter-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB649BA3286A15B700ADF103 /* Inter-ExtraBold.ttf */; };
+		FB649BAD286A15B700ADF103 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB649BA4286A15B700ADF103 /* Inter-Bold.ttf */; };
+		FB649BAE286A15B700ADF103 /* Inter-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB649BA5286A15B700ADF103 /* Inter-Black.ttf */; };
+		FB649BAF286A15B700ADF103 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB649BA6286A15B700ADF103 /* Inter-SemiBold.ttf */; };
 		FB8043A82859666A0022E919 /* HomeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8043A72859666A0022E919 /* HomeDelegate.swift */; };
 		FB851E722859DCBF00DDBD3B /* DetailViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB851E712859DCBF00DDBD3B /* DetailViewController+Delegate.swift */; };
 		FB851E742859DD8700DDBD3B /* DetailDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB851E732859DD8700DDBD3B /* DetailDelegate.swift */; };
+		FB95687328631EC300050556 /* SessionDelegator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95687228631EC300050556 /* SessionDelegator.swift */; };
+		FB95687428631EC500050556 /* SessionDelegator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95687228631EC300050556 /* SessionDelegator.swift */; };
+		FB95687628631ED200050556 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95687528631ED200050556 /* SessionManager.swift */; };
+		FB95687728631ED300050556 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95687528631ED200050556 /* SessionManager.swift */; };
+		FB95687928631EE600050556 /* MessageStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95687828631EE600050556 /* MessageStatus.swift */; };
+		FB95687A28631EE800050556 /* MessageStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95687828631EE600050556 /* MessageStatus.swift */; };
+		FB95687C286328E000050556 /* TranscriptionViewController+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB95687B286328E000050556 /* TranscriptionViewController+Notification.swift */; };
 		FB9EE50E2855FE5E004EEA24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9EE50D2855FE5E004EEA24 /* AppDelegate.swift */; };
 		FB9EE5102855FE5E004EEA24 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9EE50F2855FE5E004EEA24 /* SceneDelegate.swift */; };
 		FB9EE5182855FE5E004EEA24 /* NYHM.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FB9EE5162855FE5E004EEA24 /* NYHM.xcdatamodeld */; };
@@ -65,9 +96,25 @@
 		FBF0D9432858B26D005378EA /* Nib+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF0D9422858B26D005378EA /* Nib+Ext.swift */; };
 		FBF0D9452858B288005378EA /* TableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF0D9442858B288005378EA /* TableView+Ext.swift */; };
 		FBF0D9472858B6A6005378EA /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF0D9462858B6A6005378EA /* Date+Ext.swift */; };
+		FBF7E98F286A13DC000DDBA2 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = FBF7E98E286A13DC000DDBA2 /* Lottie */; };
+		FBF7E992286A13EB000DDBA2 /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = FBF7E991286A13EB000DDBA2 /* FloatingPanel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		FB2BE429285FED92008FE4BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB9EE5022855FE5E004EEA24 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB2BE426285FED92008FE4BD;
+			remoteInfo = "NYHMWatch WatchKit Extension";
+		};
+		FB2BE435285FED93008FE4BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB9EE5022855FE5E004EEA24 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB2BE41B285FED91008FE4BD;
+			remoteInfo = NYHMWatch;
+		};
 		FB9EE5242855FE5F004EEA24 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FB9EE5022855FE5E004EEA24 /* Project object */;
@@ -84,14 +131,45 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		FB2BE438285FED93008FE4BD /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				FB2BE437285FED93008FE4BD /* Listenr.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB2BE43B285FED93008FE4BD /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				FB2BE428285FED92008FE4BD /* NYHMWatch WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		02D07F422867FA58005E3166 /* homeLottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = homeLottie.json; sourceTree = "<group>"; };
 		0C311F0C285A342800EA2FFE /* Int+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Ext.swift"; sourceTree = "<group>"; };
 		0C5C8AC2285B661C00536BB2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0CEBF756286175F400FA3211 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		393A04BF2858F523009ACA3B /* SettingsViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+Delegate.swift"; sourceTree = "<group>"; };
 		393A04C12858F64B009ACA3B /* SettingsViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+DataSource.swift"; sourceTree = "<group>"; };
 		3987E1D42858E27400A1C3AC /* WaveformSwitchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WaveformSwitchCell.xib; sourceTree = "<group>"; };
 		3987E1D72858E45300A1C3AC /* WaveformSwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveformSwitchCell.swift; sourceTree = "<group>"; };
 		3987E1DB2858F0A700A1C3AC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		39F318B5286347C500B1001F /* WaveClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveClass.swift; sourceTree = "<group>"; };
+		39F318B72863485800B1001F /* WavePreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WavePreferences.swift; sourceTree = "<group>"; };
+		39F318BB286348BF00B1001F /* WaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
+		39F318BD28634D2D00B1001F /* WaveController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveController.swift; sourceTree = "<group>"; };
 		39F39BB2285C59D800A74E3A /* TagTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagTableCell.swift; sourceTree = "<group>"; };
 		39F39BB4285C708E00A74E3A /* TagTableCell+DragDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TagTableCell+DragDelegate.swift"; sourceTree = "<group>"; };
 		39F39BB7285CEAF700A74E3A /* AddNewTagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTagCell.swift; sourceTree = "<group>"; };
@@ -111,9 +189,31 @@
 		FB27AF0D2857788600D0B270 /* TagsCoreDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsCoreDataSource.swift; sourceTree = "<group>"; };
 		FB298E7B285B5D550063B522 /* Button+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Ext.swift"; sourceTree = "<group>"; };
 		FB298E7D285B604A0063B522 /* ConvertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertHelper.swift; sourceTree = "<group>"; };
+		FB2BE41C285FED91008FE4BD /* Listenr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Listenr.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB2BE41F285FED91008FE4BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		FB2BE421285FED92008FE4BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FB2BE427285FED92008FE4BD /* NYHMWatch WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "NYHMWatch WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB2BE42C285FED92008FE4BD /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		FB2BE42E285FED92008FE4BD /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		FB2BE430285FED92008FE4BD /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		FB2BE432285FED93008FE4BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FB2BE434285FED93008FE4BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB649B9E286A15B600ADF103 /* Inter-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Light.ttf"; sourceTree = "<group>"; };
+		FB649B9F286A15B600ADF103 /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
+		FB649BA0286A15B600ADF103 /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
+		FB649BA1286A15B600ADF103 /* Inter-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Thin.ttf"; sourceTree = "<group>"; };
+		FB649BA2286A15B700ADF103 /* Inter-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraLight.ttf"; sourceTree = "<group>"; };
+		FB649BA3286A15B700ADF103 /* Inter-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraBold.ttf"; sourceTree = "<group>"; };
+		FB649BA4286A15B700ADF103 /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
+		FB649BA5286A15B700ADF103 /* Inter-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Black.ttf"; sourceTree = "<group>"; };
+		FB649BA6286A15B700ADF103 /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
 		FB8043A72859666A0022E919 /* HomeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDelegate.swift; sourceTree = "<group>"; };
 		FB851E712859DCBF00DDBD3B /* DetailViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailViewController+Delegate.swift"; sourceTree = "<group>"; };
 		FB851E732859DD8700DDBD3B /* DetailDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDelegate.swift; sourceTree = "<group>"; };
+		FB95687228631EC300050556 /* SessionDelegator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDelegator.swift; sourceTree = "<group>"; };
+		FB95687528631ED200050556 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		FB95687828631EE600050556 /* MessageStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageStatus.swift; sourceTree = "<group>"; };
+		FB95687B286328E000050556 /* TranscriptionViewController+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TranscriptionViewController+Notification.swift"; sourceTree = "<group>"; };
 		FB9EE50A2855FE5E004EEA24 /* NYHM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYHM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB9EE50D2855FE5E004EEA24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB9EE50F2855FE5E004EEA24 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -130,7 +230,7 @@
 		FB9EE5422855FECC004EEA24 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		FB9EE54B2855FFA9004EEA24 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		FB9EE55E2856006C004EEA24 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
-		FB9EE56128560080004EEA24 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		FB9EE56128560080004EEA24 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		FB9EE563285600A0004EEA24 /* TranscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionViewController.swift; sourceTree = "<group>"; };
 		FB9EE565285600AC004EEA24 /* Transcription.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Transcription.storyboard; sourceTree = "<group>"; };
 		FB9EE567285600BC004EEA24 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
@@ -149,11 +249,19 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		FB2BE424285FED92008FE4BD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FB9EE5072855FE5E004EEA24 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F0E444B28599C9000C846E1 /* FloatingPanel in Frameworks */,
+				FBF7E98F286A13DC000DDBA2 /* Lottie in Frameworks */,
+				FBF7E992286A13EB000DDBA2 /* FloatingPanel in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,9 +304,9 @@
 		3987E1D92858ED1000A1C3AC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				393A04C12858F64B009ACA3B /* SettingsViewController+DataSource.swift */,
 				FB9EE569285600C9004EEA24 /* SettingsViewController.swift */,
 				393A04BF2858F523009ACA3B /* SettingsViewController+Delegate.swift */,
-				393A04C12858F64B009ACA3B /* SettingsViewController+DataSource.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -211,6 +319,17 @@
 				3987E1DB2858F0A700A1C3AC /* SettingsView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		39F318B42863477100B1001F /* Sinwaveform */ = {
+			isa = PBXGroup;
+			children = (
+				39F318B5286347C500B1001F /* WaveClass.swift */,
+				39F318B72863485800B1001F /* WavePreferences.swift */,
+				39F318BB286348BF00B1001F /* WaveView.swift */,
+				39F318BD28634D2D00B1001F /* WaveController.swift */,
+			);
+			path = Sinwaveform;
 			sourceTree = "<group>";
 		};
 		39F39BB1285C59A500A74E3A /* TagTableCell */ = {
@@ -241,12 +360,63 @@
 			path = TagsModal;
 			sourceTree = "<group>";
 		};
+		FB2BE41D285FED91008FE4BD /* NYHMWatch */ = {
+			isa = PBXGroup;
+			children = (
+				FB2BE41E285FED91008FE4BD /* Interface.storyboard */,
+				FB2BE421285FED92008FE4BD /* Assets.xcassets */,
+			);
+			path = NYHMWatch;
+			sourceTree = "<group>";
+		};
+		FB2BE42B285FED92008FE4BD /* NYHMWatch WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				FB2BE42C285FED92008FE4BD /* InterfaceController.swift */,
+				FB2BE42E285FED92008FE4BD /* ExtensionDelegate.swift */,
+				FB2BE430285FED92008FE4BD /* ComplicationController.swift */,
+				FB2BE432285FED93008FE4BD /* Assets.xcassets */,
+				FB2BE434285FED93008FE4BD /* Info.plist */,
+			);
+			path = "NYHMWatch WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		FB649B9D286A157C00ADF103 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				FB649BA5286A15B700ADF103 /* Inter-Black.ttf */,
+				FB649BA4286A15B700ADF103 /* Inter-Bold.ttf */,
+				FB649BA3286A15B700ADF103 /* Inter-ExtraBold.ttf */,
+				FB649BA2286A15B700ADF103 /* Inter-ExtraLight.ttf */,
+				FB649B9E286A15B600ADF103 /* Inter-Light.ttf */,
+				FB649B9F286A15B600ADF103 /* Inter-Medium.ttf */,
+				FB649BA0286A15B600ADF103 /* Inter-Regular.ttf */,
+				FB649BA6286A15B700ADF103 /* Inter-SemiBold.ttf */,
+				FB649BA1286A15B600ADF103 /* Inter-Thin.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		FB95687128631EB300050556 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				FB95687828631EE600050556 /* MessageStatus.swift */,
+				FB95687228631EC300050556 /* SessionDelegator.swift */,
+				FB95687528631ED200050556 /* SessionManager.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		FB9EE5012855FE5E004EEA24 = {
 			isa = PBXGroup;
 			children = (
+				FB95687128631EB300050556 /* Shared */,
+				FB649B9D286A157C00ADF103 /* Fonts */,
 				FB9EE50C2855FE5E004EEA24 /* NYHM */,
 				FB9EE5262855FE5F004EEA24 /* NYHMTests */,
 				FB9EE5302855FE5F004EEA24 /* NYHMUITests */,
+				FB2BE41D285FED91008FE4BD /* NYHMWatch */,
+				FB2BE42B285FED92008FE4BD /* NYHMWatch WatchKit Extension */,
 				FB9EE50B2855FE5E004EEA24 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -257,6 +427,8 @@
 				FB9EE50A2855FE5E004EEA24 /* NYHM.app */,
 				FB9EE5232855FE5F004EEA24 /* NYHMTests.xctest */,
 				FB9EE52D2855FE5F004EEA24 /* NYHMUITests.xctest */,
+				FB2BE41C285FED91008FE4BD /* Listenr.app */,
+				FB2BE427285FED92008FE4BD /* NYHMWatch WatchKit Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -369,6 +541,7 @@
 				0C5C8AC2285B661C00536BB2 /* Constants.swift */,
 				FB298E7B285B5D550063B522 /* Button+Ext.swift */,
 				FB298E7D285B604A0063B522 /* ConvertHelper.swift */,
+				0CEBF756286175F400FA3211 /* Alerts.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -404,6 +577,7 @@
 			children = (
 				FBF0D9372858A983005378EA /* ItemHomeCell */,
 				FB9EE5422855FECC004EEA24 /* Home.storyboard */,
+				02D07F422867FA58005E3166 /* homeLottie.json */,
 				FBF0D93C2858AE67005378EA /* HomeView.swift */,
 				FB8043A72859666A0022E919 /* HomeDelegate.swift */,
 			);
@@ -453,8 +627,10 @@
 		FB9EE56B285600DC004EEA24 /* Transcription */ = {
 			isa = PBXGroup;
 			children = (
+				39F318B42863477100B1001F /* Sinwaveform */,
 				FB9EE563285600A0004EEA24 /* TranscriptionViewController.swift */,
 				FB9EE565285600AC004EEA24 /* Transcription.storyboard */,
+				FB95687B286328E000050556 /* TranscriptionViewController+Notification.swift */,
 				5F166834285C911E0013B0B7 /* TranscriptionModalLayout.swift */,
 			);
 			path = Transcription;
@@ -492,6 +668,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		FB2BE41B285FED91008FE4BD /* NYHMWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB2BE43F285FED93008FE4BD /* Build configuration list for PBXNativeTarget "NYHMWatch" */;
+			buildPhases = (
+				FB2BE41A285FED91008FE4BD /* Resources */,
+				FB2BE43B285FED93008FE4BD /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FB2BE42A285FED92008FE4BD /* PBXTargetDependency */,
+			);
+			name = NYHMWatch;
+			productName = NYHMWatch;
+			productReference = FB2BE41C285FED91008FE4BD /* Listenr.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		FB2BE426285FED92008FE4BD /* NYHMWatch WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB2BE43E285FED93008FE4BD /* Build configuration list for PBXNativeTarget "NYHMWatch WatchKit Extension" */;
+			buildPhases = (
+				FB2BE423285FED92008FE4BD /* Sources */,
+				FB2BE424285FED92008FE4BD /* Frameworks */,
+				FB2BE425285FED92008FE4BD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "NYHMWatch WatchKit Extension";
+			productName = "NYHMWatch WatchKit Extension";
+			productReference = FB2BE427285FED92008FE4BD /* NYHMWatch WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		FB9EE5092855FE5E004EEA24 /* NYHM */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FB9EE5372855FE5F004EEA24 /* Build configuration list for PBXNativeTarget "NYHM" */;
@@ -499,14 +709,17 @@
 				FB9EE5062855FE5E004EEA24 /* Sources */,
 				FB9EE5072855FE5E004EEA24 /* Frameworks */,
 				FB9EE5082855FE5E004EEA24 /* Resources */,
+				FB2BE438285FED93008FE4BD /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				FB2BE436285FED93008FE4BD /* PBXTargetDependency */,
 			);
 			name = NYHM;
 			packageProductDependencies = (
-				5F0E444A28599C9000C846E1 /* FloatingPanel */,
+				FBF7E98E286A13DC000DDBA2 /* Lottie */,
+				FBF7E991286A13EB000DDBA2 /* FloatingPanel */,
 			);
 			productName = NYHM;
 			productReference = FB9EE50A2855FE5E004EEA24 /* NYHM.app */;
@@ -558,6 +771,12 @@
 				LastSwiftUpdateCheck = 1330;
 				LastUpgradeCheck = 1330;
 				TargetAttributes = {
+					FB2BE41B285FED91008FE4BD = {
+						CreatedOnToolsVersion = 13.3;
+					};
+					FB2BE426285FED92008FE4BD = {
+						CreatedOnToolsVersion = 13.3;
+					};
 					FB9EE5092855FE5E004EEA24 = {
 						CreatedOnToolsVersion = 13.3;
 					};
@@ -581,7 +800,8 @@
 			);
 			mainGroup = FB9EE5012855FE5E004EEA24;
 			packageReferences = (
-				5F0E444928599C9000C846E1 /* XCRemoteSwiftPackageReference "FloatingPanel" */,
+				FBF7E98D286A13DC000DDBA2 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				FBF7E990286A13EB000DDBA2 /* XCRemoteSwiftPackageReference "FloatingPanel" */,
 			);
 			productRefGroup = FB9EE50B2855FE5E004EEA24 /* Products */;
 			projectDirPath = "";
@@ -590,25 +810,56 @@
 				FB9EE5092855FE5E004EEA24 /* NYHM */,
 				FB9EE5222855FE5F004EEA24 /* NYHMTests */,
 				FB9EE52C2855FE5F004EEA24 /* NYHMUITests */,
+				FB2BE41B285FED91008FE4BD /* NYHMWatch */,
+				FB2BE426285FED92008FE4BD /* NYHMWatch WatchKit Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		FB2BE41A285FED91008FE4BD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB2BE422285FED92008FE4BD /* Assets.xcassets in Resources */,
+				FB613C7E286A9E47008F4EA3 /* Assets.xcassets in Resources */,
+				FB2BE420285FED91008FE4BD /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB2BE425285FED92008FE4BD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB613C7D286A9E32008F4EA3 /* Assets.xcassets in Resources */,
+				FB2BE433285FED93008FE4BD /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FB9EE5082855FE5E004EEA24 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				3987E1D52858E27400A1C3AC /* WaveformSwitchCell.xib in Resources */,
+				FB649BA9286A15B700ADF103 /* Inter-Regular.ttf in Resources */,
 				FB9EE5432855FECC004EEA24 /* Home.storyboard in Resources */,
+				FB649BAB286A15B700ADF103 /* Inter-ExtraLight.ttf in Resources */,
 				FBF0D9392858A9A4005378EA /* ItemHomeCell.xib in Resources */,
 				FB9EE51D2855FE5F004EEA24 /* LaunchScreen.storyboard in Resources */,
+				FB649BAF286A15B700ADF103 /* Inter-SemiBold.ttf in Resources */,
+				FB649BA8286A15B700ADF103 /* Inter-Medium.ttf in Resources */,
+				FB649BAE286A15B700ADF103 /* Inter-Black.ttf in Resources */,
 				39F39BBA285CEB5300A74E3A /* AddNewTagCell.xib in Resources */,
+				FB649BA7286A15B700ADF103 /* Inter-Light.ttf in Resources */,
 				FB9EE566285600AC004EEA24 /* Transcription.storyboard in Resources */,
+				FB649BAD286A15B700ADF103 /* Inter-Bold.ttf in Resources */,
 				FBD82DCD285B722800675347 /* UserDefault in Resources */,
+				FB649BAC286A15B700ADF103 /* Inter-ExtraBold.ttf in Resources */,
 				FB9EE568285600BC004EEA24 /* Settings.storyboard in Resources */,
 				FB9EE51A2855FE5F004EEA24 /* Assets.xcassets in Resources */,
+				FB649BAA286A15B700ADF103 /* Inter-Thin.ttf in Resources */,
 				5F0E443D285953AF00C846E1 /* TagsModal.storyboard in Resources */,
+				02D07F432867FA58005E3166 /* homeLottie.json in Resources */,
 				FB9EE55F2856006C004EEA24 /* Detail.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -630,6 +881,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		FB2BE423285FED92008FE4BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB95687428631EC500050556 /* SessionDelegator.swift in Sources */,
+				FB2BE42F285FED92008FE4BD /* ExtensionDelegate.swift in Sources */,
+				FB2BE42D285FED92008FE4BD /* InterfaceController.swift in Sources */,
+				FB95687728631ED300050556 /* SessionManager.swift in Sources */,
+				FB2BE431285FED92008FE4BD /* ComplicationController.swift in Sources */,
+				FB95687A28631EE800050556 /* MessageStatus.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FB9EE5062855FE5E004EEA24 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -640,7 +904,9 @@
 				39F39BB5285C708E00A74E3A /* TagTableCell+DragDelegate.swift in Sources */,
 				5F0E44442859576700C846E1 /* TagsModalViewController+Delegate.swift in Sources */,
 				5F166835285C911E0013B0B7 /* TranscriptionModalLayout.swift in Sources */,
+				39F318BE28634D2D00B1001F /* WaveController.swift in Sources */,
 				FB298E7C285B5D550063B522 /* Button+Ext.swift in Sources */,
+				39F318B82863485800B1001F /* WavePreferences.swift in Sources */,
 				FB851E722859DCBF00DDBD3B /* DetailViewController+Delegate.swift in Sources */,
 				FBF0D9412858AFF8005378EA /* HomeViewController+DataSource.swift in Sources */,
 				FB27AF0A28576ED400D0B270 /* SortType.swift in Sources */,
@@ -655,9 +921,12 @@
 				5F0E4442285956E100C846E1 /* TagsModalViewController.swift in Sources */,
 				FBF0D9432858B26D005378EA /* Nib+Ext.swift in Sources */,
 				FBF0D93F2858AFEB005378EA /* HomeViewController+Delegate.swift in Sources */,
+				FB95687C286328E000050556 /* TranscriptionViewController+Notification.swift in Sources */,
 				FB9EE54C2855FFA9004EEA24 /* CoreDataManager.swift in Sources */,
+				FB95687628631ED200050556 /* SessionManager.swift in Sources */,
 				FBF0D9472858B6A6005378EA /* Date+Ext.swift in Sources */,
 				5FA0EAD2285A2F0F00B2C345 /* TagsModalLayout.swift in Sources */,
+				FB95687328631EC300050556 /* SessionDelegator.swift in Sources */,
 				FB9EE5412855FE8C004EEA24 /* HomeViewController.swift in Sources */,
 				FBF0D9452858B288005378EA /* TableView+Ext.swift in Sources */,
 				39F39BB8285CEAF700A74E3A /* AddNewTagCell.swift in Sources */,
@@ -670,12 +939,16 @@
 				FB9EE56228560080004EEA24 /* DetailViewController.swift in Sources */,
 				FBDA69DD28582161008312FF /* DetailView.swift in Sources */,
 				FB298E7E285B604A0063B522 /* ConvertHelper.swift in Sources */,
+				39F318B6286347C500B1001F /* WaveClass.swift in Sources */,
 				39F39BB3285C59D800A74E3A /* TagTableCell.swift in Sources */,
 				FB9EE56A285600C9004EEA24 /* SettingsViewController.swift in Sources */,
+				FB95687928631EE600050556 /* MessageStatus.swift in Sources */,
+				39F318BC286348BF00B1001F /* WaveView.swift in Sources */,
 				FB851E742859DD8700DDBD3B /* DetailDelegate.swift in Sources */,
 				FBF0D93B2858AD93005378EA /* ItemHomeCell.swift in Sources */,
 				FB8043A82859666A0022E919 /* HomeDelegate.swift in Sources */,
 				393A04C02858F523009ACA3B /* SettingsViewController+Delegate.swift in Sources */,
+				0CEBF757286175F400FA3211 /* Alerts.swift in Sources */,
 				3987E1DC2858F0A700A1C3AC /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -700,6 +973,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		FB2BE42A285FED92008FE4BD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB2BE426285FED92008FE4BD /* NYHMWatch WatchKit Extension */;
+			targetProxy = FB2BE429285FED92008FE4BD /* PBXContainerItemProxy */;
+		};
+		FB2BE436285FED93008FE4BD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB2BE41B285FED91008FE4BD /* NYHMWatch */;
+			targetProxy = FB2BE435285FED93008FE4BD /* PBXContainerItemProxy */;
+		};
 		FB9EE5252855FE5F004EEA24 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FB9EE5092855FE5E004EEA24 /* NYHM */;
@@ -713,6 +996,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		FB2BE41E285FED91008FE4BD /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB2BE41F285FED91008FE4BD /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		FB9EE51B2855FE5F004EEA24 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -724,6 +1015,118 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		FB2BE439285FED93008FE4BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5658ASKD6C;
+				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_MODULE = NYHMWatch_WatchKit_Extension;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.nyhm.listenr;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nyhm.listenr.watch;
+				PRODUCT_NAME = Listenr;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+			};
+			name = Debug;
+		};
+		FB2BE43A285FED93008FE4BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5658ASKD6C;
+				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_MODULE = NYHMWatch_WatchKit_Extension;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.nyhm.listenr;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nyhm.listenr.watch;
+				PRODUCT_NAME = Listenr;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+			};
+			name = Release;
+		};
+		FB2BE43C285FED93008FE4BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5658ASKD6C;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "NYHMWatch WatchKit Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Listenr Extension";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = NYHMWatch_WatchKit_Extension.ComplicationController;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_WKExtensionDelegateClassName = NYHMWatch_WatchKit_Extension.ExtensionDelegate;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nyhm.listenr.watch.extension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+			};
+			name = Debug;
+		};
+		FB2BE43D285FED93008FE4BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5658ASKD6C;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "NYHMWatch WatchKit Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Listenr Extension";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = NYHMWatch_WatchKit_Extension.ComplicationController;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_WKExtensionDelegateClassName = NYHMWatch_WatchKit_Extension.ExtensionDelegate;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nyhm.listenr.watch.extension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+			};
+			name = Release;
+		};
 		FB9EE5352855FE5F004EEA24 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -843,22 +1246,27 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = CL42QD4LKB;
+				DEVELOPMENT_TEAM = 5658ASKD6C;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NYHM/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Listenr.;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "The app requires access to the microphone to record your transcription audio";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "The app requires access to the speech recognition framework to perform speech to text transcription";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Home;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hafizhmo.NYHM;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nyhm.listenr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -871,22 +1279,27 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = CL42QD4LKB;
+				DEVELOPMENT_TEAM = 5658ASKD6C;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NYHM/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Listenr.;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "The app requires access to the microphone to record your transcription audio";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "The app requires access to the speech recognition framework to perform speech to text transcription";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Home;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hafizhmo.NYHM;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nyhm.listenr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -901,10 +1314,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5658ASKD6C;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hafizhmo.NYHMTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nyhm.listenr.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -920,10 +1334,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5658ASKD6C;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hafizhmo.NYHMTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nyhm.listenr.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -938,9 +1353,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5658ASKD6C;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hafizhmo.NYHMUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nyhm.listenr.uitests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -955,9 +1371,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5658ASKD6C;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hafizhmo.NYHMUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nyhm.listenr.uitests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -969,6 +1386,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		FB2BE43E285FED93008FE4BD /* Build configuration list for PBXNativeTarget "NYHMWatch WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB2BE43C285FED93008FE4BD /* Debug */,
+				FB2BE43D285FED93008FE4BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB2BE43F285FED93008FE4BD /* Build configuration list for PBXNativeTarget "NYHMWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB2BE439285FED93008FE4BD /* Debug */,
+				FB2BE43A285FED93008FE4BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		FB9EE5052855FE5E004EEA24 /* Build configuration list for PBXProject "NYHM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1008,9 +1443,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		5F0E444928599C9000C846E1 /* XCRemoteSwiftPackageReference "FloatingPanel" */ = {
+		FBF7E98D286A13DC000DDBA2 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SCENEE/FloatingPanel.git";
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		FBF7E990286A13EB000DDBA2 /* XCRemoteSwiftPackageReference "FloatingPanel" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scenee/FloatingPanel";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 2.0.0;
@@ -1019,9 +1462,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5F0E444A28599C9000C846E1 /* FloatingPanel */ = {
+		FBF7E98E286A13DC000DDBA2 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5F0E444928599C9000C846E1 /* XCRemoteSwiftPackageReference "FloatingPanel" */;
+			package = FBF7E98D286A13DC000DDBA2 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+		FBF7E991286A13EB000DDBA2 /* FloatingPanel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FBF7E990286A13EB000DDBA2 /* XCRemoteSwiftPackageReference "FloatingPanel" */;
 			productName = FloatingPanel;
 		};
 /* End XCSwiftPackageProductDependency section */

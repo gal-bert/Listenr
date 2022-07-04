@@ -27,5 +27,7 @@ class TagsModalView: UIView {
     
     @IBAction func addNewTag(_ sender: Any) {
         alertDelegate?.addNewTag(tagCount: tagList.count, delegate: alertDelegate!)
+        
+        
     }
 }

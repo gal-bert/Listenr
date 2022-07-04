@@ -36,6 +36,14 @@ extension HomeViewController: UITableViewDataSource {
         cell.createdAtLabel.text = item?.createdAt?.fixedFormat()
         cell.durationLabel.text = item?.duration!
         
+        
+        //Colors
+        let secBg = UIColor(named: "secBg")
+        
+        cell.titleLabel.textColor = UIColor(named: "textPrim")
+        cell.bgContentColor.backgroundColor = secBg
+        
+        
         return cell
     }
     

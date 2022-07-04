@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="20037" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="20006"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="NYHMWatch" customModuleProvider="target">
+                    <items>
+                        <label width="1" alignment="left" text="Result will appear here..." textAlignment="left" numberOfLines="0" minimumScaleFactor="0.0" id="gHV-9O-Up7"/>
+                        <button width="1" alignment="left" title="Pause" id="QDx-1t-wzs">
+                            <connections>
+                                <action selector="didTapPause" destination="AgC-eL-Hgc" id="KOZ-We-AL8"/>
+                            </connections>
+                        </button>
+                        <separator alignment="left" id="QeI-gM-S7y"/>
+                        <button width="1" alignment="left" title="Save" id="pCt-2y-33W">
+                            <connections>
+                                <action selector="didTapSave" destination="AgC-eL-Hgc" id="6bu-5C-uaM"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="Cancel" id="HN1-PQ-P8k">
+                            <connections>
+                                <action selector="didTapCancel" destination="AgC-eL-Hgc" id="5cp-gO-vNG"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="cancelButton" destination="HN1-PQ-P8k" id="9Yv-pL-OK1"/>
+                        <outlet property="pauseButton" destination="QDx-1t-wzs" id="9VD-PM-r4W"/>
+                        <outlet property="resultLabel" destination="gHV-9O-Up7" id="Tfm-R6-oNq"/>
+                        <outlet property="saveButton" destination="pCt-2y-33W" id="5Dl-yQ-IND"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-17" y="-6"/>
+        </scene>
+    </scenes>
+</document>

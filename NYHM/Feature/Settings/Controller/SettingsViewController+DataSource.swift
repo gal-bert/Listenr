@@ -20,13 +20,26 @@ extension SettingsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell3 : TagTableCell = tableView.dequeueReusableCell(withIdentifier: "tagTableCellSB") as! TagTableCell
+        
+        
         cell3.delegate = self
+        
+      
+        
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: WaveformSwitchCell.identifier, for: indexPath) as! WaveformSwitchCell
+            
+            let primBg = UIColor(named: "primBg")
+            
+            
+            cell.testBg.backgroundColor = primBg
+            
+            
+            cell.viewWaveform.backgroundColor = UIColor(named: "secBg")
+            
             return cell
         } else if indexPath.section == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: AddNewTagCell.identifier, for: indexPath) as! AddNewTagCell
-            cell.delegate = self
             return cell
         } else {
             return cell3
