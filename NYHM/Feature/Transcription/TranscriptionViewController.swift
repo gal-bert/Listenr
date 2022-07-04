@@ -86,6 +86,12 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             self, selector: #selector(type(of: self).reachabilityDidChange(_:)),
             name: .reachabilityDidChange, object: nil
         )
+//
+//        transcriptionResultTextView.layer.borderColor = UIColor.black.cgColor
+//        transcriptionResultTextView.layer.borderWidth = 1
+        NotificationCenter.default.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(appBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
 
         
         speechRecognizer?.delegate = self
@@ -546,6 +552,21 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         }
         if wvviewtimer {
             waveView.timer.invalidate()
+        }
+    }
+    
+    @objc func appMovedToBackground() {
+        if isWaveformVisible {
+            audioRecorder!.isMeteringEnabled = false
+            makeItInvalidate(wvtimer: true, wvviewtimer: true)
+            turnTheWave(bool: false)
+        }
+    }
+    
+    @objc func appBecomeActive() {
+        if isWaveformVisible {
+        audioRecorder!.isMeteringEnabled = true
+        turnTheWave(bool: true)
         }
     }
 }
