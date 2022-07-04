@@ -60,11 +60,10 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     weak var waveTimer: Timer!
     
     var waveView = WaveView()
-    
     var sineWaveView = UIView()
-//    @IBOutlet weak var sinewaveView: UIView!
-    
     let isWaveformVisible = UserDefaults.standard.bool(forKey: Constants.IS_WAVEFORM_VISIBLE)
+    
+    var speechRecognitionIsAuthorized:Bool = false
     
     @IBAction func titleExit(_ sender: Any) {
         
@@ -87,9 +86,7 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             self, selector: #selector(type(of: self).reachabilityDidChange(_:)),
             name: .reachabilityDidChange, object: nil
         )
-//
-//        transcriptionResultTextView.layer.borderColor = UIColor.black.cgColor
-//        transcriptionResultTextView.layer.borderWidth = 1
+
         
         speechRecognizer?.delegate = self
         audioRecorder?.delegate = self
@@ -98,7 +95,6 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         
         initSpeechAuth()
         initRecordingSession()
-        initDuration()
         
         transcribeOnLoad()
         startRecording()
@@ -107,6 +103,8 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
 //        sineWaveView = waveView.theView
 //        sineWaveView.tag = 378
         turnTheWave(bool: isWaveformVisible)
+        
+        
         
     }
     
@@ -145,10 +143,9 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
                     self.durationLabel.text = "\(hours):\(minutes):\(seconds)"
                     self.durationLabelBottom.text = "\(hours):\(minutes):\(seconds)"
                 }
-                
-                
             }
         }
+        
     }
     
     
@@ -160,23 +157,47 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             
             switch authStatus {
             case .notDetermined:
-                msg = "Transcribe Ready"
+                msg = "Speech Recognition Auth Not Determined"
             case .denied:
-                msg = "Speech Recognition Permission Denied"
+                msg = "Speech Recognition Auth Permission Denied"
             case .restricted:
-                msg = "Speech Recognition Restricted"
+                msg = "Speech Recognition Auth Restricted"
             case .authorized:
-                msg = "Speech Recognition Restricted"
+                msg = "Speech Recognition Auth Authorized"
+                self.speechRecognitionIsAuthorized = true
             @unknown default:
                 fatalError()
             }
             print(msg)
+            
+            if self.speechRecognitionIsAuthorized {
+                DispatchQueue.main.async {
+                    self.initDuration()
+                    self.audioRecorder!.isMeteringEnabled = true
+                    self.turnTheWave(bool: true)
+                }
+            }
             
         }
     }
     
     func initRecordingSession() -> Void {
         recordingSession = AVAudioSession.sharedInstance()
+        
+        switch recordingSession!.recordPermission {
+            case .granted:
+                print("Recording Permission granted")
+            case .denied:
+                print("Recording Permission denied")
+            case .undetermined:
+                print("Recording Request permission here")
+                AVAudioSession.sharedInstance().requestRecordPermission({ granted in
+//                    self.initDuration()
+                })
+            @unknown default:
+                print("Unknown case")
+            }
+        
         do{
             try recordingSession?.setCategory(.playAndRecord, mode: .default)
             try recordingSession?.setActive(true)
@@ -213,11 +234,7 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
                 ]
             )
             audioRecorder?.record()
-//
-//            audioRecorder!.isMeteringEnabled = true
-//            if isWaveformVisible {
-//                startWave()
-//            }
+
             
         } catch {
             if isWaveformVisible {
@@ -243,24 +260,17 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         if isWaveformVisible {
             makeItInvalidate(wvtimer: true, wvviewtimer: false)
             WavePreferences.wavesArray[0].amplitude = 0.5
-            //            waveView.timer.invalidate()
         }
     }
     
     func stopRecording() -> Void {
         audioRecorder!.isMeteringEnabled = false
-//        if isWaveformVisible {
-//            makeItInvalidate(wvtimer: true, wvviewtimer: true)
-//        }
         audioRecorder?.stop()
         audioRecorder = nil
     }
     
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if !flag {
-//            if isWaveformVisible {
-//                makeItInvalidate(wvtimer: true, wvviewtimer: true)
-//            }
             audioRecorder!.isMeteringEnabled = false
             stopRecording()
         }
@@ -311,8 +321,6 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
                     self.transcriptionResultTextView.text = concat
                     print(concat)
                     
-                    //TODO: sendMessage
-//                    self.sendIsPlaying([MessageKeyLoad.isPlaying: self.isPlaying])
                     self.sendMessage([MessageKeyLoad.result: concat])
                 }
             }
@@ -353,9 +361,7 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             }
             transcriptionResultTextView.text = transcriptionTemp
             transcriptionTemp2 = ""
-            
-            //TODO: sendMessage
-            
+                        
             audioEngine.stop()
             recognitionRequest?.endAudio()
             pauseRecording()
@@ -436,8 +442,6 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             if isWaveformVisible {
                 textViewToButtonConstraint.constant = 160
                 textViewToDurationConstraint.constant = 120
-                audioRecorder!.isMeteringEnabled = true
-                turnTheWave(bool: true)
             } else {
                 audioRecorder!.isMeteringEnabled = false
                 turnTheWave(bool: false)
@@ -470,8 +474,6 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             style: .destructive,
             handler: { _ in
                 self.sendCanceling([MessageKeyLoad.canceling: true])
-//                self.makeItInvalidate(wvtimer: true, wvviewtimer: true)
-//                self.turnTheWave(bool: false)
                 self.audioEngine.stop()
                 self.dismiss(animated: true)
                 self.removeInterruptionObserver()
@@ -499,10 +501,6 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     
     func globalSave() {
         audioRecorder!.isMeteringEnabled = false
-//        if isWaveformVisible {
-//            makeItInvalidate(wvtimer: true, wvviewtimer: true)
-//            turnTheWave(bool: false)
-//        }
         
         audioEngine.stop()
         stopRecording()
