@@ -179,6 +179,8 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             if self.speechRecognitionIsAuthorized {
                 DispatchQueue.main.async {
                     self.initDuration()
+                    self.audioRecorder!.isMeteringEnabled = true
+                    self.turnTheWave(bool: true)
                 }
             }
             
@@ -461,8 +463,12 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             if isWaveformVisible {
                 textViewToButtonConstraint.constant = 160
                 textViewToDurationConstraint.constant = 120
-                audioRecorder!.isMeteringEnabled = true
-                turnTheWave(bool: true)
+                
+//                if speechRecognitionIsAuthorized {
+//                    audioRecorder!.isMeteringEnabled = true
+//                    turnTheWave(bool: true)
+//                }
+            
             } else {
                 audioRecorder!.isMeteringEnabled = false
                 turnTheWave(bool: false)
