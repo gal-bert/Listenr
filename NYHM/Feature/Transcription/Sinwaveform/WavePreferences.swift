@@ -10,7 +10,7 @@ import Foundation
 struct WavePreferences {
     
     static var wavesArray = [
-        WaveClass(frequency: 1.2, amplitude: 1, color: .cyan),
+        WaveClass(frequency: 1.2, amplitude: 0, color: .cyan),
     ]
     
     static var Preferences = 0
