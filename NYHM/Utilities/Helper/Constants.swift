@@ -11,5 +11,5 @@ class Constants {
     
     static let SELECTED_LANGUAGE = "SELECTED_LANGUAGE"
     static let IS_FIRST_TIME = "IS_FIRST_TIME"
-    
+    static let IS_WAVEFORM_VISIBLE = "waveformVisibility"
 }

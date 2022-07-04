@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Inter-Regular.ttf">
+            <string>Inter-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -30,12 +35,8 @@
                         <constraints>
                             <constraint firstAttribute="width" constant="129" id="oRY-Iw-jkp"/>
                         </constraints>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="15"/>
                         <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardAppearance="alert"/>
-                        <connections>
-                            <action selector="newTagEndOnExit:" destination="8JA-yf-kdF" eventType="editingDidEndOnExit" id="afr-Gr-9jz"/>
-                        </connections>
                     </textField>
                 </subviews>
                 <constraints>
@@ -47,8 +48,8 @@
                     <constraint firstAttribute="bottom" secondItem="B2d-2A-217" secondAttribute="bottom" constant="5" id="zHF-Wl-yHH"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" red="0.10980392160000001" green="0.10980392160000001" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
+                <outlet property="colorText" destination="B2d-2A-217" id="SNU-tT-S5n"/>
                 <outlet property="labelNewTagValue" destination="B2d-2A-217" id="5sp-qD-SjZ"/>
             </connections>
             <point key="canvasLocation" x="-571.01449275362324" y="39.508928571428569"/>

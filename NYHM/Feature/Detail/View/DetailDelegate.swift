@@ -14,4 +14,6 @@ protocol DetailDelegate {
     func didTapForward()
     func didTapTags()
     func didTapShare()
+    func checkTagTruncate()
+    func didTapDelete(item: Transcriptions)
 }
