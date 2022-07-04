@@ -80,12 +80,22 @@ class HomeView: UIView {
         
 
                 let imageAttachment = NSTextAttachment()
+                let imageBulb = NSTextAttachment()
                 let theImage = UIImage(systemName: "mic.fill")?.withRenderingMode(.alwaysTemplate)
+                let lightBulb = UIImage(systemName: "lightbulb.fill")?.withRenderingMode(.alwaysTemplate)
+        
                 imageAttachment.image = theImage
-                let boldLabelPlacement = NSMutableAttributedString(string: "No Transcription available")
-                let stringPlaceWithIcon = NSMutableAttributedString(string: "\nClick the ")
-                stringPlaceWithIcon.append(NSAttributedString(attachment: imageAttachment))
-                stringPlaceWithIcon.append(NSAttributedString(string: " button to create a new transcription"))
+                let boldLabelPlacement = NSMutableAttributedString(string: "\nClick the ")
+                boldLabelPlacement.append(NSAttributedString(attachment: imageAttachment))
+                boldLabelPlacement.append(NSAttributedString(string: " button to create a new transcription"))
+            
+                
+                imageBulb.image = lightBulb
+                //let stringPlaceWithIcon = NSMutableAttributedString(string: "\n")
+                let stringPlaceWithIcon = NSMutableAttributedString(string: "\n")
+//                stringPlaceWithIcon.append(NSAttributedString(attachment: imageBulb))
+                stringPlaceWithIcon.append(NSMutableAttributedString(string: "Tip: Put the phone close to the source for a better accuracy "))
+                
                 boldLabel.attributedText = boldLabelPlacement
                 emptyLabel.attributedText = stringPlaceWithIcon
         
