@@ -36,11 +36,10 @@
                                 </connections>
                             </switch>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="When enabled, detected audio signature will be displayed through a reactive audio waveform. " textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wWu-sM-CTK">
-                                <rect key="frame" x="15" y="51" width="334" height="52"/>
+                                <rect key="frame" x="12" y="51" width="337" height="72"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="334" id="NKH-dH-7Cm"/>
-                                    <constraint firstAttribute="height" constant="52" id="kIW-tR-N42"/>
+                                    <constraint firstAttribute="height" constant="72" id="kIW-tR-N42"/>
                                 </constraints>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="15"/>
@@ -51,10 +50,10 @@
                             <constraint firstAttribute="height" constant="50" id="6Ua-hG-A4I"/>
                             <constraint firstAttribute="trailing" secondItem="wWu-sM-CTK" secondAttribute="trailing" constant="1" id="CHY-dn-da7"/>
                             <constraint firstItem="98R-ht-aZh" firstAttribute="top" secondItem="0l2-7Q-fTd" secondAttribute="top" constant="15" id="Lra-cC-6m6"/>
-                            <constraint firstAttribute="bottom" secondItem="wWu-sM-CTK" secondAttribute="bottom" constant="-53" id="QTt-zz-3Wc"/>
+                            <constraint firstAttribute="bottom" secondItem="wWu-sM-CTK" secondAttribute="bottom" constant="-73" id="QTt-zz-3Wc"/>
                             <constraint firstItem="98R-ht-aZh" firstAttribute="leading" secondItem="0l2-7Q-fTd" secondAttribute="leading" constant="20" id="T9c-c2-yDk"/>
                             <constraint firstItem="Iht-ce-2XJ" firstAttribute="leading" secondItem="98R-ht-aZh" secondAttribute="trailing" constant="70" id="etM-QS-W5L"/>
-                            <constraint firstItem="wWu-sM-CTK" firstAttribute="leading" secondItem="0l2-7Q-fTd" secondAttribute="leading" constant="15" id="iOe-eD-nq8"/>
+                            <constraint firstItem="wWu-sM-CTK" firstAttribute="leading" secondItem="0l2-7Q-fTd" secondAttribute="leading" constant="12" id="iOe-eD-nq8"/>
                             <constraint firstItem="wWu-sM-CTK" firstAttribute="top" secondItem="Iht-ce-2XJ" secondAttribute="bottom" constant="10" id="oeP-VS-qLb"/>
                             <constraint firstAttribute="trailing" secondItem="Iht-ce-2XJ" secondAttribute="trailing" constant="17" id="pWZ-fB-8Yr"/>
                             <constraint firstItem="Iht-ce-2XJ" firstAttribute="top" secondItem="0l2-7Q-fTd" secondAttribute="top" constant="10" id="t86-7O-4Qs"/>

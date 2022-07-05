@@ -64,10 +64,7 @@ class HomeView: UIView {
         bgLanguage.backgroundColor = thBg
         bgButton.backgroundColor = secBg
         
-      
         
-        
-        self.backgroundColor = primBg
         
         
         lottieView.contentMode = .scaleAspectFill

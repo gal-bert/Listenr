@@ -26,11 +26,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="72" estimatedRowHeight="-1" sectionHeaderHeight="1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="10" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="N8c-or-AsI">
-                                <rect key="frame" x="0.0" y="88" width="414" height="649"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="648"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="4j5-O1-wSy">
-                                <rect key="frame" x="32" y="340" width="350" height="216"/>
+                                <rect key="frame" x="32" y="339.5" width="350" height="217.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ck-PQ-HRW" customClass="AnimationView" customModule="Lottie">
                                         <rect key="frame" x="0.0" y="0.0" width="350" height="175"/>
@@ -43,13 +43,13 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kiK-QY-cii">
-                                        <rect key="frame" x="0.0" y="176" width="350" height="20"/>
+                                        <rect key="frame" x="0.0" y="176" width="350" height="21"/>
                                         <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kmz-ye-fcv">
-                                        <rect key="frame" x="0.0" y="197" width="350" height="19"/>
+                                        <rect key="frame" x="0.0" y="198" width="350" height="19.5"/>
                                         <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -57,14 +57,14 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gDe-J1-HK8">
-                                <rect key="frame" x="0.0" y="737" width="414" height="159"/>
+                                <rect key="frame" x="0.0" y="736" width="414" height="160"/>
                                 <subviews>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oym-gB-sA8">
-                                        <rect key="frame" x="35" y="75" width="344" height="47"/>
+                                        <rect key="frame" x="35" y="76" width="344" height="47"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" image="mic.fill" catalog="system" title="" buttonSize="large">
                                             <color key="baseForegroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                                            <color key="baseBackgroundColor" red="0.99215686270000003" green="0.81568627449999997" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="baseBackgroundColor" red="1" green="0.72549019607843135" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </buttonConfiguration>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -76,16 +76,16 @@
                                         </connections>
                                     </button>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X5H-np-GcS">
-                                        <rect key="frame" x="20" y="15" width="374" height="44"/>
+                                        <rect key="frame" x="20" y="15" width="374" height="45"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ab9-Yi-Qbs">
-                                                <rect key="frame" x="14" y="12" width="75.5" height="20"/>
+                                                <rect key="frame" x="14" y="12" width="79.5" height="21"/>
                                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bahasa Indonesia" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwA-3h-gCA">
-                                                <rect key="frame" x="224.5" y="12" width="135.5" height="20"/>
+                                                <rect key="frame" x="218.5" y="12" width="141.5" height="21"/>
                                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="17"/>
                                                 <color key="textColor" red="0.99215686270000003" green="0.81568627449999997" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -124,7 +124,8 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tTz-Jo-0mJ"/>
-                        <color key="backgroundColor" red="0.10980392160000001" green="0.10980392160000001" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" name="actionPress"/>
                         <constraints>
                             <constraint firstItem="4j5-O1-wSy" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="410-8z-mu3"/>
                             <constraint firstAttribute="trailing" secondItem="gDe-J1-HK8" secondAttribute="trailing" id="DzH-xx-k8q"/>

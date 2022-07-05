@@ -22,5 +22,8 @@ class SettingsViewController: UIViewController {
         settingsView.setup(viewController: self)
         self.view.endEditing(true)
         
+        let secBg = UIColor(named: "secBg")
+        view.backgroundColor = secBg
+        
     }
 }
