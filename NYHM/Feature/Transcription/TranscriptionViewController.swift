@@ -102,8 +102,6 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         sendStarting([MessageKeyLoad.starting: true])
         turnTheWave(bool: isWaveformVisible)
         
-        
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -327,6 +325,14 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             recognitionTask = nil
         }
         
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            try audioSession.setCategory(AVAudioSession.Category.record, mode: AVAudioSession.Mode.measurement, options: AVAudioSession.CategoryOptions.defaultToSpeaker)
+            try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
+        } catch {
+            print("audioSession properties weren't set because of an error.")
+        }
+        
         self.recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
         let inputNode = audioEngine.inputNode
         
@@ -393,6 +399,13 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         
         // State is playing, command to stop
         if audioEngine.isRunning {
+            
+            self.transcribeActionButton.isEnabled = false
+            
+            let timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { _ in
+                self.transcribeActionButton.isEnabled = true
+            })
+            
             if transcriptionTemp == "" {
                 transcriptionTemp += "\(transcriptionTemp2)"
             } else {
@@ -405,15 +418,25 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             recognitionRequest?.endAudio()
             pauseRecording()
             
+            
             transcribeActionButton.setTitle("", for: .normal)
             transcribeActionButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
             saveButton.isEnabled = true
             isPlaying = false
             sendIsPausing([MessageKeyLoad.isPausing: true])
+            
+//            audioEngine.inputNode.removeTap(onBus: 0)
         }
         
         // State is stopped, command to start
         else {
+            
+            self.transcribeActionButton.isEnabled = false
+            
+            let timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { _ in
+                self.transcribeActionButton.isEnabled = true
+            })
+            
             let locale = UserDefaults.standard.string(forKey: Constants.SELECTED_LANGUAGE)
             speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: locale!))
             startTranscription()
@@ -424,6 +447,9 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             saveButton.isEnabled = false
             isPlaying = true
             sendIsPlaying([MessageKeyLoad.isPlaying: true])
+            
+//            let timer = Timer.inte
+            
         }
         let fourthBg = UIColor(named: "fourthBg")
         
@@ -581,6 +607,16 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         
     }
     
+//    func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer, availabilityDidChange available: Bool) {
+//        if available {
+//            print("/n/n IS AVAILABLE /n/n")
+//            transcribeActionButton.isEnabled = true
+//        } else {
+//            print("/n/n NOT AVAILABLE /n/n")
+//            transcribeActionButton.isEnabled = false
+//        }
+//    }
+    
     func makeItInvalidate(wvtimer: Bool, wvviewtimer: Bool) {
         if wvtimer {
             if waveTimer != nil {
@@ -608,4 +644,6 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         }
     }
 }
+
+
 
