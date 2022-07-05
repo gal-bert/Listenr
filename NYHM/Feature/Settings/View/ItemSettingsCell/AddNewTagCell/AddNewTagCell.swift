@@ -22,18 +22,18 @@ class AddNewTagCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         let attributes = [
-//            NSAttributedString.Key.foregroundColor: UIColor.white,
-            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16)// Note the !
+            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16),
+            NSAttributedString.Key.foregroundColor: UIColor(named: "textPrim")
         ]
         labelNewTagValue.attributedPlaceholder = NSAttributedString(
             string: "Add New Tag",
             attributes: attributes
-            
-            
         )
         labelNewTagValue.isUserInteractionEnabled = false
         
         colorText.textColor = UIColor(named: "textPrim")
+        
+        
         
     }
     

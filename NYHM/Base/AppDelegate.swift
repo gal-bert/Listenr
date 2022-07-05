@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         assert(WCSession.isSupported(), "This app requires Watch Connectivity support!")
         WCSession.default.delegate = sessionDelegator
         WCSession.default.activate()
+        
         return true
     }
 
