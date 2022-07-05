@@ -62,6 +62,8 @@ extension UIViewController {
         alert.addAction(cancelAction)
         alert.addAction(addAction)
         
+        alert.view.tintColor = UIColor(named: "actionPress")
+        
         present(alert, animated: true)
     }
 }

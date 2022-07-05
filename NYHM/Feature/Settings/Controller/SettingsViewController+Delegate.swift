@@ -20,6 +20,9 @@ extension SettingsViewController: UITableViewDelegate, AddNewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
         if indexPath.section == 2 {
             self.addNewTag(tagCount: tagArr.count, delegate: self)
         }

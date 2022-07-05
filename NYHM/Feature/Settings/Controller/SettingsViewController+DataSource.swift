@@ -21,11 +21,8 @@ extension SettingsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell3 : TagTableCell = tableView.dequeueReusableCell(withIdentifier: "tagTableCellSB") as! TagTableCell
         
-        
         cell3.delegate = self
-        
-      
-        
+    
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: WaveformSwitchCell.identifier, for: indexPath) as! WaveformSwitchCell
             
