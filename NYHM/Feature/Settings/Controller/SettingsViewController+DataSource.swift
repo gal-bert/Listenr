@@ -49,7 +49,7 @@ extension SettingsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return CGFloat(110)
+            return CGFloat(120)
         } else if indexPath.section == 2 {
             return CGFloat(50)
         } else {

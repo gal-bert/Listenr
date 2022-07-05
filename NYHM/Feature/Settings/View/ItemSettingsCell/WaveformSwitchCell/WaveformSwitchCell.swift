@@ -30,13 +30,6 @@ class WaveformSwitchCell : UITableViewCell {
         super.awakeFromNib()
         self.viewWaveform?.layer.cornerRadius = 10
         self.viewWaveform?.layer.borderColor = UIColor(named: "actionPress")?.cgColor
-        
-        print("capek anjing")
-       
-//         let primBg = UIColor (named: "primBg")
-//        testBg.backgroundColor = primBg
-//
-//         colorText.textColor = UIColor(named: "settingText")
     }
     
     override func layoutSubviews() {

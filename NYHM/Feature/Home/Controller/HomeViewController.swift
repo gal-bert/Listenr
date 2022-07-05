@@ -51,8 +51,8 @@ class HomeViewController: UIViewController {
         transcriptions = repo.showAll()
         homeView.tableView.reloadData()
         
-        let primBg = UIColor(named: "primBg")
-        homeView.backgroundColor = primBg
+        let secBg = UIColor(named: "secBg")
+        view.backgroundColor = secBg
         
         if transcriptions.isEmpty
         {
