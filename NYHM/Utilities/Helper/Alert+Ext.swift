@@ -10,6 +10,20 @@ import UIKit
 import SwiftUI
 
 extension UIViewController {
+    
+    func pushAlert(title:String, message:String) -> UIAlertController {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+            self.dismiss(animated: true)
+        }))
+        
+        alert.view.tintColor = UIColor(named: "actionPress")
+        
+        return alert
+    }
+    
     func addNewTag(tagCount: Int, delegate: UIViewController) {
         print("tag count", tagCount)
         let alert = UIAlertController(title: "Add New Tag", message: nil, preferredStyle: .alert)
@@ -29,9 +43,7 @@ extension UIViewController {
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
         addAction.isEnabled = false
-        
-//      alert.overrideUserInterfaceStyle = .dark
-//        alert.view.tintColor = UIColor(red: 0.99, green: 0.82, blue: 0.15, alpha: 1.00)
+
         alert.addTextField { textField in
             textField.placeholder = "Enter tag name"
             NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification, object: textField, queue: OperationQueue.main, using: {_ in
@@ -61,6 +73,8 @@ extension UIViewController {
         
         alert.addAction(cancelAction)
         alert.addAction(addAction)
+        
+        alert.view.tintColor = UIColor(named: "actionPress")
         
         present(alert, animated: true)
     }

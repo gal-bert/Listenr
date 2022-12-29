@@ -41,11 +41,16 @@ class DetailViewController: UIViewController, UITextViewDelegate {
         
         view.addGestureRecognizer(tap)
         self.navigationItem.titleView?.addGestureRecognizer(tap)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(saveOnClose), name: UIApplication.willResignActiveNotification, object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
+        saveAndStop()
+    }
+    
+    func saveAndStop() {
         let newTags = detailView.tagsLabel.text! == "Add Tags" ? "Untagged" : detailView.tagsLabel.text!
         let newTitle = detailView.titleTextView.text!
         let newResult = detailView.resultTextView.text!
@@ -59,6 +64,10 @@ class DetailViewController: UIViewController, UITextViewDelegate {
         }
         
         detailView.player?.stop()
+    }
+    
+    @objc func saveOnClose() {
+        saveAndStop()
     }
     
     @objc func handleTap() {

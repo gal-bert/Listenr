@@ -63,11 +63,8 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     var sineWaveView = UIView()
     let isWaveformVisible = UserDefaults.standard.bool(forKey: Constants.IS_WAVEFORM_VISIBLE)
     
-    var speechRecognitionIsAuthorized:Bool = false
-    
-    @IBAction func titleExit(_ sender: Any) {
-        
-    }
+    var speechIsAuth:Bool?
+    var micIsAuth:Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,7 +83,10 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             self, selector: #selector(type(of: self).reachabilityDidChange(_:)),
             name: .reachabilityDidChange, object: nil
         )
-
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(appBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
+        
         
         speechRecognizer?.delegate = self
         audioRecorder?.delegate = self
@@ -100,11 +100,7 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         startRecording()
         
         sendStarting([MessageKeyLoad.starting: true])
-//        sineWaveView = waveView.theView
-//        sineWaveView.tag = 378
         turnTheWave(bool: isWaveformVisible)
-        
-        
         
     }
     
@@ -148,35 +144,53 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         
     }
     
-    
-    
     func initSpeechAuth() -> Void {
         
-        SFSpeechRecognizer.requestAuthorization { (authStatus) in
+        SFSpeechRecognizer.requestAuthorization { [self] (authStatus) in
             var msg = ""
             
             switch authStatus {
             case .notDetermined:
                 msg = "Speech Recognition Auth Not Determined"
+                
             case .denied:
                 msg = "Speech Recognition Auth Permission Denied"
+                self.speechIsAuth = false
+                
             case .restricted:
                 msg = "Speech Recognition Auth Restricted"
+                self.speechIsAuth = false
+
             case .authorized:
                 msg = "Speech Recognition Auth Authorized"
-                self.speechRecognitionIsAuthorized = true
+                self.speechIsAuth = true
+                
             @unknown default:
                 fatalError()
             }
             print(msg)
             
-            if self.speechRecognitionIsAuthorized {
-                DispatchQueue.main.async {
-                    self.initDuration()
-                    self.audioRecorder!.isMeteringEnabled = true
-                    self.turnTheWave(bool: true)
+            if let speechIsAuth = self.speechIsAuth {
+                if speechIsAuth {
+                    DispatchQueue.main.async {
+                        self.initDuration()
+                        self.audioRecorder!.isMeteringEnabled = true
+                        self.turnTheWave(bool: true)
+                    }
+                }
+                else if !speechIsAuth {
+                    DispatchQueue.main.async {
+                        self.dismiss(animated: true, completion: {
+                            UIApplication.getTopMostViewController()?.present(
+                                self.pushAlert(title: "Permission Not Authorized", message: "Please give permission to speech recognition in settings"),
+                                animated: true, completion: nil
+                            )
+                        })
+                    }
                 }
             }
+            
+            
             
         }
     }
@@ -184,40 +198,63 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     func initRecordingSession() -> Void {
         recordingSession = AVAudioSession.sharedInstance()
         
-        switch recordingSession!.recordPermission {
+        recordingSession?.requestRecordPermission({ _ in
+            switch self.recordingSession!.recordPermission {
             case .granted:
                 print("Recording Permission granted")
+                self.micIsAuth = true
+                
             case .denied:
                 print("Recording Permission denied")
+                self.micIsAuth = false
+                
             case .undetermined:
                 print("Recording Request permission here")
-                AVAudioSession.sharedInstance().requestRecordPermission({ granted in
-//                    self.initDuration()
-                })
+                
             @unknown default:
                 print("Unknown case")
             }
-        
-        do{
-            try recordingSession?.setCategory(.playAndRecord, mode: .default)
-            try recordingSession?.setActive(true)
-            recordingSession?.requestRecordPermission({ [unowned self] allowed in
-                
-                DispatchQueue.main.async {
-                    if allowed {
-                        print("Recording instance ok")
-                    } else {
-                        print("Recording instance failed")
+            
+            if let micIsAuth = self.micIsAuth {
+                if micIsAuth {
+                    do{
+                        try self.recordingSession?.setCategory(.playAndRecord, mode: .default)
+                        try self.recordingSession?.setActive(true)
+                        self.recordingSession?.requestRecordPermission({ [unowned self] allowed in
+                            
+                            DispatchQueue.main.async {
+                                if allowed {
+                                    print("Recording instance ok")
+                                } else {
+                                    print("Recording instance failed")
+                                }
+                            }
+                            
+                        })
+                    } catch {
+                        print("Recording Session Error")
+                        print(error.localizedDescription)
+                    }
+                    
+                    self.setupNotifications()
+                }
+                else if !micIsAuth {
+                    DispatchQueue.main.async {
+                        self.dismiss(animated: true, completion: {
+                            UIApplication.getTopMostViewController()?.present(
+                                self.pushAlert(title: "Permission Not Authorized", message: "Please give permission to microphone in settings"),
+                                animated: true, completion: nil
+                            )
+                        })
                     }
                 }
-                
-            })
-        } catch {
-            print("Recording Session Error")
-            print(error.localizedDescription)
-        }
+            }
+            
+        })
         
-        setupNotifications()
+        
+        
+        
     }
     
     func startRecording() -> Void {
@@ -234,7 +271,7 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
                 ]
             )
             audioRecorder?.record()
-
+            
             
         } catch {
             if isWaveformVisible {
@@ -286,6 +323,14 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         if recognitionTask != nil {
             recognitionTask?.cancel()
             recognitionTask = nil
+        }
+        
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            try audioSession.setCategory(AVAudioSession.Category.record, mode: AVAudioSession.Mode.measurement, options: AVAudioSession.CategoryOptions.defaultToSpeaker)
+            try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
+        } catch {
+            print("audioSession properties weren't set because of an error.")
         }
         
         self.recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
@@ -354,6 +399,13 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         
         // State is playing, command to stop
         if audioEngine.isRunning {
+            
+            self.transcribeActionButton.isEnabled = false
+            
+            let timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { _ in
+                self.transcribeActionButton.isEnabled = true
+            })
+            
             if transcriptionTemp == "" {
                 transcriptionTemp += "\(transcriptionTemp2)"
             } else {
@@ -361,20 +413,30 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             }
             transcriptionResultTextView.text = transcriptionTemp
             transcriptionTemp2 = ""
-                        
+            
             audioEngine.stop()
             recognitionRequest?.endAudio()
             pauseRecording()
+            
             
             transcribeActionButton.setTitle("", for: .normal)
             transcribeActionButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
             saveButton.isEnabled = true
             isPlaying = false
             sendIsPausing([MessageKeyLoad.isPausing: true])
+            
+//            audioEngine.inputNode.removeTap(onBus: 0)
         }
         
         // State is stopped, command to start
         else {
+            
+            self.transcribeActionButton.isEnabled = false
+            
+            let timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { _ in
+                self.transcribeActionButton.isEnabled = true
+            })
+            
             let locale = UserDefaults.standard.string(forKey: Constants.SELECTED_LANGUAGE)
             speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: locale!))
             startTranscription()
@@ -385,11 +447,14 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             saveButton.isEnabled = false
             isPlaying = true
             sendIsPlaying([MessageKeyLoad.isPlaying: true])
+            
+//            let timer = Timer.inte
+            
         }
         let fourthBg = UIColor(named: "fourthBg")
         
         self.titleTextField.backgroundColor = fourthBg
-       
+        
     }
     
     func setupNotifications() {
@@ -399,26 +464,26 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     func removeInterruptionObserver() {
         NotificationCenter.default.removeObserver(self)
     }
-
+    
     @objc func handleInterruption(notification: Notification) {
         guard let userInfo = notification.userInfo,
-            let typeValue = userInfo[AVAudioSessionInterruptionTypeKey] as? UInt,
-            let type = AVAudioSession.InterruptionType(rawValue: typeValue),
-            let reason = AVAudioSession.InterruptionReason(rawValue: typeValue) else {
-                return
+              let typeValue = userInfo[AVAudioSessionInterruptionTypeKey] as? UInt,
+              let type = AVAudioSession.InterruptionType(rawValue: typeValue),
+              let reason = AVAudioSession.InterruptionReason(rawValue: typeValue) else {
+            return
         }
-
+        
         switch type {
-            case .began:
-                switch reason {
-                    case .appWasSuspended:
-                    if isPlaying == true {
-                        transcriptionTemp = transcriptionResultTextView.text
-                        globalSave()
-                    }
-                    default: ()
+        case .began:
+            switch reason {
+            case .appWasSuspended:
+                if isPlaying == true {
+                    transcriptionTemp = transcriptionResultTextView.text
+                    globalSave()
                 }
             default: ()
+            }
+        default: ()
         }
     }
     
@@ -468,7 +533,7 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     
     @IBAction func cancel(_ sender: Any) {
         let alert = UIAlertController(title: "Cancel Transcription?", message: "Are you sure to cancel the current transcription session?", preferredStyle: .alert)
-
+        
         alert.addAction(UIAlertAction(
             title: "Yes, Cancel",
             style: .destructive,
@@ -479,13 +544,13 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
                 self.removeInterruptionObserver()
             }
         ))
-
+        
         alert.addAction(UIAlertAction(
             title: "Stay Transcribing",
             style: .cancel,
             handler: nil
         ))
-
+        
         present(alert, animated: true)
     }
     
@@ -537,6 +602,21 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         transcribeOnLoad()
     }
     
+    
+    @IBAction func titleExit(_ sender: Any) {
+        
+    }
+    
+//    func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer, availabilityDidChange available: Bool) {
+//        if available {
+//            print("/n/n IS AVAILABLE /n/n")
+//            transcribeActionButton.isEnabled = true
+//        } else {
+//            print("/n/n NOT AVAILABLE /n/n")
+//            transcribeActionButton.isEnabled = false
+//        }
+//    }
+    
     func makeItInvalidate(wvtimer: Bool, wvviewtimer: Bool) {
         if wvtimer {
             if waveTimer != nil {
@@ -548,5 +628,22 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             waveView.timer.invalidate()
         }
     }
+    
+    @objc func appMovedToBackground() {
+        if isWaveformVisible {
+            audioRecorder!.isMeteringEnabled = false
+            makeItInvalidate(wvtimer: true, wvviewtimer: true)
+            turnTheWave(bool: false)
+        }
+    }
+    
+    @objc func appBecomeActive() {
+        if isWaveformVisible {
+            audioRecorder!.isMeteringEnabled = true
+            turnTheWave(bool: true)
+        }
+    }
 }
+
+
 

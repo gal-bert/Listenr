@@ -71,14 +71,16 @@ extension HomeViewController: HomeDelegate {
         sheet.addAction(UIAlertAction(title: "Bahasa Indonesia", style: .default, handler: {_ in
             self.homeView.languageLabel.text = "Bahasa Indonesia"
             UserDefaults.standard.set("id", forKey: Constants.SELECTED_LANGUAGE)
-            sheet.view.tintColor = UIColor (named: "actionPress")
-            
-             
         }))
+        
         sheet.addAction(UIAlertAction(title: "English", style: .default, handler: {_ in
             self.homeView.languageLabel.text = "English"
             UserDefaults.standard.set("en-US", forKey: Constants.SELECTED_LANGUAGE)
         }))
+        
+//        sheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        sheet.view.tintColor = UIColor(named: "actionPress")
 
         present(sheet, animated: true)
     }

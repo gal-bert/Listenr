@@ -11,6 +11,7 @@
 		0C311F0D285A342800EA2FFE /* Int+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C311F0C285A342800EA2FFE /* Int+Ext.swift */; };
 		0C5C8AC3285B661C00536BB2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5C8AC2285B661C00536BB2 /* Constants.swift */; };
 		0CEBF757286175F400FA3211 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CEBF756286175F400FA3211 /* Alerts.swift */; };
+		0CF0983F2873EE8900ECD8C2 /* Application+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF0983E2873EE8900ECD8C2 /* Application+Ext.swift */; };
 		393A04C02858F523009ACA3B /* SettingsViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393A04BF2858F523009ACA3B /* SettingsViewController+Delegate.swift */; };
 		393A04C22858F64B009ACA3B /* SettingsViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393A04C12858F64B009ACA3B /* SettingsViewController+DataSource.swift */; };
 		3987E1D52858E27400A1C3AC /* WaveformSwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3987E1D42858E27400A1C3AC /* WaveformSwitchCell.xib */; };
@@ -161,6 +162,7 @@
 		0C311F0C285A342800EA2FFE /* Int+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Ext.swift"; sourceTree = "<group>"; };
 		0C5C8AC2285B661C00536BB2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0CEBF756286175F400FA3211 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
+		0CF0983E2873EE8900ECD8C2 /* Application+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Application+Ext.swift"; sourceTree = "<group>"; };
 		393A04BF2858F523009ACA3B /* SettingsViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+Delegate.swift"; sourceTree = "<group>"; };
 		393A04C12858F64B009ACA3B /* SettingsViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+DataSource.swift"; sourceTree = "<group>"; };
 		3987E1D42858E27400A1C3AC /* WaveformSwitchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WaveformSwitchCell.xib; sourceTree = "<group>"; };
@@ -542,6 +544,7 @@
 				FB298E7B285B5D550063B522 /* Button+Ext.swift */,
 				FB298E7D285B604A0063B522 /* ConvertHelper.swift */,
 				0CEBF756286175F400FA3211 /* Alerts.swift */,
+				0CF0983E2873EE8900ECD8C2 /* Application+Ext.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -939,6 +942,7 @@
 				FB9EE56228560080004EEA24 /* DetailViewController.swift in Sources */,
 				FBDA69DD28582161008312FF /* DetailView.swift in Sources */,
 				FB298E7E285B604A0063B522 /* ConvertHelper.swift in Sources */,
+				0CF0983F2873EE8900ECD8C2 /* Application+Ext.swift in Sources */,
 				39F318B6286347C500B1001F /* WaveClass.swift in Sources */,
 				39F39BB3285C59D800A74E3A /* TagTableCell.swift in Sources */,
 				FB9EE56A285600C9004EEA24 /* SettingsViewController.swift in Sources */,
@@ -1023,7 +1027,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5658ASKD6C;
+				DEVELOPMENT_TEAM = CL42QD4LKB;
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = NYHMWatch_WatchKit_Extension;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -1048,7 +1052,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5658ASKD6C;
+				DEVELOPMENT_TEAM = CL42QD4LKB;
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = NYHMWatch_WatchKit_Extension;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -1071,7 +1075,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5658ASKD6C;
+				DEVELOPMENT_TEAM = CL42QD4LKB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "NYHMWatch WatchKit Extension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Listenr Extension";
@@ -1102,7 +1106,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5658ASKD6C;
+				DEVELOPMENT_TEAM = CL42QD4LKB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "NYHMWatch WatchKit Extension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Listenr Extension";
@@ -1249,7 +1253,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5658ASKD6C;
+				DEVELOPMENT_TEAM = CL42QD4LKB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NYHM/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Listenr.;
@@ -1282,7 +1286,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5658ASKD6C;
+				DEVELOPMENT_TEAM = CL42QD4LKB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NYHM/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Listenr.;
@@ -1314,7 +1318,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5658ASKD6C;
+				DEVELOPMENT_TEAM = CL42QD4LKB;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MARKETING_VERSION = 1.0;
@@ -1334,7 +1338,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5658ASKD6C;
+				DEVELOPMENT_TEAM = CL42QD4LKB;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MARKETING_VERSION = 1.0;
@@ -1353,7 +1357,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5658ASKD6C;
+				DEVELOPMENT_TEAM = CL42QD4LKB;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nyhm.listenr.uitests;
@@ -1371,7 +1375,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5658ASKD6C;
+				DEVELOPMENT_TEAM = CL42QD4LKB;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nyhm.listenr.uitests;
