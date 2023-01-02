@@ -15,7 +15,6 @@ class SettingsViewController: UIViewController {
     let tagRepo = TagsRepository.shared
     var tagArr = [Tags]()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tagArr = tagRepo.getAll()
