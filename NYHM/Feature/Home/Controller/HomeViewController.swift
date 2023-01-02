@@ -54,13 +54,21 @@ class HomeViewController: UIViewController {
         let secBg = UIColor(named: "secBg")
         view.backgroundColor = secBg
         
-        if transcriptions.isEmpty
-        {
+        if transcriptions.isEmpty {
             homeView.vertView.isHidden = false
         }
-        else
-        {
-        homeView.vertView.isHidden = true
+        else {
+            homeView.vertView.isHidden = true
+        }
+        
+        if #available(iOS 13.0, *) {
+            let statusBar = UIView()
+            statusBar.frame = UIApplication.shared.keyWindow?.windowScene?.statusBarManager!.statusBarFrame as! CGRect
+            statusBar.backgroundColor = navigationController?.navigationBar.backgroundColor
+            UIApplication.shared.keyWindow?.addSubview(statusBar)
+        } else {
+            let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
+            statusBar.backgroundColor = navigationController?.navigationBar.backgroundColor
         }
 
         
