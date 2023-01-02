@@ -27,11 +27,11 @@ class SettingsViewController: UIViewController {
         if #available(iOS 13.0, *) {
             let statusBar =  UIView()
             statusBar.frame = UIApplication.shared.keyWindow?.windowScene?.statusBarManager!.statusBarFrame as! CGRect
-            statusBar.backgroundColor = UIColor.white
+            statusBar.backgroundColor = navigationController?.navigationBar.backgroundColor
             UIApplication.shared.keyWindow?.addSubview(statusBar)
         } else {
             let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
-            statusBar.backgroundColor = UIColor.white
+            statusBar.backgroundColor = navigationController?.navigationBar.backgroundColor
         }
         
     }
