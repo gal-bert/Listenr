@@ -24,5 +24,17 @@ class SettingsViewController: UIViewController {
         let secBg = UIColor(named: "secBg")
         view.backgroundColor = secBg
         
+        if #available(iOS 13.0, *) {
+            let statusBar1 =  UIView()
+            statusBar1.frame = UIApplication.shared.keyWindow?.windowScene?.statusBarManager!.statusBarFrame as! CGRect
+            statusBar1.backgroundColor = UIColor.white
+            
+            UIApplication.shared.keyWindow?.addSubview(statusBar1)
+            
+        } else {
+            let statusBar1: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
+            statusBar1.backgroundColor = UIColor.white
+        }
+        
     }
 }
