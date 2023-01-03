@@ -252,9 +252,6 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             
         })
         
-        
-        
-        
     }
     
     func startRecording() -> Void {
@@ -266,7 +263,7 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
                 settings: [
                     AVFormatIDKey: kAudioFormatAppleLossless,
                     AVSampleRateKey: 44100.0,
-                    AVNumberOfChannelsKey: numberOfChannelForAudio,
+                    AVNumberOfChannelsKey: 2,
                     AVEncoderAudioQualityKey: AVAudioQuality.max.rawValue
                 ]
             )
@@ -327,7 +324,12 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         
         let audioSession = AVAudioSession.sharedInstance()
         do {
-            try audioSession.setCategory(AVAudioSession.Category.record, mode: AVAudioSession.Mode.measurement, options: AVAudioSession.CategoryOptions.defaultToSpeaker)
+            try audioSession.setCategory(
+                AVAudioSession.Category.record,
+                mode: AVAudioSession.Mode.default,
+                options: AVAudioSession.CategoryOptions.defaultToSpeaker
+            )
+            
             try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
         } catch {
             print("audioSession properties weren't set because of an error.")
