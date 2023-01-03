@@ -127,6 +127,16 @@ class DetailView: UIView {
     
     func startPlayer() {
         guard let player = player else { return }
+        
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            try audioSession.setCategory(
+                AVAudioSession.Category.ambient
+            )
+        } catch {
+            print(error.localizedDescription)
+        }
+        
         player.play()
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(timerBehavior), userInfo: nil, repeats: true)
         playButton.setImage(UIImage(systemName: "pause.fill")?.middImage(), for: .normal)
