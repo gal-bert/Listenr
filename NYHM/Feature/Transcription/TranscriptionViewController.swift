@@ -199,7 +199,7 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
                     DispatchQueue.main.async {
                         self.dismiss(animated: true, completion: {
                             UIApplication.getTopMostViewController()?.present(
-                                self.pushAlert(title: "Permission Not Authorized", message: "Please give permission to speech recognition in settings"),
+                                self.settingsAlert(title: "Speech Recognition Not Authorized", message: "Please give permission to speech recognition in settings for live transcription ability"),
                                 animated: true, completion: nil
                             )
                         })
@@ -259,7 +259,7 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
                     DispatchQueue.main.async {
                         self.dismiss(animated: true, completion: {
                             UIApplication.getTopMostViewController()?.present(
-                                self.pushAlert(title: "Permission Not Authorized", message: "Please give permission to microphone in settings"),
+                                self.settingsAlert(title: "Microphone Not Authorized", message: "Please give permission to microphone in settings to enable audio recording"),
                                 animated: true, completion: nil
                             )
                         })
