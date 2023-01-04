@@ -24,6 +24,32 @@ extension UIViewController {
         return alert
     }
     
+    func settingsAlert(title:String, message:String) -> UIAlertController {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Open Settings", style: .default, handler: { _ in
+            
+            guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else {
+                return
+            }
+            
+            if(UIApplication.shared.canOpenURL(settingsURL)) {
+                UIApplication.shared.open(settingsURL) { (_) in
+                }
+            }
+            
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Later", style: .cancel, handler: { _ in
+            self.dismiss(animated: true)
+        }))
+        
+        alert.view.tintColor = UIColor(named: "actionPress")
+        
+        return alert
+    }
+    
     func addNewTag(tagCount: Int, delegate: UIViewController) {
         print("tag count", tagCount)
         let alert = UIAlertController(title: "Add New Tag", message: nil, preferredStyle: .alert)

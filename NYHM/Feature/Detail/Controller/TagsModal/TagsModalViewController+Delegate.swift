@@ -11,6 +11,8 @@ import UIKit
 extension TagsModalViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         delegate?.tagSelected(tagName: tagList[indexPath.row].name!)
-        dismiss(animated: true)
+        Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false, block: { _ in
+            self.dismiss(animated: true)
+        })
     }
 }
