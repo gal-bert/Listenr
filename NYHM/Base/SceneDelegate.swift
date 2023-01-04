@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
         
         //MARK: Force app to be in dark mode only
-//        window?.overrideUserInterfaceStyle = .dark
+        window?.overrideUserInterfaceStyle = .dark
         
     }
 
