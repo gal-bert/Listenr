@@ -33,7 +33,7 @@ extension HomeViewController: UITableViewDataSource {
         
         cell.titleLabel.text = item?.title!
         cell.tagsLabel.text = item?.tags!
-        cell.createdAtLabel.text = item?.createdAt?.fixedFormat()
+        cell.createdAtLabel.text = item?.createdAt?.fixedFormat(with: "dd MMM, HH:mm")
         cell.durationLabel.text = item?.duration!
         
         
