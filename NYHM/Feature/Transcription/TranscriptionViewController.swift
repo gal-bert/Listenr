@@ -342,7 +342,7 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         let audioSession = AVAudioSession.sharedInstance()
         do {
             try audioSession.setCategory(
-                AVAudioSession.Category.record,
+                AVAudioSession.Category.playAndRecord,
                 mode: AVAudioSession.Mode.default,
                 options: AVAudioSession.CategoryOptions.defaultToSpeaker
             )
@@ -361,6 +361,14 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         
         recognitionRequest.shouldReportPartialResults = true
         
+        if #available(iOS 16.0, *) {
+            recognitionRequest.addsPunctuation = true
+        }
+        
+        // MARK: Validate if user is using airplane mode. Execute if true
+//        speechRecognizer?.supportsOnDeviceRecognition = true
+//        recognitionRequest.requiresOnDeviceRecognition = true
+            
         self.recognitionTask = speechRecognizer?.recognitionTask(with: recognitionRequest, resultHandler: { (result, error) in
             var isFinal = false
             
