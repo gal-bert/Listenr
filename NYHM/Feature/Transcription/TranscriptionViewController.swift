@@ -14,60 +14,77 @@ protocol SaveTranscriptionProtocol {
     func reloadTableView()
 }
 
-class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate, AVAudioRecorderDelegate, SessionManager {
-    
+protocol LocationAuthorizationProtocol {
+    func onAuthorizationChanged()
+}
+
+class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate, AVAudioRecorderDelegate, SessionManager, LocationAuthorizationProtocol {
+
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var durationLabelBottom: UILabel!
     @IBOutlet weak var transcriptionResultTextView: UITextView!
     @IBOutlet weak var transcribeActionButton: UIButton!
     @IBOutlet weak var saveButton: UIBarButtonItem!
-    
+
     @IBOutlet weak var textViewToTitleConstraint: NSLayoutConstraint!
     @IBOutlet weak var textViewToButtonConstraint: NSLayoutConstraint!
     @IBOutlet weak var navbar: UINavigationBar!
-    
+
     @IBOutlet weak var titleToSuperview: NSLayoutConstraint!
     @IBOutlet weak var durationToSuperView: NSLayoutConstraint!
-    
+
     @IBOutlet weak var textViewToDurationConstraint: NSLayoutConstraint!
-    
+
     var delegate:SaveTranscriptionProtocol?
-    
+
     var transcriptionTemp = ""
     var transcriptionTemp2 = ""
     var filename:URL?
     var filenameToSave:String = ""
     var isPlaying:Bool = true
-    
+
     var durationString:String = ""
-    
+
     let audioEngine = AVAudioEngine()
-    
+
     var speechRecognizer: SFSpeechRecognizer?
     var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     var recognitionTask: SFSpeechRecognitionTask?
-    
+
     var recordingSession: AVAudioSession?
     var audioRecorder: AVAudioRecorder?
-    
+
     var timer: Timer?
     var durationTemp:Int = 0
-    
+
     var numberOfChannelForAudio = 2
-    
+
     let updateInterval = 0.00005
     weak var waveTimer: Timer!
-    
+
     var waveView = WaveView()
     var sineWaveView = UIView()
     let isWaveformVisible = UserDefaults.standard.bool(forKey: Constants.IS_WAVEFORM_VISIBLE)
-    
+
     var speechIsAuth:Bool?
     var micIsAuth:Bool?
-    
+
+    var locationManager: LocationManager?
+
+    func onAuthorizationChanged() {
+        guard let locationManager = locationManager else { return }
+        locationManager.lookUpCurrentLocation { placemark in
+            if let placemark = placemark {
+                self.titleTextField.text = "\(placemark.name ?? "")"
+            }
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        locationManager = LocationManager(viewController: self)
         
         NotificationCenter.default.addObserver(
             self, selector: #selector(type(of: self).dataDidFlow(_:)),
@@ -86,8 +103,8 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         
         NotificationCenter.default.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(appBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
-        
-        
+
+
         speechRecognizer?.delegate = self
         audioRecorder?.delegate = self
         
@@ -573,7 +590,7 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         stopRecording()
         
         print(filename!)
-        
+
         let strTitle = titleTextField.text == "" ? "Untitled Transcription" : titleTextField.text
         
         let audioAsset = AVURLAsset.init(url: filename!)
