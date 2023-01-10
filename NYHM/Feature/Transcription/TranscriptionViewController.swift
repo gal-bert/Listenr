@@ -14,8 +14,12 @@ protocol SaveTranscriptionProtocol {
     func reloadTableView()
 }
 
-class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate, AVAudioRecorderDelegate, SessionManager {
-    
+protocol LocationAuthorizationProtocol {
+    func onAuthorizationChanged()
+}
+
+class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate, AVAudioRecorderDelegate, SessionManager, LocationAuthorizationProtocol {
+
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var durationLabelBottom: UILabel!
@@ -26,34 +30,34 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     
     @IBOutlet weak var textViewToTitleConstraint: NSLayoutConstraint!
     @IBOutlet weak var navbar: UINavigationBar!
-    
+
     @IBOutlet weak var titleToSuperview: NSLayoutConstraint!
     @IBOutlet weak var durationToSuperView: NSLayoutConstraint!
     
     var delegate:SaveTranscriptionProtocol?
-    
+
     var transcriptionTemp = ""
     var transcriptionTemp2 = ""
     var filename:URL?
     var filenameToSave:String = ""
     var isPlaying:Bool = true
-    
+
     var durationString:String = ""
-    
+
     let audioEngine = AVAudioEngine()
-    
+
     var speechRecognizer: SFSpeechRecognizer?
     var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     var recognitionTask: SFSpeechRecognitionTask?
-    
+
     var recordingSession: AVAudioSession?
     var audioRecorder: AVAudioRecorder?
-    
+
     var timer: Timer?
     var durationTemp:Int = 0
-    
+
     var numberOfChannelForAudio = 2
-    
+
     let updateInterval = 0.00005
     
     let isWaveformVisible = UserDefaults.standard.bool(forKey: Constants.IS_WAVEFORM_VISIBLE)
@@ -69,9 +73,22 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     
     var speechIsAuth:Bool?
     var micIsAuth:Bool?
-    
+
+    var locationManager: LocationManager?
+
+    func onAuthorizationChanged() {
+        guard let locationManager = locationManager else { return }
+        locationManager.lookUpCurrentLocation { placemark in
+            if let placemark = placemark {
+                self.titleTextField.text = "\(placemark.name ?? "")"
+            }
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        locationManager = LocationManager(viewController: self)
         
         NotificationCenter.default.addObserver(
             self, selector: #selector(type(of: self).dataDidFlow(_:)),
@@ -90,8 +107,8 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         
         NotificationCenter.default.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(appBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
-        
-        
+
+
         speechRecognizer?.delegate = self
         audioRecorder?.delegate = self
         
@@ -104,6 +121,8 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         startRecording()
         
         sendStarting([MessageKeyLoad.starting: true])
+        turnTheWave(bool: isWaveformVisible)
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -182,7 +201,7 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
                     DispatchQueue.main.async {
                         self.dismiss(animated: true, completion: {
                             UIApplication.getTopMostViewController()?.present(
-                                self.pushAlert(title: "Permission Not Authorized", message: "Please give permission to speech recognition in settings"),
+                                self.settingsAlert(title: "Speech Recognition Not Authorized", message: "Please give permission to speech recognition in settings for live transcription ability"),
                                 animated: true, completion: nil
                             )
                         })
@@ -242,7 +261,7 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
                     DispatchQueue.main.async {
                         self.dismiss(animated: true, completion: {
                             UIApplication.getTopMostViewController()?.present(
-                                self.pushAlert(title: "Permission Not Authorized", message: "Please give permission to microphone in settings"),
+                                self.settingsAlert(title: "Microphone Not Authorized", message: "Please give permission to microphone in settings to enable audio recording"),
                                 animated: true, completion: nil
                             )
                         })
@@ -251,9 +270,6 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             }
             
         })
-        
-        
-        
         
     }
     
@@ -270,7 +286,7 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
                 settings: [
                     AVFormatIDKey: kAudioFormatAppleLossless,
                     AVSampleRateKey: 44100.0,
-                    AVNumberOfChannelsKey: numberOfChannelForAudio,
+                    AVNumberOfChannelsKey: 2,
                     AVEncoderAudioQualityKey: AVAudioQuality.max.rawValue
                 ]
             )
@@ -327,6 +343,19 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         if recognitionTask != nil {
             recognitionTask?.cancel()
             recognitionTask = nil
+        }
+        
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            try audioSession.setCategory(
+                AVAudioSession.Category.record,
+                mode: AVAudioSession.Mode.default,
+                options: AVAudioSession.CategoryOptions.defaultToSpeaker
+            )
+            
+            try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
+        } catch {
+            print("audioSession properties weren't set because of an error.")
         }
         
         self.recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
@@ -395,6 +424,13 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         
         // State is playing, command to stop
         if audioEngine.isRunning {
+            
+            self.transcribeActionButton.isEnabled = false
+            
+            let timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { _ in
+                self.transcribeActionButton.isEnabled = true
+            })
+            
             if transcriptionTemp == "" {
                 transcriptionTemp += "\(transcriptionTemp2)"
             } else {
@@ -407,15 +443,25 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             recognitionRequest?.endAudio()
             pauseRecording()
             
+            
             transcribeActionButton.setTitle("", for: .normal)
             transcribeActionButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
             saveButton.isEnabled = true
             isPlaying = false
             sendIsPausing([MessageKeyLoad.isPausing: true])
+            
+//            audioEngine.inputNode.removeTap(onBus: 0)
         }
         
         // State is stopped, command to start
         else {
+            
+            self.transcribeActionButton.isEnabled = false
+            
+            let timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { _ in
+                self.transcribeActionButton.isEnabled = true
+            })
+            
             let locale = UserDefaults.standard.string(forKey: Constants.SELECTED_LANGUAGE)
             speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: locale!))
             startTranscription()
@@ -426,6 +472,9 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             saveButton.isEnabled = false
             isPlaying = true
             sendIsPlaying([MessageKeyLoad.isPlaying: true])
+            
+//            let timer = Timer.inte
+            
         }
         let fourthBg = UIColor(named: "fourthBg")
         
@@ -544,7 +593,7 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         stopRecording()
         
         print(filename!)
-        
+
         let strTitle = titleTextField.text == "" ? "Untitled Transcription" : titleTextField.text
         
         let audioAsset = AVURLAsset.init(url: filename!)
@@ -580,6 +629,28 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         
     }
     
+//    func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer, availabilityDidChange available: Bool) {
+//        if available {
+//            print("/n/n IS AVAILABLE /n/n")
+//            transcribeActionButton.isEnabled = true
+//        } else {
+//            print("/n/n NOT AVAILABLE /n/n")
+//            transcribeActionButton.isEnabled = false
+//        }
+//    }
+    
+    func makeItInvalidate(wvtimer: Bool, wvviewtimer: Bool) {
+        if wvtimer {
+            if waveTimer != nil {
+                waveTimer.invalidate()
+            }
+            waveTimer = nil
+        }
+        if wvviewtimer {
+            waveView.timer.invalidate()
+        }
+    }
+    
     @objc func appMovedToBackground() {
         if isWaveformVisible {
             audioRecorder!.isMeteringEnabled = false
@@ -594,4 +665,6 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     }
     
 }
+
+
 

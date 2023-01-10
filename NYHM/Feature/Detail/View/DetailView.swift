@@ -14,7 +14,7 @@ class DetailView: UIView {
     @IBOutlet weak var viewBg: UIScrollView!
     @IBOutlet weak var resultTextView: UITextView!
     @IBOutlet weak var titleTextView: UITextView!
-    @IBOutlet weak var createdAtLabel: UILabel!
+//    @IBOutlet weak var createdAtLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var tagsLabel: UILabel!
     
@@ -53,8 +53,9 @@ class DetailView: UIView {
         titleTextView.text = data.title
         resultTextView.text = data.result
         
-        createdAtLabel.text = data.createdAt?.fixedFormat()
-        durationLabel.text = data.duration
+//        createdAtLabel.text = data.createdAt?.fixedFormat()
+//        durationLabel.text = data.duration
+        durationLabel.text = data.createdAt?.fixedFormat(with: "dd MMM yyyy - HH:mm:ss")
         
         maxLabelWidth = tagsLabel.frame.width
         tagsLabel.text = data.tags == "Untagged" ? "Add Tags" : data.tags
@@ -127,6 +128,16 @@ class DetailView: UIView {
     
     func startPlayer() {
         guard let player = player else { return }
+        
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            try audioSession.setCategory(
+                AVAudioSession.Category.ambient
+            )
+        } catch {
+            print(error.localizedDescription)
+        }
+        
         player.play()
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(timerBehavior), userInfo: nil, repeats: true)
         playButton.setImage(UIImage(systemName: "pause.fill")?.middImage(), for: .normal)
@@ -228,7 +239,7 @@ class DetailView: UIView {
         titleTextView.textColor = UIColor(named: "textPrim")
         resultTextView.textColor = UIColor(named: "textPrim")
         durationLabel.textColor = UIColor(named: "blueText")
-        createdAtLabel.textColor = UIColor(named: "blueText")
+//        createdAtLabel.textColor = UIColor(named: "blueText")
         tagsLabel.textColor = UIColor(named: "textPrim")
         
         

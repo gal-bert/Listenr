@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXE-Dd-e8g">
-                        <rect key="frame" x="12" y="12" width="301" height="22"/>
+                        <rect key="frame" x="12" y="12" width="291" height="22"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -36,7 +37,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIF-RW-da8">
-                        <rect key="frame" x="26" y="42.5" width="264" height="17"/>
+                        <rect key="frame" x="26" y="42.5" width="262" height="17"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -50,17 +51,17 @@
                         <color key="textColor" red="0.011764705882352941" green="0.68235294117647061" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00 Jun 2022" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QfV-vd-5Fm">
-                        <rect key="frame" x="318" y="43" width="84" height="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00 Jun, 00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QfV-vd-5Fm">
+                        <rect key="frame" x="312" y="43" width="95" height="17"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="84" id="dwh-gu-AHr"/>
+                            <constraint firstAttribute="width" constant="95" id="dwh-gu-AHr"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                         <color key="textColor" red="0.01176470588" green="0.68235294120000001" blue="0.75686274509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hFI-nY-V9i">
-                        <rect key="frame" x="300" y="45.5" width="14" height="11.5"/>
+                        <rect key="frame" x="298" y="45.5" width="14" height="11.5"/>
                         <color key="tintColor" red="0.01176470588" green="0.68235294120000001" blue="0.75686274509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="14" id="bQg-pw-4hS"/>
@@ -68,7 +69,7 @@
                         </constraints>
                     </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stopwatch" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="C8Z-qc-4wU">
-                        <rect key="frame" x="325" y="12" width="14" height="15"/>
+                        <rect key="frame" x="329" y="12" width="14" height="15"/>
                         <color key="tintColor" red="0.01176470588" green="0.68235294120000001" blue="0.75686274509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="14" id="4R8-df-IYd"/>
@@ -84,8 +85,8 @@
                     <constraint firstItem="yO6-d4-k2K" firstAttribute="leading" secondItem="eXE-Dd-e8g" secondAttribute="leading" id="IX1-bJ-EU7"/>
                     <constraint firstItem="SIF-RW-da8" firstAttribute="centerY" secondItem="yO6-d4-k2K" secondAttribute="centerY" id="Kf8-XJ-3nd"/>
                     <constraint firstItem="C8Z-qc-4wU" firstAttribute="centerY" secondItem="MvN-wM-DZ2" secondAttribute="centerY" id="QnD-n0-i3W"/>
-                    <constraint firstItem="MvN-wM-DZ2" firstAttribute="leading" secondItem="C8Z-qc-4wU" secondAttribute="trailing" constant="4" id="UBL-0f-jmp"/>
-                    <constraint firstItem="QfV-vd-5Fm" firstAttribute="leading" secondItem="hFI-nY-V9i" secondAttribute="trailing" constant="4" id="XPo-n0-FvB"/>
+                    <constraint firstItem="MvN-wM-DZ2" firstAttribute="leading" secondItem="C8Z-qc-4wU" secondAttribute="trailing" id="UBL-0f-jmp"/>
+                    <constraint firstItem="QfV-vd-5Fm" firstAttribute="leading" secondItem="hFI-nY-V9i" secondAttribute="trailing" id="XPo-n0-FvB"/>
                     <constraint firstAttribute="trailing" secondItem="QfV-vd-5Fm" secondAttribute="trailing" constant="12" id="ahN-5q-zgF"/>
                     <constraint firstItem="hFI-nY-V9i" firstAttribute="centerY" secondItem="QfV-vd-5Fm" secondAttribute="centerY" id="bvT-39-TXO"/>
                     <constraint firstAttribute="bottom" secondItem="yO6-d4-k2K" secondAttribute="bottom" constant="16" id="dnd-BX-DkM"/>
@@ -106,7 +107,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="calendar" catalog="system" width="128" height="106"/>
+        <image name="calendar" catalog="system" width="128" height="107"/>
         <image name="stopwatch" catalog="system" width="121" height="128"/>
     </resources>
 </document>
