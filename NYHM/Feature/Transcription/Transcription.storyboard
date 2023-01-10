@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CPy-Iy-pxf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CPy-Iy-pxf">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -26,7 +27,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DjZ-fw-9i5">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="47"/>
                                 <color key="backgroundColor" name="secBg"/>
                                 <items>
                                     <navigationItem id="SmD-Q5-Nc8">
@@ -46,7 +47,7 @@
                                 </items>
                             </navigationBar>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Untitled Transcription" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Cf5-jU-ZDm">
-                                <rect key="frame" x="20" y="64" width="335" height="34"/>
+                                <rect key="frame" x="20" y="67" width="335" height="34"/>
                                 <color key="backgroundColor" name="primBg"/>
                                 <color key="textColor" name="textPrim"/>
                                 <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
@@ -69,7 +70,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BGk-bT-Blu">
-                                <rect key="frame" x="20" y="138" width="335" height="502"/>
+                                <rect key="frame" x="20" y="141" width="335" height="308"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
@@ -77,22 +78,31 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00.00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aB5-Ev-kJW">
-                                <rect key="frame" x="20" y="108" width="335" height="20"/>
+                                <rect key="frame" x="20" y="111" width="335" height="20"/>
                                 <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00.00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wY9-s1-cd5">
-                                <rect key="frame" x="20" y="660" width="335" height="8"/>
+                                <rect key="frame" x="20" y="639.33333333333337" width="335" height="28.666666666666629"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <color key="highlightedColor" name="blueText"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="79p-h9-cWK">
+                                <rect key="frame" x="0.0" y="463.33333333333326" width="375" height="160"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="V1d-iQ-GGk"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="n5K-r9-FV4"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="n5K-r9-FV4" firstAttribute="trailing" secondItem="79p-h9-cWK" secondAttribute="trailing" id="2uf-d1-d1Z"/>
                             <constraint firstItem="n5K-r9-FV4" firstAttribute="trailing" secondItem="BGk-bT-Blu" secondAttribute="trailing" constant="20" id="3HY-Dd-OLS"/>
+                            <constraint firstItem="79p-h9-cWK" firstAttribute="top" secondItem="BGk-bT-Blu" secondAttribute="bottom" constant="14.33" id="90w-BC-r32"/>
                             <constraint firstItem="WJG-of-n7k" firstAttribute="top" secondItem="wY9-s1-cd5" secondAttribute="bottom" constant="20" id="9g8-Jc-FpV"/>
                             <constraint firstItem="n5K-r9-FV4" firstAttribute="trailing" secondItem="wY9-s1-cd5" secondAttribute="trailing" constant="20" id="Fn9-4g-Okd"/>
                             <constraint firstAttribute="trailing" secondItem="DjZ-fw-9i5" secondAttribute="trailing" id="FuI-Mu-dcd"/>
@@ -101,16 +111,16 @@
                             <constraint firstItem="aB5-Ev-kJW" firstAttribute="top" secondItem="Cf5-jU-ZDm" secondAttribute="bottom" constant="10" id="Hua-BE-Qwi"/>
                             <constraint firstItem="BGk-bT-Blu" firstAttribute="top" secondItem="Cf5-jU-ZDm" secondAttribute="bottom" constant="40" id="JMN-wr-dZM"/>
                             <constraint firstItem="WJG-of-n7k" firstAttribute="leading" secondItem="n5K-r9-FV4" secondAttribute="leading" constant="100" id="KGE-1Q-4DK"/>
+                            <constraint firstItem="79p-h9-cWK" firstAttribute="leading" secondItem="n5K-r9-FV4" secondAttribute="leading" id="MeH-bt-fNJ"/>
                             <constraint firstItem="Cf5-jU-ZDm" firstAttribute="top" secondItem="DjZ-fw-9i5" secondAttribute="bottom" constant="20" id="RcG-uY-LJd"/>
-                            <constraint firstItem="WJG-of-n7k" firstAttribute="top" secondItem="BGk-bT-Blu" secondAttribute="bottom" constant="48" id="UKN-ft-U4F"/>
                             <constraint firstItem="Cf5-jU-ZDm" firstAttribute="top" secondItem="ANI-f6-caN" secondAttribute="topMargin" constant="20" id="aNY-8k-NlQ"/>
                             <constraint firstItem="DjZ-fw-9i5" firstAttribute="top" secondItem="ANI-f6-caN" secondAttribute="top" id="axf-iJ-lve"/>
                             <constraint firstItem="DjZ-fw-9i5" firstAttribute="leading" secondItem="ANI-f6-caN" secondAttribute="leading" id="brM-OI-geP"/>
-                            <constraint firstItem="wY9-s1-cd5" firstAttribute="top" secondItem="BGk-bT-Blu" secondAttribute="bottom" constant="20" id="dLv-IX-Zjq"/>
                             <constraint firstItem="Cf5-jU-ZDm" firstAttribute="leading" secondItem="n5K-r9-FV4" secondAttribute="leading" constant="20" id="jUe-o7-klN"/>
                             <constraint firstItem="aB5-Ev-kJW" firstAttribute="top" secondItem="n5K-r9-FV4" secondAttribute="top" constant="64" id="mHr-bv-gLs"/>
                             <constraint firstItem="n5K-r9-FV4" firstAttribute="trailing" secondItem="aB5-Ev-kJW" secondAttribute="trailing" constant="20" id="o1O-cy-GaN"/>
                             <constraint firstItem="n5K-r9-FV4" firstAttribute="trailing" secondItem="WJG-of-n7k" secondAttribute="trailing" constant="100" id="o22-4b-7hT"/>
+                            <constraint firstItem="wY9-s1-cd5" firstAttribute="top" secondItem="79p-h9-cWK" secondAttribute="bottom" constant="16" id="oS6-O3-f1i"/>
                             <constraint firstItem="n5K-r9-FV4" firstAttribute="bottom" secondItem="WJG-of-n7k" secondAttribute="bottom" constant="40" id="p5Z-NG-Who"/>
                             <constraint firstItem="wY9-s1-cd5" firstAttribute="leading" secondItem="n5K-r9-FV4" secondAttribute="leading" constant="20" id="pOv-4V-uid"/>
                             <constraint firstItem="n5K-r9-FV4" firstAttribute="trailing" secondItem="Cf5-jU-ZDm" secondAttribute="trailing" constant="20" id="pZv-rM-Ehi"/>
@@ -124,13 +134,12 @@
                         <outlet property="durationToSuperView" destination="mHr-bv-gLs" id="Ns9-4q-znl"/>
                         <outlet property="navbar" destination="DjZ-fw-9i5" id="QLP-nU-0gR"/>
                         <outlet property="saveButton" destination="LNf-mY-6OR" id="hzx-d8-gAv"/>
-                        <outlet property="textViewToButtonConstraint" destination="UKN-ft-U4F" id="4nN-J8-to9"/>
-                        <outlet property="textViewToDurationConstraint" destination="dLv-IX-Zjq" id="xwL-iS-YXD"/>
                         <outlet property="textViewToTitleConstraint" destination="JMN-wr-dZM" id="Rh7-wf-g9j"/>
                         <outlet property="titleTextField" destination="Cf5-jU-ZDm" id="jhI-x3-Nmr"/>
                         <outlet property="titleToSuperview" destination="aNY-8k-NlQ" id="EI2-B8-5T5"/>
                         <outlet property="transcribeActionButton" destination="WJG-of-n7k" id="HjI-VB-yc2"/>
                         <outlet property="transcriptionResultTextView" destination="BGk-bT-Blu" id="dC0-OI-UTO"/>
+                        <outlet property="waveformView" destination="79p-h9-cWK" id="xGL-tb-3qv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vrW-im-HzE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -139,7 +148,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="play.fill" catalog="system" width="116" height="128"/>
+        <image name="play.fill" catalog="system" width="117" height="128"/>
         <namedColor name="actionPress">
             <color red="1" green="0.72500002384185791" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -156,7 +165,7 @@
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
