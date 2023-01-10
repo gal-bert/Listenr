@@ -140,6 +140,7 @@
                         <outlet property="transcribeActionButton" destination="WJG-of-n7k" id="HjI-VB-yc2"/>
                         <outlet property="transcriptionResultTextView" destination="BGk-bT-Blu" id="dC0-OI-UTO"/>
                         <outlet property="waveformView" destination="79p-h9-cWK" id="xGL-tb-3qv"/>
+                        <outlet property="waveformViewHeightConstraint" destination="V1d-iQ-GGk" id="0p5-39-1X7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vrW-im-HzE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

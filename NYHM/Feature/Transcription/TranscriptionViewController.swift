@@ -31,6 +31,7 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
     @IBOutlet weak var textViewToTitleConstraint: NSLayoutConstraint!
     @IBOutlet weak var navbar: UINavigationBar!
 
+    @IBOutlet weak var waveformViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var titleToSuperview: NSLayoutConstraint!
     @IBOutlet weak var durationToSuperView: NSLayoutConstraint!
     
@@ -121,7 +122,6 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
         startRecording()
         
         sendStarting([MessageKeyLoad.starting: true])
-        turnTheWave(bool: isWaveformVisible)
         
     }
     
@@ -292,6 +292,12 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             )
             audioRecorder?.record()
             audioRecorder?.isMeteringEnabled = true
+            if isWaveformVisible {
+                startWave()
+            }
+            else {
+                waveformViewHeightConstraint.constant = 0
+            }
             
         } catch {
             if isWaveformVisible {
@@ -300,8 +306,6 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             audioRecorder!.isMeteringEnabled = false
             stopRecording()
         }
-        
-        startWave()
     }
     
     func continueRecording() -> Void {
@@ -532,7 +536,6 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
                 }
             } else {
                 audioRecorder!.isMeteringEnabled = false
-                waveformTimer.invalidate()
             }
             
         case 2: // half modal
@@ -545,8 +548,10 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             titleTextField.isHidden = true
             durationToSuperView.constant = 20
             
-            audioRecorder!.isMeteringEnabled = false
-            waveformTimer.invalidate()
+            if isWaveformVisible {
+                audioRecorder!.isMeteringEnabled = false
+                waveformTimer.invalidate()
+            }
             
         default:
             print("default")
@@ -638,18 +643,6 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
 //            transcribeActionButton.isEnabled = false
 //        }
 //    }
-    
-    func makeItInvalidate(wvtimer: Bool, wvviewtimer: Bool) {
-        if wvtimer {
-            if waveTimer != nil {
-                waveTimer.invalidate()
-            }
-            waveTimer = nil
-        }
-        if wvviewtimer {
-            waveView.timer.invalidate()
-        }
-    }
     
     @objc func appMovedToBackground() {
         if isWaveformVisible {

@@ -52,7 +52,7 @@ extension TranscriptionViewController {
             pencil.addLine(to: CGPoint(x: start.x, y: start.y - amplitudeLength))
             
             waveLayer.path = pencil.cgPath
-            waveLayer.strokeColor = UIColor.blue.cgColor
+            waveLayer.strokeColor = UIColor(named: "blueText")?.cgColor
             waveLayer.fillColor = UIColor.clear.cgColor
             waveLayer.lineWidth = 1
             waveLayer.position = CGPoint(x: 0 - (space * count), y: 0)
