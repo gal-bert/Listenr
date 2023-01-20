@@ -152,12 +152,21 @@ class TranscriptionViewController: UIViewController, SFSpeechRecognizerDelegate,
             if self.isPlaying {
                 self.durationTemp += 1
                 
-                self.durationTemp.hmsFrom(seconds: self.durationTemp) { hours, minutes, seconds in
-                    let hours = seconds.getStringFrom(seconds: hours)
-                    let minutes = seconds.getStringFrom(seconds: minutes)
-                    let seconds = seconds.getStringFrom(seconds: seconds)
+                self.durationTemp.hmsFrom(seconds: self.durationTemp) { hours, minutes, secondss in
+                    let hours = secondss.getStringFrom(seconds: hours)
+                    let minutes = secondss.getStringFrom(seconds: minutes)
+                    let seconds = secondss.getStringFrom(seconds: secondss)
                     self.durationLabel.text = "\(hours):\(minutes):\(seconds)"
                     self.durationLabelBottom.text = "\(hours):\(minutes):\(seconds)"
+                    
+                    //restart transcription every 1 min
+                    if secondss == 59 {
+                        self.audioEngine.stop()
+                        self.recognitionRequest?.endAudio()
+                        Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { _ in
+                            self.startTranscription()
+                        })
+                    }
                 }
             }
         }
